@@ -37,7 +37,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Quotes
         /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteResponse"/></returns>
-        /// <param name="body">Canonical quote request for new integrations. Legacy `include` input is accepted for backward compatibility but ignored.</param>
+        /// <param name="body">Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 400 status code</exception>
@@ -78,7 +78,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Quotes
         /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Canonical quote request for new integrations. Legacy `include` input is accepted for backward compatibility but ignored.</param>
+        /// <param name="body">Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

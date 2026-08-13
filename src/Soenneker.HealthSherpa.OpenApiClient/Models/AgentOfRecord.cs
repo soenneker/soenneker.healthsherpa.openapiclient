@@ -8,8 +8,9 @@ using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     /// <summary>
-    /// Agent-of-record payload. HealthSherpa ONE does not accept caller-supplied agent-of-record data on `POST /v1/enrollments`; attribution is derived from your approved account setup.
+    /// Not accepted by HealthSherpa ONE. The connected HealthSherpa agent is the agent of record; caller-supplied `agent_of_record` returns `400 invalid_request`.
     /// </summary>
+    [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AgentOfRecord : IAdditionalDataHolder, IParsable
     {

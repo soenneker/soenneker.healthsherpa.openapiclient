@@ -85,10 +85,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment? Payment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? Payment { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment Payment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus Payment { get; set; }
 #endif
         /// <summary>Carrier-specific payment guidance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -177,7 +177,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "issuer_hios_id", n => { IssuerHiosId = n.GetStringValue(); } },
                 { "next_actions", n => { NextActions = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>(global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment>(global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment.CreateFromDiscriminatorValue); } },
+                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus.CreateFromDiscriminatorValue); } },
                 { "payment_instructions", n => { PaymentInstructions = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions.CreateFromDiscriminatorValue); } },
                 { "plan_hios_id", n => { PlanHiosId = n.GetStringValue(); } },
                 { "plan_year", n => { PlanYear = n.GetIntValue(); } },
@@ -209,7 +209,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteStringValue("issuer_hios_id", IssuerHiosId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>("next_actions", NextActions);
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment>("payment", Payment);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus>("payment", Payment);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions>("payment_instructions", PaymentInstructions);
             writer.WriteStringValue("plan_hios_id", PlanHiosId);
             writer.WriteIntValue("plan_year", PlanYear);

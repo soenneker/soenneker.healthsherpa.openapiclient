@@ -9,11 +9,17 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class LocationInput : IAdditionalDataHolder, IParsable
+    public partial class LocationInput : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Optional county name for the location. Derived during location resolution when omitted.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CountyName { get; set; }
+#nullable restore
+#else
+        public string CountyName { get; set; }
+#endif
         /// <summary>The fips_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,13 +45,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public string ZipCode { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput"/> and sets the default values.
-        /// </summary>
-        public LocationInput()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput"/></returns>
@@ -63,6 +62,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "county_name", n => { CountyName = n.GetStringValue(); } },
                 { "fips_code", n => { FipsCode = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "zip_code", n => { ZipCode = n.GetStringValue(); } },
@@ -75,10 +75,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("county_name", CountyName);
             writer.WriteStringValue("fips_code", FipsCode);
             writer.WriteStringValue("state", State);
             writer.WriteStringValue("zip_code", ZipCode);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

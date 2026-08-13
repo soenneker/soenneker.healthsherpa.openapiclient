@@ -9,11 +9,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PageInput : IAdditionalDataHolder, IParsable
+    public partial class PageInput : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The number property</summary>
         public int? Number { get; set; }
         /// <summary>The size property</summary>
@@ -23,7 +21,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// </summary>
         public PageInput()
         {
-            AdditionalData = new Dictionary<string, object>();
             Number = 1;
             Size = 20;
         }
@@ -58,7 +55,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("number", Number);
             writer.WriteIntValue("size", Size);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

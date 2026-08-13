@@ -9,28 +9,24 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SortInput : IParsable
+    public partial class VisionFilters : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The direction property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInputDirection? Direction { get; set; }
-        /// <summary>The field property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Field { get; set; }
-#nullable restore
-#else
-        public string Field { get; set; }
-#endif
+        /// <summary>The contacts_allowance_min property</summary>
+        public double? ContactsAllowanceMin { get; set; }
+        /// <summary>The exam_copay_max property</summary>
+        public double? ExamCopayMax { get; set; }
+        /// <summary>The frames_allowance_min property</summary>
+        public double? FramesAllowanceMin { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput"/></returns>
+        /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput();
+            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,8 +36,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "direction", n => { Direction = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInputDirection>(); } },
-                { "field", n => { Field = n.GetStringValue(); } },
+                { "contacts_allowance_min", n => { ContactsAllowanceMin = n.GetDoubleValue(); } },
+                { "exam_copay_max", n => { ExamCopayMax = n.GetDoubleValue(); } },
+                { "frames_allowance_min", n => { FramesAllowanceMin = n.GetDoubleValue(); } },
             };
         }
         /// <summary>
@@ -51,8 +48,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInputDirection>("direction", Direction);
-            writer.WriteStringValue("field", Field);
+            writer.WriteDoubleValue("contacts_allowance_min", ContactsAllowanceMin);
+            writer.WriteDoubleValue("exam_copay_max", ExamCopayMax);
+            writer.WriteDoubleValue("frames_allowance_min", FramesAllowanceMin);
         }
     }
 }

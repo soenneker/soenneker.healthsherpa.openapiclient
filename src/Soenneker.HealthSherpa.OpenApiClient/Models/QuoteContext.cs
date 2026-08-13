@@ -9,11 +9,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class QuoteContext : IAdditionalDataHolder, IParsable
+    public partial class QuoteContext : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The coverage_family property</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContextCoverageFamily? CoverageFamily { get; set; }
         /// <summary>The coverage_type property</summary>
@@ -24,13 +22,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public int? PlanYear { get; set; }
         /// <summary>The product property</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContextProduct? Product { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext"/> and sets the default values.
-        /// </summary>
-        public QuoteContext()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -68,7 +59,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContextExchange>("exchange", Exchange);
             writer.WriteIntValue("plan_year", PlanYear);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContextProduct>("product", Product);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

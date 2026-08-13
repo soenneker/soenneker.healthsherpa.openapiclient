@@ -10,11 +10,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class HouseholdQuoteInput : IAdditionalDataHolder, IParsable
+    public partial class HouseholdQuoteInput : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The annual_income property</summary>
         public double? AnnualIncome { get; set; }
         /// <summary>The applicants property</summary>
@@ -29,13 +27,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public Date? EffectiveDate { get; set; }
         /// <summary>The household_size property</summary>
         public int? HouseholdSize { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput"/> and sets the default values.
-        /// </summary>
-        public HouseholdQuoteInput()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -71,7 +62,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>("applicants", Applicants);
             writer.WriteDateValue("effective_date", EffectiveDate);
             writer.WriteIntValue("household_size", HouseholdSize);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

@@ -9,11 +9,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class MedicalFilters : IAdditionalDataHolder, IParsable
+    public partial class MedicalFilters : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The hsa_eligible property</summary>
         public bool? HsaEligible { get; set; }
         /// <summary>The metal_levels property</summary>
@@ -34,13 +32,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #endif
         /// <summary>The standardized_only property</summary>
         public bool? StandardizedOnly { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters"/> and sets the default values.
-        /// </summary>
-        public MedicalFilters()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -76,7 +67,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem>("metal_levels", MetalLevels);
             writer.WriteCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem>("plan_types", PlanTypes);
             writer.WriteBoolValue("standardized_only", StandardizedOnly);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

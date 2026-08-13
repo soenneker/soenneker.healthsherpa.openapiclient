@@ -10,11 +10,17 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class QuoteFilters : IAdditionalDataHolder, IParsable
+    public partial class QuoteFilters : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The dental property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters? Dental { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters Dental { get; set; }
+#endif
         /// <summary>The effective_date property</summary>
         public Date? EffectiveDate { get; set; }
         /// <summary>The issuer_ids property</summary>
@@ -45,13 +51,22 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public double? PremiumMax { get; set; }
         /// <summary>The premium_min property</summary>
         public double? PremiumMin { get; set; }
-        /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters"/> and sets the default values.
-        /// </summary>
-        public QuoteFilters()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
+        /// <summary>The supplemental_other property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters? SupplementalOther { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters SupplementalOther { get; set; }
+#endif
+        /// <summary>The vision property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters? Vision { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters Vision { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -70,12 +85,15 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dental", n => { Dental = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters.CreateFromDiscriminatorValue); } },
                 { "effective_date", n => { EffectiveDate = n.GetDateValue(); } },
                 { "issuer_ids", n => { IssuerIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "medical", n => { Medical = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters.CreateFromDiscriminatorValue); } },
                 { "network_types", n => { NetworkTypes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "premium_max", n => { PremiumMax = n.GetDoubleValue(); } },
                 { "premium_min", n => { PremiumMin = n.GetDoubleValue(); } },
+                { "supplemental_other", n => { SupplementalOther = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters.CreateFromDiscriminatorValue); } },
+                { "vision", n => { Vision = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,13 +103,15 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters>("dental", Dental);
             writer.WriteDateValue("effective_date", EffectiveDate);
             writer.WriteCollectionOfPrimitiveValues<string>("issuer_ids", IssuerIds);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters>("medical", Medical);
             writer.WriteCollectionOfPrimitiveValues<string>("network_types", NetworkTypes);
             writer.WriteDoubleValue("premium_max", PremiumMax);
             writer.WriteDoubleValue("premium_min", PremiumMin);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters>("supplemental_other", SupplementalOther);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters>("vision", Vision);
         }
     }
 }

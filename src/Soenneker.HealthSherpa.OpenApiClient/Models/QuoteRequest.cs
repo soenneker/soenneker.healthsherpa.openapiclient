@@ -8,13 +8,11 @@ using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     /// <summary>
-    /// Canonical quote request for new integrations. Legacy `include` input is accepted for backward compatibility but ignored.
+    /// Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class QuoteRequest : IAdditionalDataHolder, IParsable
+    public partial class QuoteRequest : IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The context property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,13 +71,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput Sort { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequest"/> and sets the default values.
-        /// </summary>
-        public QuoteRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequest"/></returns>
@@ -120,7 +111,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput>("location", Location);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PageInput>("page", Page);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput>("sort", Sort);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

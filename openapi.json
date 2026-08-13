@@ -3748,13 +3748,13 @@
       },
       "QuoteRequest": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "required": [
           "context",
           "location",
           "household"
         ],
-        "description": "Canonical quote request for new integrations. Legacy `include` input is accepted for backward compatibility but ignored.",
+        "description": "Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.",
         "properties": {
           "context": {
             "$ref": "#/components/schemas/QuoteContext"
@@ -3782,7 +3782,7 @@
       },
       "QuoteFilters": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "issuer_ids": {
             "type": "array",
@@ -3810,12 +3810,21 @@
           },
           "medical": {
             "$ref": "#/components/schemas/MedicalFilters"
+          },
+          "dental": {
+            "$ref": "#/components/schemas/DentalFilters"
+          },
+          "vision": {
+            "$ref": "#/components/schemas/VisionFilters"
+          },
+          "supplemental_other": {
+            "$ref": "#/components/schemas/SupplementalOtherFilters"
           }
         }
       },
       "MedicalFilters": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "metal_levels": {
             "type": "array",
@@ -3852,9 +3861,76 @@
           }
         }
       },
+      "DentalFilters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metal_levels": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "high",
+                "low"
+              ]
+            }
+          },
+          "adult_coverage": {
+            "type": "boolean"
+          },
+          "child_coverage": {
+            "type": "boolean"
+          },
+          "orthodontia_coverage": {
+            "type": "boolean"
+          },
+          "annual_maximum_min": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      },
+      "VisionFilters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "exam_copay_max": {
+            "type": "number",
+            "minimum": 0
+          },
+          "frames_allowance_min": {
+            "type": "number",
+            "minimum": 0
+          },
+          "contacts_allowance_min": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      },
+      "SupplementalOtherFilters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "guaranteed_issue": {
+            "type": "boolean"
+          },
+          "issue_age_min": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "issue_age_max": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "benefit_model": {
+            "type": "string"
+          }
+        }
+      },
       "QuoteContext": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "required": [
           "product",
           "exchange",
@@ -3900,7 +3976,7 @@
       },
       "LocationInput": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "required": [
           "zip_code",
           "fips_code"
@@ -3914,6 +3990,10 @@
             "type": "string",
             "pattern": "^[0-9]{5}$"
           },
+          "county_name": {
+            "type": "string",
+            "description": "Optional county name for the location. Derived during location resolution when omitted."
+          },
           "state": {
             "type": "string",
             "pattern": "^[A-Z]{2}$",
@@ -3923,7 +4003,7 @@
       },
       "HouseholdQuoteInput": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "required": [
           "applicants",
           "household_size"
@@ -3952,7 +4032,7 @@
       },
       "ApplicantInput": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "required": [
           "member_id",
           "age",
@@ -4007,7 +4087,7 @@
       },
       "SortInput": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "field": {
             "type": "string"
@@ -4023,7 +4103,7 @@
       },
       "PageInput": {
         "type": "object",
-        "additionalProperties": true,
+        "additionalProperties": false,
         "properties": {
           "number": {
             "type": "integer",

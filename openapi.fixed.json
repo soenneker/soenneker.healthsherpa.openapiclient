@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.1.2",
   "info": {
     "title": "HealthSherpa Public API",
     "description": "\u0022Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified \u0060ErrorResponse\u0060 schema: \u0060{ \\\u0022error\\\u0022: { \\\u0022code\\\u0022: string, \\\u0022message\\\u0022: string, \\\u0022details\\\u0022?: object } }\u0060. The direct enrollment endpoints instead return service failures as a top-level \u0060errors[]\u0060 array: \u0060{ \\\u0022errors\\\u0022: [ { \\\u0022code\\\u0022: string, \\\u0022message\\\u0022: string, \\\u0022field\\\u0022?: string } ] }\u0060. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified \u0060ErrorResponse\u0060 envelope, including on the direct enrollment endpoints \u2014 most notably a missing or invalid API key (\u0060403 forbidden\u0060).\u0022",
@@ -35,21 +35,27 @@
             }
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -96,27 +102,35 @@
             }
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
+            "description": "The requested resource could not be found. Emitted by the backend when no supported data matches the request (for example, no counties for a ZIP), and by the API edge for unknown paths.",
             "$ref": "#/components/responses/NotFound"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -178,27 +192,35 @@
             }
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
+            "description": "The requested resource could not be found. Emitted by the backend when no supported data matches the request (for example, no counties for a ZIP), and by the API edge for unknown paths.",
             "$ref": "#/components/responses/NotFound"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -305,24 +327,31 @@
             }
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -396,30 +425,39 @@
             }
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "413": {
+            "description": "The request body exceeded the maximum size accepted by the API edge.",
             "$ref": "#/components/responses/PayloadTooLarge"
           },
           "415": {
+            "description": "The request \u0060Content-Type\u0060 is not supported by the endpoint.",
             "$ref": "#/components/responses/UnsupportedMediaType"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -506,6 +544,7 @@
             }
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
@@ -540,30 +579,39 @@
             }
           },
           "409": {
+            "description": "A previous request with the same \u0060Idempotency-Key\u0060 is still being processed by the API. The partner should wait briefly and retry. The response is not produced by the upstream service \u2014 the in-flight request from the first call will succeed or fail on its own.",
             "$ref": "#/components/responses/IdempotencyInProgress"
           },
           "413": {
+            "description": "The request body exceeded the maximum size accepted by the API edge.",
             "$ref": "#/components/responses/PayloadTooLarge"
           },
           "415": {
+            "description": "The request \u0060Content-Type\u0060 is not supported by the endpoint.",
             "$ref": "#/components/responses/UnsupportedMediaType"
           },
           "422": {
+            "description": "The \u0060Idempotency-Key\u0060 has been used before within the 24-hour retention window, but the current request body is not byte-for-byte identical to the original. To resolve, either resubmit the exact original payload or generate a fresh \u0060Idempotency-Key\u0060 for the new request.",
             "$ref": "#/components/responses/IdempotencyMismatch"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -620,30 +668,38 @@
         ],
         "responses": {
           "200": {
+            "description": "On-exchange Marketplace applications available for policy status readback.",
             "$ref": "#/components/responses/PolicyStatusApplicationsResponse"
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -688,33 +744,42 @@
         ],
         "responses": {
           "200": {
+            "description": "Policy statuses for one on-exchange Marketplace application.",
             "$ref": "#/components/responses/PolicyStatusApplicationResponse"
           },
           "400": {
+            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
           },
           "403": {
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
+            "description": "The requested resource could not be found. Emitted by the backend when no supported data matches the request (for example, no counties for a ZIP), and by the API edge for unknown paths.",
             "$ref": "#/components/responses/NotFound"
           },
           "429": {
+            "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
             "$ref": "#/components/responses/RateLimited"
           },
           "500": {
+            "description": "An unexpected error occurred.",
             "$ref": "#/components/responses/InternalError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "The API is temporarily unable to serve the request. This may be returned by the API edge when the backend is unhealthy, or by the backend when an upstream catalog, quoting, or lookup service is unavailable.",
             "$ref": "#/components/responses/ServiceUnavailable"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -828,30 +893,39 @@
         ],
         "responses": {
           "200": {
+            "description": "Paginated direct enrollment application list.",
             "$ref": "#/components/responses/EnrollmentListResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -917,42 +991,55 @@
         },
         "responses": {
           "200": {
+            "description": "Successful direct enrollment application response. The response object is additive and may include carrier-specific fields.",
             "$ref": "#/components/responses/EnrollmentResponse"
           },
           "201": {
+            "description": "Successful direct enrollment application response. The response object is additive and may include carrier-specific fields.",
             "$ref": "#/components/responses/EnrollmentResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "409": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "413": {
+            "description": "The request body exceeded the maximum size accepted by the API edge.",
             "$ref": "#/components/responses/PayloadTooLarge"
           },
           "422": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -994,36 +1081,47 @@
         },
         "responses": {
           "202": {
+            "description": "Application submission accepted. Processing can continue asynchronously; poll the application read endpoint for final policy status.",
             "$ref": "#/components/responses/SubmitEnrollmentResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "422": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1065,33 +1163,43 @@
         },
         "responses": {
           "202": {
+            "description": "Application status-change request accepted.",
             "$ref": "#/components/responses/EnrollmentStatusChangeResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1133,33 +1241,43 @@
         },
         "responses": {
           "202": {
+            "description": "Application status-change request accepted.",
             "$ref": "#/components/responses/EnrollmentStatusChangeResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1204,33 +1322,43 @@
         ],
         "responses": {
           "200": {
+            "description": "Payment redirect data returned. Render a browser form POST to \u0060endpoint\u0060 with every returned \u0060fields[]\u0060 entry as a hidden input.",
             "$ref": "#/components/responses/PaymentRedirectResponse"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "422": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1283,45 +1411,59 @@
         },
         "responses": {
           "200": {
+            "description": "Supporting document upload response.",
             "$ref": "#/components/responses/SupportingDocumentationResponse"
           },
           "201": {
+            "description": "Supporting document upload response.",
             "$ref": "#/components/responses/SupportingDocumentationResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "413": {
+            "description": "The request body exceeded the maximum size accepted by the API edge.",
             "$ref": "#/components/responses/PayloadTooLarge"
           },
           "415": {
+            "description": "The request \u0060Content-Type\u0060 is not supported by the endpoint.",
             "$ref": "#/components/responses/UnsupportedMediaType"
           },
           "422": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1366,33 +1508,43 @@
         ],
         "responses": {
           "200": {
+            "description": "Successful direct enrollment application response. The response object is additive and may include carrier-specific fields.",
             "$ref": "#/components/responses/EnrollmentResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1449,45 +1601,59 @@
         },
         "responses": {
           "200": {
+            "description": "Successful direct enrollment application response. The response object is additive and may include carrier-specific fields.",
             "$ref": "#/components/responses/EnrollmentResponse"
           },
           "400": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "401": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "403": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "404": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "409": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "413": {
+            "description": "The request body exceeded the maximum size accepted by the API edge.",
             "$ref": "#/components/responses/PayloadTooLarge"
           },
           "415": {
+            "description": "The request \u0060Content-Type\u0060 is not supported by the endpoint.",
             "$ref": "#/components/responses/UnsupportedMediaType"
           },
           "422": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "429": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "500": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "502": {
+            "description": "The API edge received an invalid response from the backend.",
             "$ref": "#/components/responses/BadGateway"
           },
           "503": {
+            "description": "A direct enrollment error response. The body comes in one of two shapes depending on where the failure is generated:\n\n- **Service failures** use the top-level \u0060errors[]\u0060 shape (\u0060EnrollmentErrorsResponse\u0060). This covers request validation, idempotency-key handling, authorization, service availability, and application-level errors.\n- **Edge-generated failures** (API Gateway and WAF, before the request reaches the service) use the unified \u0060error\u0060 envelope (\u0060ErrorResponse\u0060). This is what you receive for a missing or invalid API key (\u0060403 forbidden\u0060), payload-size and media-type rejections (\u0060413\u0060, \u0060415\u0060), edge rate limiting (\u0060429\u0060), and gateway-level \u00605xx\u0060.\n\nBranch on the presence of \u0060errors\u0060 vs \u0060error\u0060, and on the \u0060code\u0060 value, rather than on HTTP status alone.",
             "$ref": "#/components/responses/EnrollmentError"
           },
           "504": {
+            "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
           }
         }
@@ -1525,15 +1691,19 @@
             "description": "Your unique identifier for this application. When omitted, HealthSherpa ONE defaults it to the request\u0027s \u0060Idempotency-Key\u0060."
           },
           "_agent_id": {
-            "type": "string",
-            "description": "Server-owned HealthSherpa agent identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Server-owned HealthSherpa agent identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060."
           },
           "tpa_slug": {
             "type": "string",
             "description": "Server-owned HealthSherpa TPA identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060."
           },
           "agent_of_record": {
+            "description": "Not accepted by HealthSherpa ONE. The connected HealthSherpa agent is the agent of record; caller-supplied \u0060agent_of_record\u0060 returns \u0060400 invalid_request\u0060.",
+            "deprecated": true,
             "$ref": "#/components/schemas/AgentOfRecord"
           },
           "plan_hios_id": {
@@ -1577,9 +1747,11 @@
             "type": "boolean"
           },
           "analytics": {
+            "description": "Optional tracking and attribution parameters.",
             "$ref": "#/components/schemas/Analytics"
           },
           "context": {
+            "description": "Routing context for direct enrollment create requests. Direct enrollment currently supports only \u0060product = ichra\u0060 and \u0060exchange = off_exchange\u0060. Use \u0060POST /v1/enrollment-sessions\u0060 for on-exchange enrollment.",
             "$ref": "#/components/schemas/EnrollmentContext"
           }
         },
@@ -1624,9 +1796,11 @@
         },
         "properties": {
           "context": {
+            "description": "Routing context for direct enrollment updates. Send \u0060product = ichra\u0060, \u0060exchange = off_exchange\u0060, and \u0060plan_year\u0060; \u0060plan_year\u0060 is mapped to the application plan year.",
             "$ref": "#/components/schemas/EnrollmentUpdateContext"
           },
           "applicants": {
+            "description": "Applicant objects are replacement-shaped. When sending \u0060applicants.primary\u0060, include the full current primary applicant object; omitted primary fields may be cleared.",
             "$ref": "#/components/schemas/Applicants"
           }
         },
@@ -1701,6 +1875,7 @@
             "description": "Status after accepting the submission. Submission processing may continue asynchronously; poll the application read endpoint for the final outcome."
           },
           "payment_instructions": {
+            "description": "Carrier-specific payment guidance.",
             "$ref": "#/components/schemas/PaymentInstructions"
           },
           "submitted_at": {
@@ -1725,6 +1900,7 @@
             }
           },
           "pagination": {
+            "description": "Pagination metadata for application list responses.",
             "$ref": "#/components/schemas/ApplicationListPagination"
           }
         },
@@ -1774,18 +1950,22 @@
             "description": "HealthSherpa Marketplace application confirmation id."
           },
           "external_id": {
-            "type": "string",
-            "description": "Partner-supplied external application id when available.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Partner-supplied external application id when available."
           },
           "plan_year": {
             "type": "integer",
             "description": "Application plan year."
           },
           "exchange_type": {
-            "type": "string",
-            "description": "Marketplace exchange type returned by the upstream policy status API when available.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Marketplace exchange type returned by the upstream policy status API when available."
           }
         },
         "description": "On-exchange Marketplace application summary row returned by \u0060GET /v1/policy-status/applications\u0060."
@@ -1804,6 +1984,7 @@
             }
           },
           "pagination": {
+            "description": "Pagination metadata returned by the Marketplace policy status API.",
             "$ref": "#/components/schemas/PolicyStatusApplicationPagination"
           }
         },
@@ -1844,50 +2025,70 @@
         "type": "object",
         "properties": {
           "exchange_assigned_policy_id": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "issuer_hios_id": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "effective_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "status": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "payment_status": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "current_balance_cents": {
-            "type": "integer",
-            "description": "Current balance in cents when returned by the Marketplace policy status API.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Current balance in cents when returned by the Marketplace policy status API."
           },
           "past_due_balance_cents": {
-            "type": "integer",
-            "description": "Past-due balance in cents when returned by the Marketplace policy status API.",
-            "nullable": true
+            "type": [
+              "null",
+              "integer"
+            ],
+            "description": "Past-due balance in cents when returned by the Marketplace policy status API."
           },
           "paid_through_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "grace_period_start_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "updated_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           }
         },
         "description": "Marketplace policy status row for one policy attached to an application."
@@ -1929,10 +2130,12 @@
             "description": "Updated policy status."
           },
           "effective_date": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "The effective date of the status change when present.",
-            "format": "date",
-            "nullable": true
+            "format": "date"
           },
           "updated_at": {
             "type": "string",
@@ -2072,15 +2275,19 @@
             "description": "Your unique identifier for this application. When omitted, HealthSherpa ONE defaults it to the request\u0027s \u0060Idempotency-Key\u0060."
           },
           "_agent_id": {
-            "type": "string",
-            "description": "Server-owned HealthSherpa agent identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Server-owned HealthSherpa agent identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060."
           },
           "tpa_slug": {
             "type": "string",
             "description": "Server-owned HealthSherpa TPA identifier. Do not send this field; caller-supplied values return \u0060400 invalid_request\u0060."
           },
           "agent_of_record": {
+            "description": "Not accepted by HealthSherpa ONE. The connected HealthSherpa agent is the agent of record; caller-supplied \u0060agent_of_record\u0060 returns \u0060400 invalid_request\u0060.",
+            "deprecated": true,
             "$ref": "#/components/schemas/AgentOfRecord"
           },
           "plan_hios_id": {
@@ -2124,6 +2331,7 @@
             "type": "boolean"
           },
           "analytics": {
+            "description": "Optional tracking and attribution parameters.",
             "$ref": "#/components/schemas/Analytics"
           }
         },
@@ -2350,12 +2558,15 @@
             "description": "Secondary contact phone number."
           },
           "guardian": {
+            "description": "Required for primary applicants under 18.",
             "$ref": "#/components/schemas/Guardian"
           },
           "responsible_party": {
+            "description": "Responsible party for a minor applicant, when someone other than the guardian is financially responsible. Required by Security Health, Sanford, Oscar, and UHC.",
             "$ref": "#/components/schemas/ResponsibleParty"
           },
           "translator": {
+            "description": "Translator assisting the applicant. Required by some carriers when the applicant requires language assistance.",
             "$ref": "#/components/schemas/Translator"
           },
           "signature": {
@@ -2522,9 +2733,11 @@
             "$ref": "#/components/schemas/DependentRelationship"
           },
           "alternate_address": {
+            "description": "Address for a dependent living at a different address than the primary applicant.",
             "$ref": "#/components/schemas/AlternateAddress"
           },
           "guardian": {
+            "description": "Required for primary applicants under 18.",
             "$ref": "#/components/schemas/Guardian"
           }
         }
@@ -3005,9 +3218,11 @@
         "type": "object",
         "properties": {
           "offered_hra": {
-            "type": "boolean",
-            "description": "\u0022\u0060true\u0060: applicant is offered an HRA. \u0060false\u0060: applicant is not offered an HRA. \u0060null\u0060: unknown.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "\u0022\u0060true\u0060: applicant is offered an HRA. \u0060false\u0060: applicant is not offered an HRA. \u0060null\u0060: unknown.\u0022"
           },
           "type": {
             "$ref": "#/components/schemas/HraType"
@@ -3134,14 +3349,18 @@
             "type": "string"
           },
           "pediatric_dental_signature_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "translator_signature_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "state_supplement_primary_signature": {
             "type": "string",
@@ -3230,8 +3449,10 @@
             "$ref": "#/components/schemas/EnrollmentResponseDocumentStatus"
           },
           "sep_reason": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_at": {
             "type": "string",
@@ -3242,9 +3463,11 @@
             "format": "date-time"
           },
           "submitted_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           },
           "desired_effective_date": {
             "type": "string",
@@ -3260,6 +3483,7 @@
             "type": "string"
           },
           "payment_instructions": {
+            "description": "Carrier-specific payment guidance.",
             "$ref": "#/components/schemas/PaymentInstructions"
           },
           "payment": {
@@ -3329,8 +3553,10 @@
             "$ref": "#/components/schemas/EnrollmentResponseDocumentStatus"
           },
           "sep_reason": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "created_at": {
             "type": "string",
@@ -3341,9 +3567,11 @@
             "format": "date-time"
           },
           "submitted_at": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
           },
           "desired_effective_date": {
             "type": "string",
@@ -3359,6 +3587,7 @@
             "type": "string"
           },
           "payment_instructions": {
+            "description": "Carrier-specific payment guidance.",
             "$ref": "#/components/schemas/PaymentInstructions"
           },
           "payment": {
@@ -3423,8 +3652,10 @@
             "type": "boolean"
           },
           "payment_phone_number": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "description": "Carrier-specific payment guidance."
@@ -3433,35 +3664,49 @@
         "type": "object",
         "properties": {
           "payment_status": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "payment_status_updated_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "grace_period_start_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "paid_through_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           },
           "past_due_member_responsibility_balance_due": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "current_member_responsibility_balance_due": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "autopay_indicator": {
-            "type": "boolean",
-            "nullable": true
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
         },
         "description": "Carrier-reported payment information. Fields are nullable because availability depends on carrier reporting."
@@ -3500,6 +3745,7 @@
             "$ref": "#/components/schemas/PolicyDetailAgentOfRecord"
           },
           "payment": {
+            "description": "Carrier-reported payment information. Fields are nullable because availability depends on carrier reporting.",
             "$ref": "#/components/schemas/PolicyPaymentStatus"
           }
         }
@@ -3715,34 +3961,46 @@
         "type": "object",
         "properties": {
           "first_name": {
-            "type": "string",
-            "description": "Individual provider\u0027s first name. Null for organizations.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Individual provider\u0027s first name. Null for organizations."
           },
           "last_name": {
-            "type": "string",
-            "description": "Individual provider\u0027s last name. Null for organizations.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Individual provider\u0027s last name. Null for organizations."
           },
           "organization_name": {
-            "type": "string",
-            "description": "Organization marketing name. Null for individuals.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Organization marketing name. Null for individuals."
           },
           "display_name": {
-            "type": "string",
-            "description": "\u0022Human-friendly label: organization name for facilities, or \\\u0022First Last, Credential\\\u0022 for individuals.\u0022",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "\u0022Human-friendly label: organization name for facilities, or \\\u0022First Last, Credential\\\u0022 for individuals.\u0022"
           },
           "credential": {
-            "type": "string",
-            "description": "Professional credential (e.g. MD, DO, NP).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Professional credential (e.g. MD, DO, NP)."
           },
           "entity_type": {
-            "type": "string",
-            "description": "Provider entity type, typically \u0060individual\u0060 or \u0060organization\u0060.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Provider entity type, typically \u0060individual\u0060 or \u0060organization\u0060."
           },
           "npi": {
             "pattern": "^[0-9]{10}$",
@@ -3750,33 +4008,45 @@
             "description": "Ten-digit National Provider Identifier. Use this value (no suffix) when referencing the provider in enrollment requests."
           },
           "specialty": {
-            "type": "string",
-            "description": "Primary taxonomy classification (e.g. Family Medicine).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Primary taxonomy classification (e.g. Family Medicine)."
           },
           "specialization": {
-            "type": "string",
-            "description": "Primary taxonomy specialization (e.g. General Practice).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Primary taxonomy specialization (e.g. General Practice)."
           },
           "address_line_1": {
-            "type": "string",
-            "description": "First line of the provider\u0027s street address (number and street).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "First line of the provider\u0027s street address (number and street)."
           },
           "city": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "state": {
-            "type": "string",
-            "description": "Two-letter state code.",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Two-letter state code."
           },
           "zip_code": {
-            "type": "string",
-            "description": "The provider\u0027s address ZIP code (not the search ZIP).",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The provider\u0027s address ZIP code (not the search ZIP)."
           }
         }
       },
@@ -3851,7 +4121,8 @@
             "$ref": "#/components/schemas/QuoteRequestInclude"
           }
         },
-        "description": "Canonical quote request for new integrations. Legacy \u0060include\u0060 input is accepted for backward compatibility but ignored."
+        "additionalProperties": false,
+        "description": "Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with \u0060400 invalid_request\u0060, so a misnamed or misplaced field is reported rather than silently ignored. Legacy \u0060include\u0060 input is accepted for backward compatibility but ignored."
       },
       "QuoteFilters": {
         "type": "object",
@@ -3882,8 +4153,18 @@
           },
           "medical": {
             "$ref": "#/components/schemas/MedicalFilters"
+          },
+          "dental": {
+            "$ref": "#/components/schemas/DentalFilters"
+          },
+          "vision": {
+            "$ref": "#/components/schemas/VisionFilters"
+          },
+          "supplemental_other": {
+            "$ref": "#/components/schemas/SupplementalOtherFilters"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "MedicalFilters": {
         "type": "object",
@@ -3906,7 +4187,71 @@
           "standardized_only": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "DentalFilters": {
+        "type": "object",
+        "properties": {
+          "metal_levels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DentalFiltersMetalLevelsItem"
+            }
+          },
+          "adult_coverage": {
+            "type": "boolean"
+          },
+          "child_coverage": {
+            "type": "boolean"
+          },
+          "orthodontia_coverage": {
+            "type": "boolean"
+          },
+          "annual_maximum_min": {
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VisionFilters": {
+        "type": "object",
+        "properties": {
+          "exam_copay_max": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "frames_allowance_min": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "contacts_allowance_min": {
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplementalOtherFilters": {
+        "type": "object",
+        "properties": {
+          "guaranteed_issue": {
+            "type": "boolean"
+          },
+          "issue_age_min": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "issue_age_max": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "benefit_model": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "QuoteContext": {
         "required": [
@@ -3933,7 +4278,8 @@
             "minimum": 2020,
             "type": "integer"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "LocationInput": {
         "required": [
@@ -3950,12 +4296,17 @@
             "pattern": "^[0-9]{5}$",
             "type": "string"
           },
+          "county_name": {
+            "type": "string",
+            "description": "Optional county name for the location. Derived during location resolution when omitted."
+          },
           "state": {
             "pattern": "^[A-Z]{2}$",
             "type": "string",
             "description": "Quoteable state code for one of the 50 states or DC."
           }
-        }
+        },
+        "additionalProperties": false
       },
       "HouseholdQuoteInput": {
         "required": [
@@ -3983,7 +4334,8 @@
             "type": "string",
             "format": "date"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ApplicantInput": {
         "required": [
@@ -4025,7 +4377,8 @@
           "native_american": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "SortInput": {
         "type": "object",
@@ -4036,7 +4389,8 @@
           "direction": {
             "$ref": "#/components/schemas/SortInputDirection"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "PageInput": {
         "type": "object",
@@ -4052,7 +4406,8 @@
             "type": "integer",
             "default": 20
           }
-        }
+        },
+        "additionalProperties": false
       },
       "QuoteResponse": {
         "required": [
@@ -4198,18 +4553,23 @@
             "$ref": "#/components/schemas/EnrollmentSessionContext"
           },
           "client": {
+            "description": "\u0022DEPRECATED legacy contact block. Every property here has a 1:1 replacement on \u0060household.applicants[]\u0060 and is preferred when both are supplied: \u0060first_name\u0060 \u2192 \u0060household.applicants[primary].first_name\u0060, \u0060last_name\u0060 \u2192 \u0060household.applicants[primary].last_name\u0060, \u0060email\u0060 \u2192 \u0060household.applicants[primary].email\u0060, \u0060phone_number\u0060 \u2192 \u0060household.applicants[primary].phone_number\u0060. Each field that is still supplied here surfaces a \u0060deprecated_field\u0060 entry in the response\u0027s \u0060warnings[]\u0060 array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.\u0022",
             "$ref": "#/components/schemas/EnrollmentSessionClient"
           },
           "location": {
+            "description": "Routing geography plus optional street address. \u0060zip_code\u0060, \u0060fips_code\u0060, and \u0060state\u0060 route the request; \u0060address_line_1\u0060, \u0060address_line_2\u0060, and \u0060city\u0060 are used by the agent-assisted enrollment flow only and ignored on self-service deep links.",
             "$ref": "#/components/schemas/EnrollmentSessionLocation"
           },
           "household": {
+            "description": "\u0060household_size\u0060 must be at least 1. Applicants can include at most one \u0060primary\u0060 and one \u0060spouse\u0060.",
             "$ref": "#/components/schemas/EnrollmentSessionHousehold"
           },
           "enrollment": {
+            "description": "Accepts \u0060hra\u0060. Other enrollment subobjects (\u0060special_enrollment_period\u0060, \u0060communication_preferences\u0060) are not supported and are rejected with \u0060400 invalid_request\u0060.",
             "$ref": "#/components/schemas/EnrollmentSessionEnrollment"
           },
           "campaign": {
+            "description": "\u0022Marketing attribution. Only accepted when \u0060context.flow\u0060 is \u0060self_service\u0060; sending any field with \u0060flow: \\\u0022agent_assisted\\\u0022\u0060 is rejected with \u0060400 invalid_request\u0060.\u0022",
             "$ref": "#/components/schemas/EnrollmentSessionCampaign"
           }
         },
@@ -4491,6 +4851,7 @@
         "type": "object",
         "properties": {
           "hra": {
+            "description": "When supplied, \u0060amount\u0060 is required and must be greater than or equal to 0. \u00600\u0060 means the consumer declined available HRA funding; a positive value means funding was accepted. \u0060frequency\u0060 is required when \u0060amount \u003E 0\u0060 and is omitted from the deep link when \u0060amount == 0\u0060.",
             "$ref": "#/components/schemas/EnrollmentSessionEnrollmentHra"
           }
         },
@@ -4551,11 +4912,11 @@
         "type": "object",
         "properties": {
           "external_id": {
-            "type": "string",
-            "description": "Echoed from the request when supplied; otherwise null.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Echoed from the request when supplied; otherwise null."
           },
           "links": {
             "$ref": "#/components/schemas/EnrollmentSessionResponseLinks"
@@ -4711,6 +5072,7 @@
         },
         "properties": {
           "context": {
+            "description": "Routing context for direct enrollment create requests. Direct enrollment currently supports only \u0060product = ichra\u0060 and \u0060exchange = off_exchange\u0060. Use \u0060POST /v1/enrollment-sessions\u0060 for on-exchange enrollment.",
             "$ref": "#/components/schemas/EnrollmentContext"
           }
         }
@@ -4732,12 +5094,15 @@
             "description": "Secondary contact phone number."
           },
           "guardian": {
+            "description": "Required for primary applicants under 18.",
             "$ref": "#/components/schemas/Guardian"
           },
           "responsible_party": {
+            "description": "Responsible party for a minor applicant, when someone other than the guardian is financially responsible. Required by Security Health, Sanford, Oscar, and UHC.",
             "$ref": "#/components/schemas/ResponsibleParty"
           },
           "translator": {
+            "description": "Translator assisting the applicant. Required by some carriers when the applicant requires language assistance.",
             "$ref": "#/components/schemas/Translator"
           },
           "signature": {
@@ -4779,9 +5144,11 @@
             "$ref": "#/components/schemas/DependentRelationship"
           },
           "alternate_address": {
+            "description": "Address for a dependent living at a different address than the primary applicant.",
             "$ref": "#/components/schemas/AlternateAddress"
           },
           "guardian": {
+            "description": "Required for primary applicants under 18.",
             "$ref": "#/components/schemas/Guardian"
           }
         }
@@ -4809,9 +5176,7 @@
             "$ref": "#/components/schemas/PolicyPaymentStatus"
           },
           {
-            "enum": [
-              null
-            ]
+            "type": "null"
           }
         ],
         "properties": {
@@ -4922,9 +5287,11 @@
             "format": "date"
           },
           "removed_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
           }
         }
       },
@@ -4955,12 +5322,16 @@
             "type": "string"
           },
           "from": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "to": {
-            "type": "string",
-            "nullable": true
+            "type": [
+              "null",
+              "string"
+            ]
           }
         }
       },
@@ -5006,30 +5377,33 @@
           },
           "state": {
             "pattern": "^[A-Z]{2}$",
-            "type": "string",
-            "description": "Two-letter US state code where the issuer is licensed.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Two-letter US state code where the issuer is licensed."
           },
           "payment_phone": {
-            "type": "string",
-            "description": "Phone number for member premium-payment inquiries.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Phone number for member premium-payment inquiries."
           },
           "customer_service_phone": {
-            "type": "string",
-            "description": "Phone number for general customer-service inquiries.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Phone number for general customer-service inquiries."
           }
         }
       },
       "PlanQuoteResultNetwork": {
-        "type": "object",
+        "type": [
+          "null",
+          "object"
+        ],
         "properties": {
           "network_id": {
             "type": "string"
@@ -5038,21 +5412,18 @@
             "type": "string"
           },
           "type": {
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "network_url": {
-            "type": "string",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           }
-        },
-        "unrecognizedKeywords": {
-          "nullable": true
         }
       },
       "PlanQuoteResultPricing": {
@@ -5089,41 +5460,41 @@
         "type": "object",
         "properties": {
           "sbc_url": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Summary of Benefits and Coverage document URL.",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "format": "uri"
           },
           "formulary_url": {
-            "type": "string",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           },
           "brochure_url": {
-            "type": "string",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           },
           "network_url": {
-            "type": "string",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "uri"
           },
           "payment_url": {
-            "type": "string",
+            "type": [
+              "null",
+              "string"
+            ],
             "description": "Issuer-hosted page for making a premium payment.",
-            "format": "uri",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "format": "uri"
           }
         },
         "description": "Canonical document slots. Carrier-specific source URLs are mapped into these stable fields."
@@ -5136,16 +5507,16 @@
             "type": "string"
           },
           "service_area_id": {
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ]
           },
           "rating_area": {
-            "type": "string",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ]
           }
         },
         "description": "Resolved geographic availability lineage produced after county-first location resolution."
@@ -5166,91 +5537,91 @@
             "$ref": "#/components/schemas/PlanQuoteResultDetailsPlanType"
           },
           "hsa_eligible": {
-            "type": "boolean",
-            "description": "Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Present for medical quote results."
           },
           "is_standardized": {
-            "type": "boolean",
-            "description": "Whether the plan follows a CMS- or state-defined standardized design. Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the plan follows a CMS- or state-defined standardized design. Present for medical quote results."
           },
           "adult_dental": {
-            "type": "boolean",
-            "description": "Whether the medical plan embeds adult dental coverage. Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the medical plan embeds adult dental coverage. Present for medical quote results."
           },
           "child_dental": {
-            "type": "boolean",
-            "description": "Whether the medical plan embeds pediatric (child) dental coverage. Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Whether the medical plan embeds pediatric (child) dental coverage. Present for medical quote results."
           },
           "deductible_individual": {
-            "type": "number",
-            "description": "Individual annual deductible (USD). Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Individual annual deductible (USD). Present for medical quote results."
           },
           "deductible_family": {
-            "type": "number",
-            "description": "Family annual deductible (USD). Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Family annual deductible (USD). Present for medical quote results."
           },
           "moop_individual": {
-            "type": "number",
-            "description": "Individual maximum out-of-pocket (USD). Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Individual maximum out-of-pocket (USD). Present for medical quote results."
           },
           "moop_family": {
-            "type": "number",
-            "description": "Family maximum out-of-pocket (USD). Present for medical quote results.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "number"
+            ],
+            "description": "Family maximum out-of-pocket (USD). Present for medical quote results."
           },
           "csr_level": {
             "$ref": "#/components/schemas/PlanQuoteResultDetailsCsrLevel"
           },
           "primary_care_summary": {
-            "type": "string",
-            "description": "Cost-share summary for a primary-care visit (e.g. \u0022$25 Copay\u0022).",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cost-share summary for a primary-care visit (e.g. \u0022$25 Copay\u0022)."
           },
           "specialist_summary": {
-            "type": "string",
-            "description": "Cost-share summary for a specialist visit.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cost-share summary for a specialist visit."
           },
           "urgent_care_summary": {
-            "type": "string",
-            "description": "Cost-share summary for an urgent-care visit.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cost-share summary for an urgent-care visit."
           },
           "generic_rx_summary": {
-            "type": "string",
-            "description": "Cost-share summary for generic prescription drugs.",
-            "unrecognizedKeywords": {
-              "nullable": true
-            }
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Cost-share summary for generic prescription drugs."
           }
         }
       },
@@ -6313,12 +6684,15 @@
           "required",
           "uploaded",
           "verified",
-          "denied"
+          "denied",
+          null
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
         "description": "SEP document verification status. \u0060required\u0060 means documentation must be uploaded; \u0060uploaded\u0060 means sent to carrier pending verification; \u0060verified\u0060 means accepted; \u0060denied\u0060 means carrier denied the documentation.",
-        "nullable": true,
         "x-ms-enum": {
           "name": "EnrollmentResponseDocumentStatus",
           "modelAsString": false,
@@ -6697,6 +7071,28 @@
             {
               "value": "indemnity",
               "name": "Indemnity"
+            }
+          ]
+        }
+      },
+      "DentalFiltersMetalLevelsItem": {
+        "enum": [
+          "high",
+          "low"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DentalFiltersMetalLevelsItem",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "high",
+              "name": "High"
+            },
+            {
+              "value": "low",
+              "name": "Low"
             }
           ]
         }
@@ -7436,12 +7832,12 @@
           "csr94",
           "csr77"
         ],
-        "type": "string",
+        "type": [
+          "null",
+          "string"
+        ],
         "additionalProperties": false,
         "description": "\u0022CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.\u0022",
-        "unrecognizedKeywords": {
-          "nullable": true
-        },
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsCsrLevel",
           "modelAsString": false,

@@ -15,7 +15,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The applicants property</summary>
+        /// <summary>Applicant objects are replacement-shaped. When sending `applicants.primary`, include the full current primary applicant object; omitted primary fields may be cleared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants? Applicants { get; set; }
