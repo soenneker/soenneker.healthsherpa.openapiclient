@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;DEPRECATED legacy contact block. Every property here has a 1:1 replacement on `household.applicants[]` and is preferred when both are supplied: `first_name` → `household.applicants[primary].first_name`, `last_name` → `household.applicants[primary].last_name`, `email` → `household.applicants[primary].email`, `phone_number` → `household.applicants[primary].phone_number`. Each field that is still supplied here surfaces a `deprecated_field` entry in the response&apos;s `warnings[]` array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.&quot;
+    /// DEPRECATED legacy contact block. Every property here has a 1:1 replacement on `household.applicants[]` and is preferred when both are supplied: `first_name` → `household.applicants[primary].first_name`, `last_name` → `household.applicants[primary].last_name`, `email` → `household.applicants[primary].email`, `phone_number` → `household.applicants[primary].phone_number`. Each field that is still supplied here surfaces a `deprecated_field` entry in the response&apos;s `warnings[]` array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.
     /// </summary>
     [Obsolete("")]
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]

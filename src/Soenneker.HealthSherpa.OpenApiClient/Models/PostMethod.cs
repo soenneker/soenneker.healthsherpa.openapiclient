@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
+    /// <summary>HTTP method to use. Always `POST`.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum GetPolicyStatusApplicationExchangeParameter
-    #pragma warning restore CS1591
+    public enum PostMethod
     {
-        [EnumMember(Value = "on_exchange")]
+        [EnumMember(Value = "POST")]
         #pragma warning disable CS1591
-        OnExchange,
+        Post,
         #pragma warning restore CS1591
     }
 }

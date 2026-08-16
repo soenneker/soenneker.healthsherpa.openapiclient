@@ -13,7 +13,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentSessionRequest : IParsable
     {
-        /// <summary>&quot;Marketing attribution. Only accepted when `context.flow` is `self_service`; sending any field with `flow: \&quot;agent_assisted\&quot;` is rejected with `400 invalid_request`.&quot;</summary>
+        /// <summary>Marketing attribution. Only accepted when `context.flow` is `self_service`; sending any field with `flow: &quot;agent_assisted&quot;` is rejected with `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign? Campaign { get; set; }
@@ -21,7 +21,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign Campaign { get; set; }
 #endif
-        /// <summary>&quot;DEPRECATED legacy contact block. Every property here has a 1:1 replacement on `household.applicants[]` and is preferred when both are supplied: `first_name` → `household.applicants[primary].first_name`, `last_name` → `household.applicants[primary].last_name`, `email` → `household.applicants[primary].email`, `phone_number` → `household.applicants[primary].phone_number`. Each field that is still supplied here surfaces a `deprecated_field` entry in the response&apos;s `warnings[]` array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.&quot;</summary>
+        /// <summary>DEPRECATED legacy contact block. Every property here has a 1:1 replacement on `household.applicants[]` and is preferred when both are supplied: `first_name` → `household.applicants[primary].first_name`, `last_name` → `household.applicants[primary].last_name`, `email` → `household.applicants[primary].email`, `phone_number` → `household.applicants[primary].phone_number`. Each field that is still supplied here surfaces a `deprecated_field` entry in the response&apos;s `warnings[]` array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

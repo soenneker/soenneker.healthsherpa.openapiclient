@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
-    /// <summary>&quot;Pediatric dental attestation. `purchased_separately`: pediatric dental purchased via stand-alone dental plan. `not_applicable`: no children under 19 on the application.&quot;</summary>
+    /// <summary>Pediatric dental attestation. `purchased_separately`: pediatric dental purchased via stand-alone dental plan. `not_applicable`: no children under 19 on the application.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AttestationsPediatricDental
     {

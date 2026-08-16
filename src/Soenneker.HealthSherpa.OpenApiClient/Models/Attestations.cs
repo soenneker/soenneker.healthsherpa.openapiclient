@@ -34,7 +34,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public bool? DisclosureStatementAccepted { get; set; }
         /// <summary>The electronic_signature_consent property</summary>
         public bool? ElectronicSignatureConsent { get; set; }
-        /// <summary>&quot;Pediatric dental attestation. `purchased_separately`: pediatric dental purchased via stand-alone dental plan. `not_applicable`: no children under 19 on the application.&quot;</summary>
+        /// <summary>Pediatric dental attestation. `purchased_separately`: pediatric dental purchased via stand-alone dental plan. `not_applicable`: no children under 19 on the application.</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.AttestationsPediatricDental? PediatricDental { get; set; }
         /// <summary>Authorization for dependents/spouse to be included on the application.</summary>
         public bool? SpouseOrDependentAuthorization { get; set; }

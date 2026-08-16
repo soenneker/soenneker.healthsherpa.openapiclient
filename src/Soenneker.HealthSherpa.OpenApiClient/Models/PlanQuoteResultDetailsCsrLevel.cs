@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
-    /// <summary>&quot;CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.&quot;</summary>
+    /// <summary>CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PlanQuoteResultDetailsCsrLevel
     {

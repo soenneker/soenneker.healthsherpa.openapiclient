@@ -23,7 +23,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext Context { get; set; }
 #endif
         /// <summary>Type of supporting document. Currently only `sep` is accepted.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType? DocumentType { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType? DocumentType { get; set; }
         /// <summary>The document file. Supported formats are PDF, JPEG, and PNG.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext>(global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext.CreateFromDiscriminatorValue); } },
-                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType>(); } },
+                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType>(); } },
                 { "file", n => { File = n.GetByteArrayValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext>("context", Context);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType>("document_type", DocumentType);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType>("document_type", DocumentType);
             writer.WriteByteArrayValue("file", File);
             writer.WriteAdditionalData(AdditionalData);
         }

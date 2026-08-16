@@ -8,7 +8,7 @@ using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     /// <summary>
-    /// &quot;Marketing attribution. Only accepted when `context.flow` is `self_service`; sending any field with `flow: \&quot;agent_assisted\&quot;` is rejected with `400 invalid_request`.&quot;
+    /// Marketing attribution. Only accepted when `context.flow` is `self_service`; sending any field with `flow: &quot;agent_assisted&quot;` is rejected with `400 invalid_request`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentSessionCampaign : IParsable

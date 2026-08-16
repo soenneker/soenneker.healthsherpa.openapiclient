@@ -94,10 +94,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Payment_redir
         {
             /// <summary>Direct-enrollment routing channel. Must be `off_exchange`.</summary>
             [QueryParameter("exchange")]
-            public global::Soenneker.HealthSherpa.OpenApiClient.Models.GetEnrollmentPaymentRedirectExchangeParameter? Exchange { get; set; }
+            public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get; set; }
             /// <summary>Direct-enrollment product. Must be `ichra`.</summary>
             [QueryParameter("product")]
-            public global::Soenneker.HealthSherpa.OpenApiClient.Models.GetEnrollmentPaymentRedirectProductParameter? Product { get; set; }
+            public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get; set; }
         }
     }
 }

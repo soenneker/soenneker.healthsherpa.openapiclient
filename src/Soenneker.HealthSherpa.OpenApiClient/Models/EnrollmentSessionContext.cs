@@ -13,11 +13,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning restore CS1591
     {
         /// <summary>The coverage_family property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageFamily? CoverageFamily { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily? CoverageFamily { get; set; }
         /// <summary>The coverage_type property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageType? CoverageType { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType? CoverageType { get; set; }
         /// <summary>The exchange property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextExchange? Exchange { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? Exchange { get; set; }
         /// <summary>Mapped to the deep link&apos;s `user_type` (`agent_assisted` -&gt; `agent`, `self_service` -&gt; `consumer`).</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow? Flow { get; set; }
         /// <summary>`es-MX` enables the Spanish flow via the deep link&apos;s `ljs` parameter.</summary>
@@ -25,7 +25,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The plan_year property</summary>
         public int? PlanYear { get; set; }
         /// <summary>The product property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextProduct? Product { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct? Product { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,13 +44,13 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "coverage_family", n => { CoverageFamily = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageFamily>(); } },
-                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageType>(); } },
-                { "exchange", n => { Exchange = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextExchange>(); } },
+                { "coverage_family", n => { CoverageFamily = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily>(); } },
+                { "coverage_type", n => { CoverageType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType>(); } },
+                { "exchange", n => { Exchange = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange>(); } },
                 { "flow", n => { Flow = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow>(); } },
                 { "locale", n => { Locale = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale>(); } },
                 { "plan_year", n => { PlanYear = n.GetIntValue(); } },
-                { "product", n => { Product = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextProduct>(); } },
+                { "product", n => { Product = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct>(); } },
             };
         }
         /// <summary>
@@ -60,13 +60,13 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageFamily>("coverage_family", CoverageFamily);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextCoverageType>("coverage_type", CoverageType);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextExchange>("exchange", Exchange);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily>("coverage_family", CoverageFamily);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType>("coverage_type", CoverageType);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange>("exchange", Exchange);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow>("flow", Flow);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale>("locale", Locale);
             writer.WriteIntValue("plan_year", PlanYear);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextProduct>("product", Product);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct>("product", Product);
         }
     }
 }

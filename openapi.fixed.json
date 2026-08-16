@@ -2,7 +2,7 @@
   "openapi": "3.1.2",
   "info": {
     "title": "HealthSherpa Public API",
-    "description": "\u0022Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified \u0060ErrorResponse\u0060 schema: \u0060{ \\\u0022error\\\u0022: { \\\u0022code\\\u0022: string, \\\u0022message\\\u0022: string, \\\u0022details\\\u0022?: object } }\u0060. The direct enrollment endpoints instead return service failures as a top-level \u0060errors[]\u0060 array: \u0060{ \\\u0022errors\\\u0022: [ { \\\u0022code\\\u0022: string, \\\u0022message\\\u0022: string, \\\u0022field\\\u0022?: string } ] }\u0060. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified \u0060ErrorResponse\u0060 envelope, including on the direct enrollment endpoints \u2014 most notably a missing or invalid API key (\u0060403 forbidden\u0060).\u0022",
+    "description": "Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified \u0060ErrorResponse\u0060 schema: \u0060{ \u0022error\u0022: { \u0022code\u0022: string, \u0022message\u0022: string, \u0022details\u0022?: object } }\u0060. The direct enrollment endpoints instead return service failures as a top-level \u0060errors[]\u0060 array: \u0060{ \u0022errors\u0022: [ { \u0022code\u0022: string, \u0022message\u0022: string, \u0022field\u0022?: string } ] }\u0060. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified \u0060ErrorResponse\u0060 envelope, including on the direct enrollment endpoints \u2014 most notably a missing or invalid API key (\u0060403 forbidden\u0060).",
     "version": "0.1.0"
   },
   "servers": [
@@ -102,7 +102,7 @@
             }
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
@@ -192,7 +192,7 @@
             }
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
@@ -232,7 +232,7 @@
           "Reference"
         ],
         "summary": "Search healthcare providers by name near a ZIP code",
-        "description": "\u0022Searches healthcare providers (individuals and facilities) by name near a ZIP code and returns paginated results with NPI and address data. This is a search-only endpoint; there is no \\\u0022list all providers\\\u0022 mode.\n\nUse the returned 10-digit \u0060npi\u0060 values when building provider selections, for example the \u0060providers\u0060 field on an enrollment session.\n\n**Channel:** the required \u0060exchange\u0060 parameter selects the marketplace channel (\u0060on_exchange\u0060 or \u0060off_exchange\u0060).\n\n**Pagination:** results are paginated with the nested \u0060page[number]\u0060 and \u0060page[size]\u0060 query parameters, mirroring the quoting endpoint\u0027s \u0060page\u0060 object. \u0060page[number]\u0060 defaults to 1 (values below 1 are treated as 1) and \u0060page[size]\u0060 accepts 1 to 50, defaulting to 50 (values outside the range resolve to 50). Pagination metadata is returned under \u0060meta\u0060 (\u0060page_number\u0060, \u0060page_size\u0060, \u0060result_count\u0060). An empty search returns \u0060providers: []\u0060 with \u0060result_count\u0060 0.\u0022",
+        "description": "Searches healthcare providers (individuals and facilities) by name near a ZIP code and returns paginated results with NPI and address data. This is a search-only endpoint; there is no \u0022list all providers\u0022 mode.\n\nUse the returned 10-digit \u0060npi\u0060 values when building provider selections, for example the \u0060providers\u0060 field on an enrollment session.\n\n**Channel:** the required \u0060exchange\u0060 parameter selects the marketplace channel (\u0060on_exchange\u0060 or \u0060off_exchange\u0060).\n\n**Pagination:** results are paginated with the nested \u0060page[number]\u0060 and \u0060page[size]\u0060 query parameters, mirroring the quoting endpoint\u0027s \u0060page\u0060 object. \u0060page[number]\u0060 defaults to 1 (values below 1 are treated as 1) and \u0060page[size]\u0060 accepts 1 to 50, defaulting to 50 (values outside the range resolve to 50). Pagination metadata is returned under \u0060meta\u0060 (\u0060page_number\u0060, \u0060page_size\u0060, \u0060result_count\u0060). An empty search returns \u0060providers: []\u0060 with \u0060result_count\u0060 0.",
         "operationId": "SearchProviders",
         "parameters": [
           {
@@ -327,7 +327,7 @@
             }
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
@@ -411,7 +411,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -425,7 +426,7 @@
             }
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
@@ -475,7 +476,7 @@
           {
             "name": "Idempotency-Key",
             "in": "header",
-            "description": "\u0022Optional partner-supplied request identifier (1\u2013255 chars, \u0060A-Z\u0060, \u0060a-z\u0060, \u00600-9\u0060, \u0060-\u0060, \u0060_\u0060). Scoped by API key and retained for 24 hours.\n\n- First call: processed normally; the response is captured.\n- Replay (same key \u002B same body): returns the original response verbatim with \u0060Idempotent-Replay: true\u0060.\n- Same key \u002B different body: \u0060422 idempotency_mismatch\u0060.\n- Concurrent retry while the first call is still in flight: \u0060409 idempotency_in_progress\u0060.\n- \u0060429\u0060 responses are not stored, so partners can back off and retry transparently.\n- \u00605xx\u0060 responses **are** stored. Retrying a 5xx with the same Idempotency-Key could risk duplicate work, so partners who believe a 5xx was transient must generate a fresh Idempotency-Key to retry.\u0022",
+            "description": "Optional partner-supplied request identifier (1\u2013255 chars, \u0060A-Z\u0060, \u0060a-z\u0060, \u00600-9\u0060, \u0060-\u0060, \u0060_\u0060). Scoped by API key and retained for 24 hours.\n\n- First call: processed normally; the response is captured.\n- Replay (same key \u002B same body): returns the original response verbatim with \u0060Idempotent-Replay: true\u0060.\n- Same key \u002B different body: \u0060422 idempotency_mismatch\u0060.\n- Concurrent retry while the first call is still in flight: \u0060409 idempotency_in_progress\u0060.\n- \u0060429\u0060 responses are not stored, so partners can back off and retry transparently.\n- \u00605xx\u0060 responses **are** stored. Retrying a 5xx with the same Idempotency-Key could risk duplicate work, so partners who believe a 5xx was transient must generate a fresh Idempotency-Key to retry.",
             "schema": {
               "pattern": "^[A-Za-z0-9_\\-]{1,255}$",
               "type": "string"
@@ -523,11 +524,40 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
             "description": "Enrollment session started successfully.",
+            "headers": {
+              "X-Request-Id": {
+                "description": "HealthSherpa ONE request id for tracing and support.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Idempotent-Replay": {
+                "description": "Present and set to \u0060true\u0060 only when this response is being replayed from a prior call that supplied the same \u0060Idempotency-Key\u0060 and request body.",
+                "schema": {
+                  "enum": [
+                    "true"
+                  ],
+                  "type": "string",
+                  "additionalProperties": false,
+                  "x-ms-enum": {
+                    "name": "GeneratedEnum",
+                    "modelAsString": false,
+                    "values": [
+                      {
+                        "value": "true",
+                        "name": "TrueValue"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -544,7 +574,7 @@
             }
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
@@ -623,7 +653,7 @@
           "Policy Status"
         ],
         "summary": "List on-exchange applications for policy status readback",
-        "description": "\u0022Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send \u0060exchange=on_exchange\u0060 and \u0060plan_year\u0060 plus optional \u0060limit\u0060 and \u0060offset\u0060. The \u0060exchange\u0060 query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept \u0060product\u0060 or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.\u0022",
+        "description": "Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send \u0060exchange=on_exchange\u0060 and \u0060plan_year\u0060 plus optional \u0060limit\u0060 and \u0060offset\u0060. The \u0060exchange\u0060 query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept \u0060product\u0060 or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.",
         "operationId": "ListPolicyStatusApplications",
         "parameters": [
           {
@@ -632,7 +662,7 @@
             "description": "Policy-status routing channel. Must be \u0060on_exchange\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ListPolicyStatusApplicationsExchangeParameter"
+              "$ref": "#/components/schemas/OnExchangeExchange"
             }
           },
           {
@@ -672,7 +702,7 @@
             "$ref": "#/components/responses/PolicyStatusApplicationsResponse"
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
@@ -711,7 +741,7 @@
           "Policy Status"
         ],
         "summary": "Fetch policy statuses for an on-exchange application",
-        "description": "\u0022Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send \u0060exchange=on_exchange\u0060 and \u0060plan_year\u0060; the path id is the Marketplace application confirmation id returned by \u0060GET /v1/policy-status/applications\u0060. The \u0060exchange\u0060 query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.\u0022",
+        "description": "Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send \u0060exchange=on_exchange\u0060 and \u0060plan_year\u0060; the path id is the Marketplace application confirmation id returned by \u0060GET /v1/policy-status/applications\u0060. The \u0060exchange\u0060 query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.",
         "operationId": "GetPolicyStatusApplication",
         "parameters": [
           {
@@ -729,7 +759,7 @@
             "description": "Policy-status routing channel. Must be \u0060on_exchange\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GetPolicyStatusApplicationExchangeParameter"
+              "$ref": "#/components/schemas/OnExchangeExchange"
             }
           },
           {
@@ -748,7 +778,7 @@
             "$ref": "#/components/responses/PolicyStatusApplicationResponse"
           },
           "400": {
-            "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+            "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
@@ -800,7 +830,7 @@
             "description": "Direct-enrollment product. Must be \u0060ichra\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ListEnrollmentsProductParameter"
+              "$ref": "#/components/schemas/IchraProduct"
             }
           },
           {
@@ -809,7 +839,7 @@
             "description": "Direct-enrollment routing channel. Must be \u0060off_exchange\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ListEnrollmentsExchangeParameter"
+              "$ref": "#/components/schemas/OffExchangeExchange"
             }
           },
           {
@@ -935,7 +965,7 @@
           "Enrollments"
         ],
         "summary": "Create a direct enrollment application",
-        "description": "\u0022Approval-gated direct enrollment API for partners that need API-level control over off-exchange applications. Send the application payload at the request root and include the HealthSherpa ONE \u0060context\u0060 object for routing. Direct enrollment currently supports \u0060context.product = \\\u0022ichra\\\u0022\u0060 and \u0060context.exchange = \\\u0022off_exchange\\\u0022\u0060; other products and exchanges are not supported here. Use \u0060POST /v1/enrollment-sessions\u0060 for on-exchange enrollment. HealthSherpa ONE uses \u0060context\u0060 only for routing and applies the agent and TPA identifiers (\u0060_agent_id\u0060, \u0060tpa_slug\u0060) from your approved account setup; caller-supplied \u0060_agent_id\u0060, \u0060tpa_slug\u0060, \u0060actor.agent_id\u0060, and \u0060agent_of_record\u0060 are rejected.\n\nSuccessful responses include the application data, current validation state, and \u0060next_actions[]\u0060 when actions are currently available. \u0060next_actions[].href\u0060 values point to public \u0060/v1/enrollments\u0060 routes. Service failures (missing or malformed idempotency keys, authorization failures, invalid JSON bodies, validation errors, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and \u0060413\u0060, \u0060415\u0060, edge \u0060429\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.\u0022",
+        "description": "Approval-gated direct enrollment API for partners that need API-level control over off-exchange applications. Send the application payload at the request root and include the HealthSherpa ONE \u0060context\u0060 object for routing. Direct enrollment currently supports \u0060context.product = \u0022ichra\u0022\u0060 and \u0060context.exchange = \u0022off_exchange\u0022\u0060; other products and exchanges are not supported here. Use \u0060POST /v1/enrollment-sessions\u0060 for on-exchange enrollment. HealthSherpa ONE uses \u0060context\u0060 only for routing and applies the agent and TPA identifiers (\u0060_agent_id\u0060, \u0060tpa_slug\u0060) from your approved account setup; caller-supplied \u0060_agent_id\u0060, \u0060tpa_slug\u0060, \u0060actor.agent_id\u0060, and \u0060agent_of_record\u0060 are rejected.\n\nSuccessful responses include the application data, current validation state, and \u0060next_actions[]\u0060 when actions are currently available. \u0060next_actions[].href\u0060 values point to public \u0060/v1/enrollments\u0060 routes. Service failures (missing or malformed idempotency keys, authorization failures, invalid JSON bodies, validation errors, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and \u0060413\u0060, \u0060415\u0060, edge \u0060429\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.",
         "operationId": "CreateEnrollment",
         "parameters": [
           {
@@ -987,7 +1017,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1077,7 +1108,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -1159,7 +1191,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -1237,7 +1270,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "202": {
@@ -1307,7 +1341,7 @@
             "description": "Direct-enrollment product. Must be \u0060ichra\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GetEnrollmentPaymentRedirectProductParameter"
+              "$ref": "#/components/schemas/IchraProduct"
             }
           },
           {
@@ -1316,7 +1350,7 @@
             "description": "Direct-enrollment routing channel. Must be \u0060off_exchange\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GetEnrollmentPaymentRedirectExchangeParameter"
+              "$ref": "#/components/schemas/OffExchangeExchange"
             }
           }
         ],
@@ -1407,7 +1441,8 @@
                 "document_type": "sep"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1475,7 +1510,7 @@
           "Enrollments"
         ],
         "summary": "Fetch a direct enrollment application",
-        "description": "\u0022Approval-gated direct enrollment API for reading an application. Send \u0060product=ichra\u0060 and \u0060exchange=off_exchange\u0060 as required query parameters so HealthSherpa ONE can validate the direct-enrollment routing channel. HealthSherpa ONE returns the application details for the supplied id. \u0060product\u0060 and \u0060exchange\u0060 are the only supported read query parameters; \u0060include_events\u0060, \u0060plan_year\u0060, and other read-time query parameters are not supported. The application plan year is returned in the response. Service failures (authorization failures, invalid routing context, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.\u0022",
+        "description": "Approval-gated direct enrollment API for reading an application. Send \u0060product=ichra\u0060 and \u0060exchange=off_exchange\u0060 as required query parameters so HealthSherpa ONE can validate the direct-enrollment routing channel. HealthSherpa ONE returns the application details for the supplied id. \u0060product\u0060 and \u0060exchange\u0060 are the only supported read query parameters; \u0060include_events\u0060, \u0060plan_year\u0060, and other read-time query parameters are not supported. The application plan year is returned in the response. Service failures (authorization failures, invalid routing context, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.",
         "operationId": "GetEnrollment",
         "parameters": [
           {
@@ -1493,7 +1528,7 @@
             "description": "Direct-enrollment product. Must be \u0060ichra\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GetEnrollmentProductParameter"
+              "$ref": "#/components/schemas/IchraProduct"
             }
           },
           {
@@ -1502,7 +1537,7 @@
             "description": "Direct-enrollment routing channel. Must be \u0060off_exchange\u0060.",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/GetEnrollmentExchangeParameter"
+              "$ref": "#/components/schemas/OffExchangeExchange"
             }
           }
         ],
@@ -1554,7 +1589,7 @@
           "Enrollments"
         ],
         "summary": "Update a direct enrollment application",
-        "description": "\u0022Approval-gated direct enrollment API for updating an off-exchange application. Treat \u0060PUT\u0060 as a full replacement-style update. Send the HealthSherpa ONE \u0060context\u0060 object with \u0060product = \\\u0022ichra\\\u0022\u0060, \u0060exchange = \\\u0022off_exchange\\\u0022\u0060, and \u0060plan_year\u0060 plus the full current application payload, including unchanged fields you want to preserve. When sending \u0060applicants.primary\u0060, include the full current primary applicant object because omitted primary fields may be cleared. Other products and exchanges are not supported here. HealthSherpa ONE maps \u0060context.plan_year\u0060 to the application \u0060plan_year\u0060; \u0060context\u0060 is not part of the stored application payload. Before submission, all application fields may be updated. After submission, carriers may restrict updates; check \u0060supports_changes\u0060, \u0060can_change_plan\u0060, and \u0060can_report_change\u0060 on \u0060GET /v1/enrollments/{enrollment_id}?product=ichra\u0026exchange=off_exchange\u0060 before attempting post-enrollment changes. HealthSherpa ONE applies the agent and TPA identifiers (\u0060_agent_id\u0060, \u0060tpa_slug\u0060) from your approved account setup; caller-supplied \u0060_agent_id\u0060, \u0060tpa_slug\u0060, \u0060actor.agent_id\u0060, and \u0060agent_of_record\u0060 are rejected.\n\nSuccessful responses include the updated application data and current validation state. Service failures (authorization failures, invalid JSON bodies, validation errors, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and \u0060413\u0060, \u0060415\u0060, edge \u0060429\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.\u0022",
+        "description": "Approval-gated direct enrollment API for updating an off-exchange application. Treat \u0060PUT\u0060 as a full replacement-style update. Send the HealthSherpa ONE \u0060context\u0060 object with \u0060product = \u0022ichra\u0022\u0060, \u0060exchange = \u0022off_exchange\u0022\u0060, and \u0060plan_year\u0060 plus the full current application payload, including unchanged fields you want to preserve. When sending \u0060applicants.primary\u0060, include the full current primary applicant object because omitted primary fields may be cleared. Other products and exchanges are not supported here. HealthSherpa ONE maps \u0060context.plan_year\u0060 to the application \u0060plan_year\u0060; \u0060context\u0060 is not part of the stored application payload. Before submission, all application fields may be updated. After submission, carriers may restrict updates; check \u0060supports_changes\u0060, \u0060can_change_plan\u0060, and \u0060can_report_change\u0060 on \u0060GET /v1/enrollments/{enrollment_id}?product=ichra\u0026exchange=off_exchange\u0060 before attempting post-enrollment changes. HealthSherpa ONE applies the agent and TPA identifiers (\u0060_agent_id\u0060, \u0060tpa_slug\u0060) from your approved account setup; caller-supplied \u0060_agent_id\u0060, \u0060tpa_slug\u0060, \u0060actor.agent_id\u0060, and \u0060agent_of_record\u0060 are rejected.\n\nSuccessful responses include the updated application data and current validation state. Service failures (authorization failures, invalid JSON bodies, validation errors, and service-availability errors) are returned as a top-level \u0060errors[]\u0060 array with \u0060code\u0060, \u0060message\u0060, and optional \u0060field\u0060. Edge-generated failures (API Gateway and WAF) instead use the unified \u0060error\u0060 envelope: a missing or invalid API key returns \u0060403 forbidden\u0060, and \u0060413\u0060, \u0060415\u0060, edge \u0060429\u0060, and gateway \u0060502\u0060/\u0060504\u0060 also use that envelope. See the \u0060EnrollmentError\u0060 response for both shapes.",
         "operationId": "UpdateEnrollment",
         "parameters": [
           {
@@ -1597,7 +1632,8 @@
                 }
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1821,7 +1857,7 @@
             "$ref": "#/components/schemas/SupportingDocumentationRequestFile"
           },
           "document_type": {
-            "$ref": "#/components/schemas/SupportingDocumentationRequestDocumentType"
+            "$ref": "#/components/schemas/SepDocumentType"
           }
         },
         "description": "Supporting document upload request for SEP verification. JSON requests send base64-encoded file bytes; multipart requests send the binary file directly. HealthSherpa ONE validates \u0060context\u0060 and processes only the documented upload fields."
@@ -1846,10 +1882,10 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/components/schemas/EnrollmentActionContextProduct"
+            "$ref": "#/components/schemas/IchraProduct"
           },
           "exchange": {
-            "$ref": "#/components/schemas/EnrollmentActionContextExchange"
+            "$ref": "#/components/schemas/OffExchangeExchange"
           }
         }
       },
@@ -2196,7 +2232,7 @@
             "description": "Application id returned by \u0060POST /v1/enrollments\u0060."
           },
           "method": {
-            "$ref": "#/components/schemas/PaymentRedirectResponseMethod"
+            "$ref": "#/components/schemas/PostMethod"
           },
           "endpoint": {
             "type": "string",
@@ -2221,10 +2257,10 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/components/schemas/EnrollmentUpdateContextProduct"
+            "$ref": "#/components/schemas/IchraProduct"
           },
           "exchange": {
-            "$ref": "#/components/schemas/EnrollmentUpdateContextExchange"
+            "$ref": "#/components/schemas/OffExchangeExchange"
           },
           "plan_year": {
             "maximum": 2099,
@@ -2243,16 +2279,16 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/components/schemas/EnrollmentContextProduct"
+            "$ref": "#/components/schemas/IchraProduct"
           },
           "exchange": {
-            "$ref": "#/components/schemas/EnrollmentContextExchange"
+            "$ref": "#/components/schemas/OffExchangeExchange"
           },
           "coverage_family": {
-            "$ref": "#/components/schemas/EnrollmentContextCoverageFamily"
+            "$ref": "#/components/schemas/MedicalCoverageFamily"
           },
           "coverage_type": {
-            "$ref": "#/components/schemas/EnrollmentContextCoverageType"
+            "$ref": "#/components/schemas/MedicalCoverageType"
           },
           "plan_year": {
             "maximum": 2099,
@@ -3222,7 +3258,7 @@
               "null",
               "boolean"
             ],
-            "description": "\u0022\u0060true\u0060: applicant is offered an HRA. \u0060false\u0060: applicant is not offered an HRA. \u0060null\u0060: unknown.\u0022"
+            "description": "\u0060true\u0060: applicant is offered an HRA. \u0060false\u0060: applicant is not offered an HRA. \u0060null\u0060: unknown."
           },
           "type": {
             "$ref": "#/components/schemas/HraType"
@@ -3805,7 +3841,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "\u0022Machine-readable error code. Known codes: \u0060invalid_request\u0060 (400 request/JSON validation, server-owned or \u0060agent_of_record\u0060 fields, unsupported \u0060context.exchange\u0060), \u0060idempotency_key_required\u0060 (400 missing \u0060Idempotency-Key\u0060), \u0060idempotency_key_invalid\u0060 (400 malformed \u0060Idempotency-Key\u0060), \u0060idempotency_in_progress\u0060 (409 concurrent retry), \u0060idempotency_mismatch\u0060 (422 same key, different body), \u0060unauthorized\u0060 (401), \u0060forbidden\u0060 (403 not authorized), \u0060rate_limited\u0060 (429), \u0060service_unavailable\u0060 (503), \u0060internal_error\u0060 (500), \u0060token_expired\u0060 (401), \u0060not_found\u0060 (404), \u0060plan_not_found\u0060, \u0060plan_not_available\u0060, \u0060missing_required_field\u0060, \u0060invalid_field_value\u0060, \u0060invalid_field_format\u0060, \u0060rate_limit_exceeded\u0060 (429), \u0060payload_too_large\u0060 (413), \u0060duplicate_external_id\u0060 (409), \u0060latest_submission_failed\u0060, \u0060supporting_documentation_required\u0060, \u0060ineligible_for_enrollment\u0060.\u0022"
+            "description": "Machine-readable error code. Known codes: \u0060invalid_request\u0060 (400 request/JSON validation, server-owned or \u0060agent_of_record\u0060 fields, unsupported \u0060context.exchange\u0060), \u0060idempotency_key_required\u0060 (400 missing \u0060Idempotency-Key\u0060), \u0060idempotency_key_invalid\u0060 (400 malformed \u0060Idempotency-Key\u0060), \u0060idempotency_in_progress\u0060 (409 concurrent retry), \u0060idempotency_mismatch\u0060 (422 same key, different body), \u0060unauthorized\u0060 (401), \u0060forbidden\u0060 (403 not authorized), \u0060rate_limited\u0060 (429), \u0060service_unavailable\u0060 (503), \u0060internal_error\u0060 (500), \u0060token_expired\u0060 (401), \u0060not_found\u0060 (404), \u0060plan_not_found\u0060, \u0060plan_not_available\u0060, \u0060missing_required_field\u0060, \u0060invalid_field_value\u0060, \u0060invalid_field_format\u0060, \u0060rate_limit_exceeded\u0060 (429), \u0060payload_too_large\u0060 (413), \u0060duplicate_external_id\u0060 (409), \u0060latest_submission_failed\u0060, \u0060supporting_documentation_required\u0060, \u0060ineligible_for_enrollment\u0060."
           },
           "field": {
             "type": "string",
@@ -3853,7 +3889,7 @@
           },
           "member_id": {
             "type": "string",
-            "description": "\u0022For applicant change events: member id of the affected applicant.\u0022"
+            "description": "For applicant change events: member id of the affected applicant."
           },
           "changes": {
             "type": "array",
@@ -3986,7 +4022,7 @@
               "null",
               "string"
             ],
-            "description": "\u0022Human-friendly label: organization name for facilities, or \\\u0022First Last, Credential\\\u0022 for individuals.\u0022"
+            "description": "Human-friendly label: organization name for facilities, or \u0022First Last, Credential\u0022 for individuals."
           },
           "credential": {
             "type": [
@@ -4553,7 +4589,7 @@
             "$ref": "#/components/schemas/EnrollmentSessionContext"
           },
           "client": {
-            "description": "\u0022DEPRECATED legacy contact block. Every property here has a 1:1 replacement on \u0060household.applicants[]\u0060 and is preferred when both are supplied: \u0060first_name\u0060 \u2192 \u0060household.applicants[primary].first_name\u0060, \u0060last_name\u0060 \u2192 \u0060household.applicants[primary].last_name\u0060, \u0060email\u0060 \u2192 \u0060household.applicants[primary].email\u0060, \u0060phone_number\u0060 \u2192 \u0060household.applicants[primary].phone_number\u0060. Each field that is still supplied here surfaces a \u0060deprecated_field\u0060 entry in the response\u0027s \u0060warnings[]\u0060 array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.\u0022",
+            "description": "DEPRECATED legacy contact block. Every property here has a 1:1 replacement on \u0060household.applicants[]\u0060 and is preferred when both are supplied: \u0060first_name\u0060 \u2192 \u0060household.applicants[primary].first_name\u0060, \u0060last_name\u0060 \u2192 \u0060household.applicants[primary].last_name\u0060, \u0060email\u0060 \u2192 \u0060household.applicants[primary].email\u0060, \u0060phone_number\u0060 \u2192 \u0060household.applicants[primary].phone_number\u0060. Each field that is still supplied here surfaces a \u0060deprecated_field\u0060 entry in the response\u0027s \u0060warnings[]\u0060 array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.",
             "$ref": "#/components/schemas/EnrollmentSessionClient"
           },
           "location": {
@@ -4569,7 +4605,7 @@
             "$ref": "#/components/schemas/EnrollmentSessionEnrollment"
           },
           "campaign": {
-            "description": "\u0022Marketing attribution. Only accepted when \u0060context.flow\u0060 is \u0060self_service\u0060; sending any field with \u0060flow: \\\u0022agent_assisted\\\u0022\u0060 is rejected with \u0060400 invalid_request\u0060.\u0022",
+            "description": "Marketing attribution. Only accepted when \u0060context.flow\u0060 is \u0060self_service\u0060; sending any field with \u0060flow: \u0022agent_assisted\u0022\u0060 is rejected with \u0060400 invalid_request\u0060.",
             "$ref": "#/components/schemas/EnrollmentSessionCampaign"
           }
         },
@@ -4589,16 +4625,16 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/components/schemas/EnrollmentSessionContextProduct"
+            "$ref": "#/components/schemas/AcaProduct"
           },
           "exchange": {
-            "$ref": "#/components/schemas/EnrollmentSessionContextExchange"
+            "$ref": "#/components/schemas/OnExchangeExchange"
           },
           "coverage_family": {
-            "$ref": "#/components/schemas/EnrollmentSessionContextCoverageFamily"
+            "$ref": "#/components/schemas/MedicalCoverageFamily"
           },
           "coverage_type": {
-            "$ref": "#/components/schemas/EnrollmentSessionContextCoverageType"
+            "$ref": "#/components/schemas/MedicalCoverageType"
           },
           "plan_year": {
             "maximum": 2099,
@@ -4643,7 +4679,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "\u0022DEPRECATED legacy contact block. Every property here has a 1:1 replacement on \u0060household.applicants[]\u0060 and is preferred when both are supplied: \u0060first_name\u0060 \u2192 \u0060household.applicants[primary].first_name\u0060, \u0060last_name\u0060 \u2192 \u0060household.applicants[primary].last_name\u0060, \u0060email\u0060 \u2192 \u0060household.applicants[primary].email\u0060, \u0060phone_number\u0060 \u2192 \u0060household.applicants[primary].phone_number\u0060. Each field that is still supplied here surfaces a \u0060deprecated_field\u0060 entry in the response\u0027s \u0060warnings[]\u0060 array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.\u0022",
+        "description": "DEPRECATED legacy contact block. Every property here has a 1:1 replacement on \u0060household.applicants[]\u0060 and is preferred when both are supplied: \u0060first_name\u0060 \u2192 \u0060household.applicants[primary].first_name\u0060, \u0060last_name\u0060 \u2192 \u0060household.applicants[primary].last_name\u0060, \u0060email\u0060 \u2192 \u0060household.applicants[primary].email\u0060, \u0060phone_number\u0060 \u2192 \u0060household.applicants[primary].phone_number\u0060. Each field that is still supplied here surfaces a \u0060deprecated_field\u0060 entry in the response\u0027s \u0060warnings[]\u0060 array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.",
         "deprecated": true
       },
       "EnrollmentSessionLocation": {
@@ -4903,7 +4939,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "\u0022Marketing attribution. Only accepted when \u0060context.flow\u0060 is \u0060self_service\u0060; sending any field with \u0060flow: \\\u0022agent_assisted\\\u0022\u0060 is rejected with \u0060400 invalid_request\u0060.\u0022"
+        "description": "Marketing attribution. Only accepted when \u0060context.flow\u0060 is \u0060self_service\u0060; sending any field with \u0060flow: \u0022agent_assisted\u0022\u0060 is rejected with \u0060400 invalid_request\u0060."
       },
       "EnrollmentSessionResponse": {
         "required": [
@@ -5002,14 +5038,11 @@
             "format": "binary"
           },
           "document_type": {
-            "$ref": "#/components/schemas/UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType"
+            "$ref": "#/components/schemas/SepDocumentType"
           }
         }
       },
       "EnrollmentErrorResponse": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -5020,16 +5053,15 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
-          }
-        },
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "EnrollmentErrorsResponse": "#/components/schemas/EnrollmentErrorsResponse",
-            "ErrorResponse": "#/components/schemas/ErrorResponse"
+          "errors": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnrollmentErrorDetail"
+            }
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorResponseError"
           }
         }
       },
@@ -5167,9 +5199,6 @@
         }
       },
       "ApplicationResponsePayment": {
-        "required": [
-          "type"
-        ],
         "type": "object",
         "anyOf": [
           {
@@ -5180,18 +5209,53 @@
           }
         ],
         "properties": {
-          "type": {
-            "type": "string",
-            "description": "Union discriminator"
+          "payment_status": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payment_status_updated_date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "grace_period_start_date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "paid_through_date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date"
+          },
+          "past_due_member_responsibility_balance_due": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "current_member_responsibility_balance_due": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "autopay_indicator": {
+            "type": [
+              "null",
+              "boolean"
+            ]
           }
         },
-        "description": "Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately.",
-        "discriminator": {
-          "propertyName": "type",
-          "mapping": {
-            "PolicyPaymentStatus": "#/components/schemas/PolicyPaymentStatus"
-          }
-        }
+        "description": "Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately."
       },
       "SupportingDocumentationRequestFile": {
         "required": [
@@ -5224,10 +5288,10 @@
         "type": "object",
         "properties": {
           "product": {
-            "$ref": "#/components/schemas/SubmitRequestContextProduct"
+            "$ref": "#/components/schemas/IchraProduct"
           },
           "exchange": {
-            "$ref": "#/components/schemas/SubmitRequestContextExchange"
+            "$ref": "#/components/schemas/OffExchangeExchange"
           }
         }
       },
@@ -5449,10 +5513,10 @@
             "type": "number"
           },
           "currency": {
-            "$ref": "#/components/schemas/PlanQuoteResultPricingCurrency"
+            "$ref": "#/components/schemas/UsdCurrency"
           },
           "billing_period": {
-            "$ref": "#/components/schemas/PlanQuoteResultPricingBillingPeriod"
+            "$ref": "#/components/schemas/MonthlyBillingPeriod"
           }
         }
       },
@@ -5696,7 +5760,7 @@
         },
         "description": "Optional per-field validation details. Keys are dotted/indexed paths (e.g. \u0060household.applicants[0].age\u0060) and values are arrays of full-sentence error messages."
       },
-      "SupportingDocumentationRequestDocumentType": {
+      "SepDocumentType": {
         "enum": [
           "sep"
         ],
@@ -5704,7 +5768,7 @@
         "additionalProperties": false,
         "description": "Type of supporting document. Currently only \u0060sep\u0060 is accepted.",
         "x-ms-enum": {
-          "name": "SupportingDocumentationRequestDocumentType",
+          "name": "SepDocumentType",
           "modelAsString": false,
           "values": [
             {
@@ -5714,14 +5778,14 @@
           ]
         }
       },
-      "EnrollmentActionContextProduct": {
+      "IchraProduct": {
         "enum": [
           "ichra"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentActionContextProduct",
+          "name": "IchraProduct",
           "modelAsString": false,
           "values": [
             {
@@ -5731,14 +5795,14 @@
           ]
         }
       },
-      "EnrollmentActionContextExchange": {
+      "OffExchangeExchange": {
         "enum": [
           "off_exchange"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentActionContextExchange",
+          "name": "OffExchangeExchange",
           "modelAsString": false,
           "values": [
             {
@@ -5790,7 +5854,7 @@
           ]
         }
       },
-      "PaymentRedirectResponseMethod": {
+      "PostMethod": {
         "enum": [
           "POST"
         ],
@@ -5798,7 +5862,7 @@
         "additionalProperties": false,
         "description": "HTTP method to use. Always \u0060POST\u0060.",
         "x-ms-enum": {
-          "name": "PaymentRedirectResponseMethod",
+          "name": "PostMethod",
           "modelAsString": false,
           "values": [
             {
@@ -5808,82 +5872,14 @@
           ]
         }
       },
-      "EnrollmentUpdateContextProduct": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentUpdateContextProduct",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "EnrollmentUpdateContextExchange": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentUpdateContextExchange",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
-            }
-          ]
-        }
-      },
-      "EnrollmentContextProduct": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentContextProduct",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "EnrollmentContextExchange": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentContextExchange",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
-            }
-          ]
-        }
-      },
-      "EnrollmentContextCoverageFamily": {
+      "MedicalCoverageFamily": {
         "enum": [
           "medical"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentContextCoverageFamily",
+          "name": "MedicalCoverageFamily",
           "modelAsString": false,
           "values": [
             {
@@ -5893,14 +5889,14 @@
           ]
         }
       },
-      "EnrollmentContextCoverageType": {
+      "MedicalCoverageType": {
         "enum": [
           "medical"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentContextCoverageType",
+          "name": "MedicalCoverageType",
           "modelAsString": false,
           "values": [
             {
@@ -6207,7 +6203,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022\u0060issuer\u0060: coverage with another issuer. \u0060government\u0060: government program such as Medicare or Medicaid.\u0022",
+        "description": "\u0060issuer\u0060: coverage with another issuer. \u0060government\u0060: government program such as Medicare or Medicaid.",
         "x-ms-enum": {
           "name": "ExistingCoverageType",
           "modelAsString": false,
@@ -6388,7 +6384,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022\u0060premium\u0060: premiums only. \u0060premium_oop\u0060: premiums and out-of-pocket costs.\u0022",
+        "description": "\u0060premium\u0060: premiums only. \u0060premium_oop\u0060: premiums and out-of-pocket costs.",
         "x-ms-enum": {
           "name": "HraContributionCovers",
           "modelAsString": false,
@@ -6592,7 +6588,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022Pediatric dental attestation. \u0060purchased_separately\u0060: pediatric dental purchased via stand-alone dental plan. \u0060not_applicable\u0060: no children under 19 on the application.\u0022",
+        "description": "Pediatric dental attestation. \u0060purchased_separately\u0060: pediatric dental purchased via stand-alone dental plan. \u0060not_applicable\u0060: no children under 19 on the application.",
         "x-ms-enum": {
           "name": "AttestationsPediatricDental",
           "modelAsString": false,
@@ -6980,7 +6976,7 @@
         ],
         "type": "string",
         "additionalProperties": false,
-        "description": "\u0022For \u0060changed\u0060 events: whether the change was on the application or an applicant record.\u0022",
+        "description": "For \u0060changed\u0060 events: whether the change was on the application or an applicant record.",
         "x-ms-enum": {
           "name": "ApplicationEventTarget",
           "modelAsString": false,
@@ -7277,14 +7273,14 @@
           ]
         }
       },
-      "EnrollmentSessionContextProduct": {
+      "AcaProduct": {
         "enum": [
           "aca"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentSessionContextProduct",
+          "name": "AcaProduct",
           "modelAsString": false,
           "values": [
             {
@@ -7294,53 +7290,19 @@
           ]
         }
       },
-      "EnrollmentSessionContextExchange": {
+      "OnExchangeExchange": {
         "enum": [
           "on_exchange"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "EnrollmentSessionContextExchange",
+          "name": "OnExchangeExchange",
           "modelAsString": false,
           "values": [
             {
               "value": "on_exchange",
               "name": "OnExchange"
-            }
-          ]
-        }
-      },
-      "EnrollmentSessionContextCoverageFamily": {
-        "enum": [
-          "medical"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentSessionContextCoverageFamily",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "medical",
-              "name": "Medical"
-            }
-          ]
-        }
-      },
-      "EnrollmentSessionContextCoverageType": {
-        "enum": [
-          "medical"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "EnrollmentSessionContextCoverageType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "medical",
-              "name": "Medical"
             }
           ]
         }
@@ -7472,24 +7434,6 @@
           ]
         }
       },
-      "UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType": {
-        "enum": [
-          "sep"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "description": "Type of supporting document. Currently only \u0060sep\u0060 is accepted.",
-        "x-ms-enum": {
-          "name": "UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "sep",
-              "name": "Sep"
-            }
-          ]
-        }
-      },
       "DependentAllOf2Gender": {
         "enum": [
           "male",
@@ -7538,40 +7482,6 @@
             {
               "value": "image/png",
               "name": "ImagePng"
-            }
-          ]
-        }
-      },
-      "SubmitRequestContextProduct": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "SubmitRequestContextProduct",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "SubmitRequestContextExchange": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "SubmitRequestContextExchange",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
             }
           ]
         }
@@ -7674,14 +7584,14 @@
           ]
         }
       },
-      "PlanQuoteResultPricingCurrency": {
+      "UsdCurrency": {
         "enum": [
           "USD"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "PlanQuoteResultPricingCurrency",
+          "name": "UsdCurrency",
           "modelAsString": false,
           "values": [
             {
@@ -7691,14 +7601,14 @@
           ]
         }
       },
-      "PlanQuoteResultPricingBillingPeriod": {
+      "MonthlyBillingPeriod": {
         "enum": [
           "monthly"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "PlanQuoteResultPricingBillingPeriod",
+          "name": "MonthlyBillingPeriod",
           "modelAsString": false,
           "values": [
             {
@@ -7837,7 +7747,7 @@
           "string"
         ],
         "additionalProperties": false,
-        "description": "\u0022CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.\u0022",
+        "description": "CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.",
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsCsrLevel",
           "modelAsString": false,
@@ -7899,74 +7809,6 @@
           ]
         }
       },
-      "ListPolicyStatusApplicationsExchangeParameter": {
-        "enum": [
-          "on_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ListPolicyStatusApplicationsExchangeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "on_exchange",
-              "name": "OnExchange"
-            }
-          ]
-        }
-      },
-      "GetPolicyStatusApplicationExchangeParameter": {
-        "enum": [
-          "on_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetPolicyStatusApplicationExchangeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "on_exchange",
-              "name": "OnExchange"
-            }
-          ]
-        }
-      },
-      "ListEnrollmentsProductParameter": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ListEnrollmentsProductParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "ListEnrollmentsExchangeParameter": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "ListEnrollmentsExchangeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
-            }
-          ]
-        }
-      },
       "ListEnrollmentsPolicyStatusParameter": {
         "enum": [
           "draft",
@@ -8005,74 +7847,6 @@
             {
               "value": "terminated",
               "name": "Terminated"
-            }
-          ]
-        }
-      },
-      "GetEnrollmentPaymentRedirectProductParameter": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetEnrollmentPaymentRedirectProductParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "GetEnrollmentPaymentRedirectExchangeParameter": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetEnrollmentPaymentRedirectExchangeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
-            }
-          ]
-        }
-      },
-      "GetEnrollmentProductParameter": {
-        "enum": [
-          "ichra"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetEnrollmentProductParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "ichra",
-              "name": "Ichra"
-            }
-          ]
-        }
-      },
-      "GetEnrollmentExchangeParameter": {
-        "enum": [
-          "off_exchange"
-        ],
-        "type": "string",
-        "additionalProperties": false,
-        "x-ms-enum": {
-          "name": "GetEnrollmentExchangeParameter",
-          "modelAsString": false,
-          "values": [
-            {
-              "value": "off_exchange",
-              "name": "OffExchange"
             }
           ]
         }
@@ -8446,7 +8220,7 @@
         }
       },
       "BadRequest": {
-        "description": "\u0022Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.\u0022",
+        "description": "Request validation failed. The response body\u0027s \u0060error.details\u0060 map contains per-field messages when the backend produced the error; edge-generated 400s omit \u0060details\u0060.\n\nA malformed \u0060Idempotency-Key\u0060 header is also rejected here with \u0060code: idempotency_key_invalid\u0060.",
         "content": {
           "application/json": {
             "schema": {
@@ -8656,12 +8430,6 @@
         "type": "apiKey",
         "name": "x-api-key",
         "in": "header"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },

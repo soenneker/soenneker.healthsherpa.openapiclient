@@ -18,7 +18,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public bool? AdultDental { get; set; }
         /// <summary>Whether the medical plan embeds pediatric (child) dental coverage. Present for medical quote results.</summary>
         public bool? ChildDental { get; set; }
-        /// <summary>&quot;CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.&quot;</summary>
+        /// <summary>CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsCsrLevel? CsrLevel { get; set; }
         /// <summary>Family annual deductible (USD). Present for medical quote results.</summary>
         public double? DeductibleFamily { get; set; }

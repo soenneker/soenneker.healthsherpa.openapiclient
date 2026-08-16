@@ -15,9 +15,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The exchange property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextExchange? Exchange { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get; set; }
         /// <summary>The product property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextProduct? Product { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContext"/> and sets the default values.
         /// </summary>
@@ -43,8 +43,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "exchange", n => { Exchange = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextExchange>(); } },
-                { "product", n => { Product = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextProduct>(); } },
+                { "exchange", n => { Exchange = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange>(); } },
+                { "product", n => { Product = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct>(); } },
             };
         }
         /// <summary>
@@ -54,8 +54,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextExchange>("exchange", Exchange);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContextProduct>("product", Product);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange>("exchange", Exchange);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct>("product", Product);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

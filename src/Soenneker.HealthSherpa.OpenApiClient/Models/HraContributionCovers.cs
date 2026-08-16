@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
-    /// <summary>&quot;`premium`: premiums only. `premium_oop`: premiums and out-of-pocket costs.&quot;</summary>
+    /// <summary>`premium`: premiums only. `premium_oop`: premiums and out-of-pocket costs.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum HraContributionCovers
     {

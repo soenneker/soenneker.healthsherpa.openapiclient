@@ -5,12 +5,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum EnrollmentSessionContextCoverageType
+    public enum OnExchangeExchange
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "medical")]
+        [EnumMember(Value = "on_exchange")]
         #pragma warning disable CS1591
-        Medical,
+        OnExchange,
         #pragma warning restore CS1591
     }
 }

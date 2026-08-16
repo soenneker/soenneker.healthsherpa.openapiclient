@@ -34,7 +34,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications.Item
         {
         }
         /// <summary>
-        /// &quot;Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.&quot;
+        /// Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -71,7 +71,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications.Item
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.&quot;
+        /// Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,14 +99,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications.Item
             return new global::Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications.Item.WithConfirmationItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.&quot;
+        /// Alpha release: policy status fields are populated only when the carrier reports them, and carrier coverage is expanding. Approval-gated on-exchange policy status API for reading policy statuses for a HealthSherpa Marketplace application confirmation id. Send `exchange=on_exchange` and `plan_year`; the path id is the Marketplace application confirmation id returned by `GET /v1/policy-status/applications`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithConfirmationItemRequestBuilderGetQueryParameters 
         {
             /// <summary>Policy-status routing channel. Must be `on_exchange`.</summary>
             [QueryParameter("exchange")]
-            public global::Soenneker.HealthSherpa.OpenApiClient.Models.GetPolicyStatusApplicationExchangeParameter? Exchange { get; set; }
+            public global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? Exchange { get; set; }
             /// <summary>Application plan year.</summary>
             [QueryParameter("plan_year")]
             public int? PlanYear { get; set; }

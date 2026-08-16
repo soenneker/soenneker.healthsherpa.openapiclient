@@ -38,7 +38,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string Credential { get; set; }
 #endif
-        /// <summary>&quot;Human-friendly label: organization name for facilities, or \&quot;First Last, Credential\&quot; for individuals.&quot;</summary>
+        /// <summary>Human-friendly label: organization name for facilities, or &quot;First Last, Credential&quot; for individuals.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? DisplayName { get; set; }

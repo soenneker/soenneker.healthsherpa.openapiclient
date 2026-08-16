@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
-    /// <summary>&quot;`issuer`: coverage with another issuer. `government`: government program such as Medicare or Medicaid.&quot;</summary>
+    /// <summary>`issuer`: coverage with another issuer. `government`: government program such as Medicare or Medicaid.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ExistingCoverageType
     {

@@ -33,7 +33,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #endif
         /// <summary>The effective_date property</summary>
         public Date? EffectiveDate { get; set; }
-        /// <summary>&quot;For applicant change events: member id of the affected applicant.&quot;</summary>
+        /// <summary>For applicant change events: member id of the affected applicant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MemberId { get; set; }
@@ -83,7 +83,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string ResponseCode { get; set; }
 #endif
-        /// <summary>&quot;For `changed` events: whether the change was on the application or an applicant record.&quot;</summary>
+        /// <summary>For `changed` events: whether the change was on the application or an applicant record.</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEventTarget? Target { get; set; }
         /// <summary>The type property</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEventType? Type { get; set; }

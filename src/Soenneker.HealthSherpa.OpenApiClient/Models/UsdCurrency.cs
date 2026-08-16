@@ -3,13 +3,14 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
-    /// <summary>Type of supporting document. Currently only `sep` is accepted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum UploadEnrollmentSupportingDocumentationFormDataRequestDocumentType
+    #pragma warning disable CS1591
+    public enum UsdCurrency
+    #pragma warning restore CS1591
     {
-        [EnumMember(Value = "sep")]
+        [EnumMember(Value = "USD")]
         #pragma warning disable CS1591
-        Sep,
+        Usd,
         #pragma warning restore CS1591
     }
 }

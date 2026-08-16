@@ -5,12 +5,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum PlanQuoteResultPricingCurrency
+    public enum AcaProduct
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "USD")]
+        [EnumMember(Value = "aca")]
         #pragma warning disable CS1591
-        Usd,
+        Aca,
         #pragma warning restore CS1591
     }
 }

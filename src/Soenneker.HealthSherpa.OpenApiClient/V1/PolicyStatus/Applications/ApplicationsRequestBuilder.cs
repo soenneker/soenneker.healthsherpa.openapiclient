@@ -47,7 +47,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications
         {
         }
         /// <summary>
-        /// &quot;Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.&quot;
+        /// Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -82,7 +82,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationsResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// &quot;Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.&quot;
+        /// Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,14 +110,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications
             return new global::Soenneker.HealthSherpa.OpenApiClient.V1.PolicyStatus.Applications.ApplicationsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// &quot;Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.&quot;
+        /// Alpha release: not all applications have policy status data yet, and carrier coverage is expanding, so treat missing data as expected. Approval-gated on-exchange policy status API for listing HealthSherpa Marketplace applications visible to the OAuth-linked agent. Send `exchange=on_exchange` and `plan_year` plus optional `limit` and `offset`. The `exchange` query parameter is accepted for routing context and is not forwarded to the Marketplace policy status API. This endpoint does not accept `product` or off-exchange enrollment filters; use the direct enrollment API for off-exchange applications. The response body includes application summary rows plus pagination metadata.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ApplicationsRequestBuilderGetQueryParameters 
         {
             /// <summary>Policy-status routing channel. Must be `on_exchange`.</summary>
             [QueryParameter("exchange")]
-            public global::Soenneker.HealthSherpa.OpenApiClient.Models.ListPolicyStatusApplicationsExchangeParameter? Exchange { get; set; }
+            public global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? Exchange { get; set; }
             /// <summary>Maximum number of applications to return.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }

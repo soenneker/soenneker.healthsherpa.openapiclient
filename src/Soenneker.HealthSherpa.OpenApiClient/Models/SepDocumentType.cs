@@ -3,14 +3,13 @@ using System.Runtime.Serialization;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
+    /// <summary>Type of supporting document. Currently only `sep` is accepted.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public enum ListEnrollmentsExchangeParameter
-    #pragma warning restore CS1591
+    public enum SepDocumentType
     {
-        [EnumMember(Value = "off_exchange")]
+        [EnumMember(Value = "sep")]
         #pragma warning disable CS1591
-        OffExchange,
+        Sep,
         #pragma warning restore CS1591
     }
 }

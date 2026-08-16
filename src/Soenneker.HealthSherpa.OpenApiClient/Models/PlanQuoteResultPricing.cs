@@ -15,9 +15,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The billing_period property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingBillingPeriod? BillingPeriod { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod? BillingPeriod { get; set; }
         /// <summary>The currency property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingCurrency? Currency { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency? Currency { get; set; }
         /// <summary>The ehb_premium property</summary>
         public double? EhbPremium { get; set; }
         /// <summary>The gross_premium property</summary>
@@ -53,8 +53,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "billing_period", n => { BillingPeriod = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingBillingPeriod>(); } },
-                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingCurrency>(); } },
+                { "billing_period", n => { BillingPeriod = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod>(); } },
+                { "currency", n => { Currency = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency>(); } },
                 { "ehb_premium", n => { EhbPremium = n.GetDoubleValue(); } },
                 { "gross_premium", n => { GrossPremium = n.GetDoubleValue(); } },
                 { "max_aptc", n => { MaxAptc = n.GetDoubleValue(); } },
@@ -69,8 +69,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingBillingPeriod>("billing_period", BillingPeriod);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricingCurrency>("currency", Currency);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod>("billing_period", BillingPeriod);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency>("currency", Currency);
             writer.WriteDoubleValue("ehb_premium", EhbPremium);
             writer.WriteDoubleValue("gross_premium", GrossPremium);
             writer.WriteDoubleValue("max_aptc", MaxAptc);

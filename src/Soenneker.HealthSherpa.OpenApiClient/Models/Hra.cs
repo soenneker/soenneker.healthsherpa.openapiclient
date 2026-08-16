@@ -28,7 +28,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string AnnualHouseholdIncomeDetermination { get; set; }
 #endif
-        /// <summary>&quot;`premium`: premiums only. `premium_oop`: premiums and out-of-pocket costs.&quot;</summary>
+        /// <summary>`premium`: premiums only. `premium_oop`: premiums and out-of-pocket costs.</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraContributionCovers? ContributionCovers { get; set; }
         /// <summary>The employer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #endif
         /// <summary>The household_size property</summary>
         public int? HouseholdSize { get; set; }
-        /// <summary>&quot;`true`: applicant is offered an HRA. `false`: applicant is not offered an HRA. `null`: unknown.&quot;</summary>
+        /// <summary>`true`: applicant is offered an HRA. `false`: applicant is not offered an HRA. `null`: unknown.</summary>
         public bool? OfferedHra { get; set; }
         /// <summary>The premium_payer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -39,7 +39,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem> Fields { get; set; }
 #endif
         /// <summary>HTTP method to use. Always `POST`.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseMethod? Method { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod? Method { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponse"/> and sets the default values.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "application_id", n => { ApplicationId = n.GetStringValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseMethod>(); } },
+                { "method", n => { Method = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod>(); } },
             };
         }
         /// <summary>
@@ -81,7 +81,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("application_id", ApplicationId);
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>("fields", Fields);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseMethod>("method", Method);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod>("method", Method);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

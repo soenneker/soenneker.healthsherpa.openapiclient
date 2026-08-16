@@ -47,7 +47,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public Date? StartDate { get; set; }
         /// <summary>The term_date property</summary>
         public Date? TermDate { get; set; }
-        /// <summary>&quot;`issuer`: coverage with another issuer. `government`: government program such as Medicare or Medicaid.&quot;</summary>
+        /// <summary>`issuer`: coverage with another issuer. `government`: government program such as Medicare or Medicaid.</summary>
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType? Type { get; set; }
         /// <summary>Whether the existing coverage will continue alongside the new plan.</summary>
         public bool? WillContinue { get; set; }
