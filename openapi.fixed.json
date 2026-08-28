@@ -2,7 +2,8 @@
   "openapi": "3.1.2",
   "info": {
     "title": "HealthSherpa Public API",
-    "description": "Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified \u0060ErrorResponse\u0060 schema: \u0060{ \u0022error\u0022: { \u0022code\u0022: string, \u0022message\u0022: string, \u0022details\u0022?: object } }\u0060. The direct enrollment endpoints instead return service failures as a top-level \u0060errors[]\u0060 array: \u0060{ \u0022errors\u0022: [ { \u0022code\u0022: string, \u0022message\u0022: string, \u0022field\u0022?: string } ] }\u0060. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified \u0060ErrorResponse\u0060 envelope, including on the direct enrollment endpoints \u2014 most notably a missing or invalid API key (\u0060403 forbidden\u0060).",
+    "description": "Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified \u0060ErrorResponse\u0060 schema: \u0060{ \u0022error\u0022: { \u0022code\u0022: string, \u0022message\u0022: string, \u0022details\u0022?: object } }\u0060. The direct enrollment endpoints instead return service failures as a top-level \u0060errors[]\u0060 array: \u0060{ \u0022errors\u0022: [ { \u0022code\u0022: string, \u0022message\u0022: string, \u0022field\u0022?: string } ] }\u0060. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified \u0060ErrorResponse\u0060 envelope, including on the direct enrollment endpoints \u2014 most notably a missing or invalid API key (\u0060403 forbidden\u0060).\n\n## Terms and compliance\n\n- [HealthSherpa ONE API Terms of Service](https://one.healthsherpa.com/legal/healthsherpa-one-api-terms-of-service.html)\n- [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html)\n- [CMS web-broker guidance](https://www.cms.gov/marketplace-private-insurance/agents-brokers/direct-enrollment-partners)\n- [45 CFR \u00A7 155.220](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-C/section-155.220)",
+    "termsOfService": "https://one.healthsherpa.com/legal/healthsherpa-one-api-terms-of-service.html",
     "version": "0.1.0"
   },
   "servers": [
@@ -363,7 +364,7 @@
           "Quotes"
         ],
         "summary": "Search plans for one coverage type",
-        "description": "Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time.",
+        "description": "Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time. Consumer-facing plan display built on quote results may be subject to CMS web-broker requirements; see [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html).",
         "operationId": "CreateQuote",
         "requestBody": {
           "content": {
@@ -8457,5 +8458,9 @@
     {
       "name": "Policy Status"
     }
-  ]
+  ],
+  "externalDocs": {
+    "description": "Compliance considerations",
+    "url": "https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html"
+  }
 }

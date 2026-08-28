@@ -34,7 +34,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Quotes
         {
         }
         /// <summary>
-        /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time.
+        /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time. Consumer-facing plan display built on quote results may be subject to CMS web-broker requirements; see [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html).
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteResponse"/></returns>
         /// <param name="body">Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.</param>
@@ -75,7 +75,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Quotes
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time.
+        /// Returns a homogeneous list of quote results for exactly one coverage_type. Send one request for one market and one coverage_type at a time. Consumer-facing plan display built on quote results may be subject to CMS web-broker requirements; see [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html).
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">Canonical quote request for new integrations. Unsupported fields anywhere in the body are rejected with `400 invalid_request`, so a misnamed or misplaced field is reported rather than silently ignored. Legacy `include` input is accepted for backward compatibility but ignored.</param>
