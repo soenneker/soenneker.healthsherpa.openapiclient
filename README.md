@@ -42,6 +42,6 @@ PingResponse? response = await client.V1.Ping.GetAsync(
 
 Endpoints follow Kiota's request-builder hierarchy. For example, quotes are posted through `client.V1.Quotes`, enrollments are under `client.V1.Enrollments`, and county/provider/issuer data is under `client.V1.Reference`.
 
-For dependency-injection setup, configuration-based authentication, and managed HTTP-client reuse, use `Soenneker.HealthSherpa.OpenApiClientUtil`, which composes this generated client with `Soenneker.HealthSherpa.HttpClients`.
+For application registration, configuration-based authentication, and managed HTTP-client reuse, use `Soenneker.HealthSherpa.OpenApiClientUtil`, which composes this generated client with `Soenneker.HealthSherpa.HttpClients`.
 
 This repository contains generated source. Put application-specific behavior in wrapper services or separate partial-class files because regeneration can replace generated files.
