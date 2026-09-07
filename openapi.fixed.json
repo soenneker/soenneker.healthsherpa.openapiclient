@@ -5063,6 +5063,10 @@
           },
           "error": {
             "$ref": "#/components/schemas/ErrorResponseError"
+          },
+          "message": {
+            "type": "string",
+            "description": "The primary error message."
           }
         }
       },
