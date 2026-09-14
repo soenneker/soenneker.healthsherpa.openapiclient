@@ -7,10 +7,11 @@ using System.IO;
 using System;
 namespace Soenneker.HealthSherpa.OpenApiClient.Models
 {
+    /// <summary>
+    /// Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
     public partial class LocationInput : IParsable
-    #pragma warning restore CS1591
     {
         /// <summary>Optional county name for the location. Derived during location resolution when omitted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +21,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string CountyName { get; set; }
 #endif
-        /// <summary>The fips_code property</summary>
+        /// <summary>Five-digit county FIPS. Must form a known county pair with zip_code for the request plan year.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FipsCode { get; set; }
@@ -28,7 +29,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string FipsCode { get; set; }
 #endif
-        /// <summary>Quoteable state code for one of the 50 states or DC.</summary>
+        /// <summary>Quoteable state code for one of the 50 states or DC. When present, must match the state encoded in fips_code.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }
@@ -36,7 +37,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string State { get; set; }
 #endif
-        /// <summary>The zip_code property</summary>
+        /// <summary>Five-digit ZIP. Must form a known county pair with fips_code for the request plan year.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ZipCode { get; set; }

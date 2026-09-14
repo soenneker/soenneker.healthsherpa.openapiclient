@@ -46,7 +46,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude Include { get; set; }
 #endif
-        /// <summary>The location property</summary>
+        /// <summary>Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput? Location { get; set; }

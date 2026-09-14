@@ -4,7 +4,31 @@
     "title": "HealthSherpa Public API",
     "version": "0.1.0",
     "termsOfService": "https://one.healthsherpa.com/legal/healthsherpa-one-api-terms-of-service.html",
-    "description": "Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified `ErrorResponse` schema: `{ \"error\": { \"code\": string, \"message\": string, \"details\"?: object } }`. The direct enrollment endpoints instead return service failures as a top-level `errors[]` array: `{ \"errors\": [ { \"code\": string, \"message\": string, \"field\"?: string } ] }`. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified `ErrorResponse` envelope, including on the direct enrollment endpoints — most notably a missing or invalid API key (`403 forbidden`).\n\n## Terms and compliance\n\n- [HealthSherpa ONE API Terms of Service](https://one.healthsherpa.com/legal/healthsherpa-one-api-terms-of-service.html)\n- [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html)\n- [CMS web-broker guidance](https://www.cms.gov/marketplace-private-insurance/agents-brokers/direct-enrollment-partners)\n- [45 CFR § 155.220](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-C/section-155.220)"
+    "description": "Machine-readable contract for the currently available public HealthSherpa endpoints: GET /v1/ping, GET /v1/reference/counties, GET /v1/reference/issuers, GET /v1/reference/providers, POST /v1/quotes, the approval-gated POST /v1/enrollment-sessions, the approval-gated on-exchange policy status endpoints GET /v1/policy-status/applications and GET /v1/policy-status/applications/{confirmation_id}, and the approval-gated direct enrollment endpoints GET /v1/enrollments, POST /v1/enrollments, PUT /v1/enrollments/{enrollment_id}, GET /v1/enrollments/{enrollment_id}, POST /v1/enrollments/{enrollment_id}/cancellations, POST /v1/enrollments/{enrollment_id}/terminations, POST /v1/enrollments/{enrollment_id}/submissions, GET /v1/enrollments/{enrollment_id}/payment_redirect, and POST /v1/enrollments/{enrollment_id}/supporting_documentation. Object schemas remain additive and clients should ignore response fields they do not recognize.\n\nMost HealthSherpa-owned errors follow the unified `ErrorResponse` schema: `{ \"error\": { \"code\": string, \"message\": string, \"details\"?: object } }`. The direct enrollment endpoints instead return service failures as a top-level `errors[]` array: `{ \"errors\": [ { \"code\": string, \"message\": string, \"field\"?: string } ] }`. Edge-generated failures (API Gateway and WAF, before a request reaches the service) always use the unified `ErrorResponse` envelope, including on the direct enrollment endpoints — most notably a missing or invalid API key (`403 forbidden`).\n\n## Terms and compliance\n\n- [HealthSherpa ONE API Terms of Service](https://one.healthsherpa.com/legal/healthsherpa-one-api-terms-of-service.html)\n- [Compliance considerations](https://one.healthsherpa.com/docs/integration-guide/compliance-considerations.html)\n- [CMS web-broker guidance](https://www.cms.gov/marketplace-private-insurance/agents-brokers/direct-enrollment-partners)\n- [45 CFR § 155.220](https://www.ecfr.gov/current/title-45/subtitle-A/subchapter-B/part-155/subpart-C/section-155.220)",
+    "x-rate-limits": {
+      "description": "Each API key is assigned one throughput tier. Its rate and burst limits apply to every API route. A shared stage limit also applies across callers.",
+      "defaultTier": "low",
+      "monthlyQuotaPerUsagePlanKeyAssociation": 100000,
+      "monthlyQuotaPeriod": "MONTH",
+      "sharedStage": {
+        "rateLimitRps": 20,
+        "burstLimit": 30
+      },
+      "tiers": {
+        "low": {
+          "rateLimitRps": 1,
+          "burstLimit": 2
+        },
+        "medium": {
+          "rateLimitRps": 5,
+          "burstLimit": 10
+        },
+        "high": {
+          "rateLimitRps": 10,
+          "burstLimit": 20
+        }
+      }
+    }
   },
   "externalDocs": {
     "description": "Compliance considerations",
@@ -2076,7 +2100,7 @@
         }
       },
       "RateLimited": {
-        "description": "Rate limit exceeded. Clients should back off and retry after the delay advertised in the Retry-After header.",
+        "description": "The per-key throughput tier, monthly quota, or shared stage limit was exceeded. Per-key tier limits apply to every API route. Clients should honor Retry-After when present and retry with exponential backoff and jitter.",
         "headers": {
           "Retry-After": {
             "description": "Number of seconds the client should wait before retrying.",
@@ -3982,6 +4006,7 @@
       "LocationInput": {
         "type": "object",
         "additionalProperties": false,
+        "description": "Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.",
         "required": [
           "zip_code",
           "fips_code"
@@ -3989,11 +4014,13 @@
         "properties": {
           "zip_code": {
             "type": "string",
-            "pattern": "^[0-9]{5}$"
+            "pattern": "^[0-9]{5}$",
+            "description": "Five-digit ZIP. Must form a known county pair with fips_code for the request plan year."
           },
           "fips_code": {
             "type": "string",
-            "pattern": "^[0-9]{5}$"
+            "pattern": "^[0-9]{5}$",
+            "description": "Five-digit county FIPS. Must form a known county pair with zip_code for the request plan year."
           },
           "county_name": {
             "type": "string",
@@ -4002,7 +4029,7 @@
           "state": {
             "type": "string",
             "pattern": "^[A-Z]{2}$",
-            "description": "Quoteable state code for one of the 50 states or DC."
+            "description": "Quoteable state code for one of the 50 states or DC. When present, must match the state encoded in fips_code."
           }
         }
       },
