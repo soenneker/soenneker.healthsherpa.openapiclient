@@ -571,7 +571,7 @@
                   "type": "string",
                   "additionalProperties": false,
                   "x-ms-enum": {
-                    "name": "GeneratedEnum",
+                    "name": "IdempotentReplay",
                     "modelAsString": false,
                     "values": [
                       {
@@ -7904,7 +7904,7 @@
               "type": "string",
               "additionalProperties": false,
               "x-ms-enum": {
-                "name": "GeneratedEnum",
+                "name": "IdempotentReplay",
                 "modelAsString": false,
                 "values": [
                   {
