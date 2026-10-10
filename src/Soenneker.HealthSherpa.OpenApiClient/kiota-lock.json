@@ -2,7 +2,7 @@
   "descriptionHash": "43565C6EC112839EE89159A8E4BBBAFDCFF0541426B2D88A20CB10E98F6D83B2FF2B906769E46E0A09C2B43D747853A97173B33317E3EB532F640FE7093226F4",
   "descriptionLocation": "../../openapi.fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.35.0",
+  "kiotaVersion": "1.36.0",
   "clientClassName": "HealthSherpaOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.HealthSherpa.OpenApiClient",
