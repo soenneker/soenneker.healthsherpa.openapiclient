@@ -8,7 +8,6 @@
     "x-rate-limits": {
       "description": "Each API key is assigned one throughput tier. Its rate and burst limits apply to every API route. A shared stage limit also applies across callers.",
       "defaultTier": "low",
-      "monthlyQuotaPerUsagePlanKeyAssociation": 100000,
       "monthlyQuotaPeriod": "MONTH",
       "sharedStage": {
         "rateLimitRps": 20,
@@ -17,15 +16,18 @@
       "tiers": {
         "low": {
           "rateLimitRps": 1,
-          "burstLimit": 2
+          "burstLimit": 2,
+          "monthlyQuota": 100000
         },
         "medium": {
           "rateLimitRps": 5,
-          "burstLimit": 10
+          "burstLimit": 10,
+          "monthlyQuota": 500000
         },
         "high": {
           "rateLimitRps": 10,
-          "burstLimit": 20
+          "burstLimit": 20,
+          "monthlyQuota": 1000000
         }
       }
     }
