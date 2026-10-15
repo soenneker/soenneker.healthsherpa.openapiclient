@@ -62,7 +62,7 @@
             }
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
@@ -133,7 +133,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
@@ -223,7 +223,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
@@ -358,7 +358,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
@@ -457,7 +457,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "413": {
@@ -736,7 +736,7 @@
             "$ref": "#/components/responses/Unauthorized"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "429": {
@@ -812,7 +812,7 @@
             "$ref": "#/components/responses/Unauthorized"
           },
           "403": {
-            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+            "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
             "$ref": "#/components/responses/Forbidden"
           },
           "404": {
@@ -8308,7 +8308,7 @@
         }
       },
       "Forbidden": {
-        "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
+        "description": "The API key is missing, invalid, not authorized for this API, or the request was blocked at the API edge. Edge policy may deny requests from identified anonymous proxies, VPNs, and Tor exits, plus requests matching known bad input or high-confidence SSRF, LFI, RFI, restricted-extension, or cross-site-scripting signatures. Do not retry an unchanged edge-blocked request; contact developer support if a legitimate request is blocked. Public API requests may receive this edge-generated response before the backend can return a runtime 401. When a request reaches the backend, 403 may also mean the developer account or integration is not in the state required for that operation. For \u0060POST /v1/enrollment-sessions\u0060, that operation documents its own flow-scoped 403 requirements (both flows require approved on-exchange enrollment access, plus \u0060agent_assisted\u0060 OAuth link vs \u0060self_service\u0060 deeplink agent ID) instead of using this shared response reference.",
         "content": {
           "application/json": {
             "schema": {
@@ -8463,6 +8463,7 @@
     "securitySchemes": {
       "ApiKeyAuth": {
         "type": "apiKey",
+        "description": "Developer portal API key. Server-side credential: send it only from your backend and never embed it in browser JavaScript, mobile apps, public environment variables, or source control. Requests made with a key count against that key\u0027s throughput tier and monthly quota. Activating a new key in the developer portal disables the previous key.",
         "name": "x-api-key",
         "in": "header"
       }
