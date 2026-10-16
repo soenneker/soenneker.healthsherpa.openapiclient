@@ -516,38 +516,78 @@
               "schema": {
                 "$ref": "#/components/schemas/EnrollmentSessionRequest"
               },
-              "example": {
-                "external_id": "crm-lead-abc-123",
-                "context": {
-                  "product": "aca",
-                  "exchange": "on_exchange",
-                  "coverage_family": "medical",
-                  "coverage_type": "medical",
-                  "plan_year": 2026,
-                  "flow": "self_service",
-                  "locale": "en-US"
-                },
-                "plan_id": "12345NY0010001",
-                "location": {
-                  "zip_code": "10001",
-                  "fips_code": "36061",
-                  "state": "NY"
-                },
-                "household": {
-                  "annual_income": 42000,
-                  "household_size": 1,
-                  "applicants": [
-                    {
-                      "relationship": "primary",
-                      "first_name": "Jane",
-                      "last_name": "Doe",
-                      "email": "jane@example.com",
-                      "phone_number": "5551234567",
-                      "date_of_birth": "1990-01-01",
-                      "sex": "female",
-                      "uses_tobacco": false
+              "examples": {
+                "agentAssisted": {
+                  "summary": "Agent-assisted handoff with address prefill",
+                  "value": {
+                    "external_id": "crm-lead-abc-123",
+                    "context": {
+                      "product": "aca",
+                      "exchange": "on_exchange",
+                      "coverage_family": "medical",
+                      "coverage_type": "medical",
+                      "plan_year": 2026,
+                      "flow": "agent_assisted",
+                      "locale": "en-US"
+                    },
+                    "location": {
+                      "zip_code": "10001",
+                      "fips_code": "36061",
+                      "state": "NY",
+                      "address_line_1": "123 Main St",
+                      "address_line_2": "Apt 2B",
+                      "city": "New York"
+                    },
+                    "household": {
+                      "annual_income": 42000,
+                      "household_size": 1,
+                      "applicants": [
+                        {
+                          "relationship": "primary",
+                          "first_name": "Jane",
+                          "last_name": "Doe",
+                          "email": "jane@example.com",
+                          "phone_number": "5551234567",
+                          "date_of_birth": "1990-01-01",
+                          "sex": "female",
+                          "uses_tobacco": false
+                        }
+                      ]
                     }
-                  ]
+                  }
+                },
+                "selfServiceWithPlan": {
+                  "summary": "Self-service handoff with a selected plan",
+                  "value": {
+                    "external_id": "crm-lead-abc-123",
+                    "context": {
+                      "product": "aca",
+                      "exchange": "on_exchange",
+                      "coverage_family": "medical",
+                      "coverage_type": "medical",
+                      "plan_year": 2026,
+                      "flow": "self_service",
+                      "locale": "en-US"
+                    },
+                    "plan_id": "12345NY0010001",
+                    "location": {
+                      "zip_code": "10001",
+                      "fips_code": "36061",
+                      "state": "NY"
+                    },
+                    "household": {
+                      "annual_income": 42000,
+                      "household_size": 1,
+                      "applicants": [
+                        {
+                          "relationship": "primary",
+                          "date_of_birth": "1990-01-01",
+                          "sex": "female",
+                          "uses_tobacco": false
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -576,11 +616,26 @@
                 "schema": {
                   "$ref": "#/components/schemas/EnrollmentSessionResponse"
                 },
-                "example": {
-                  "external_id": "crm-lead-abc-123",
-                  "links": {
-                    "shopping_url": "https://healthsherpa.com/public/shop?external_id=crm-lead-abc-123&fip_code=36061&household_income=42000&household_size=1&people%5Bprimary%5D%5Bage%5D=36&people%5Bprimary%5D%5Bgender%5D=female&people%5Bprimary%5D%5Btobacco%5D=false&state=NY&user_type=consumer&year=2026&zip_code=10001",
-                    "client_apply_url": "https://healthsherpa.com/public/apply?external_id=crm-lead-abc-123&fip_code=36061&household_income=42000&household_size=1&people%5Bprimary%5D%5Bage%5D=36&people%5Bprimary%5D%5Bgender%5D=female&people%5Bprimary%5D%5Btobacco%5D=false&plan_hios_id=12345NY0010001&state=NY&user_type=consumer&year=2026&zip_code=10001"
+                "examples": {
+                  "agentAssisted": {
+                    "summary": "Agent-assisted links",
+                    "value": {
+                      "external_id": "crm-lead-abc-123",
+                      "links": {
+                        "shopping_url": "https://healthsherpa.com/opaque-shopping-link",
+                        "client_apply_url": "https://healthsherpa.com/opaque-apply-link"
+                      }
+                    }
+                  },
+                  "selfServiceWithPlan": {
+                    "summary": "Self-service links with selected plan",
+                    "value": {
+                      "external_id": "crm-lead-abc-123",
+                      "links": {
+                        "shopping_url": "https://healthsherpa.com/public/shop?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&fip_code=36061&household_income=42000&household_size=1&people%5Bprimary%5D%5Bage%5D=36&people%5Bprimary%5D%5Bgender%5D=female&people%5Bprimary%5D%5Btobacco%5D=false&user_type=consumer&year=2026&zip_code=10001",
+                        "client_apply_url": "https://healthsherpa.com/public/apply?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&plan_hios_id=12345NY0010001&plan_year=2026&state=NY&user_type=consumer"
+                      }
+                    }
                   }
                 }
               }
@@ -5040,12 +5095,12 @@
           "shopping_url": {
             "type": "string",
             "format": "uri",
-            "description": "HealthSherpa public shop URL (https://healthsherpa.com/public/shop?...)."
+            "description": "HealthSherpa-hosted shopping URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned."
           },
           "client_apply_url": {
             "type": "string",
             "format": "uri",
-            "description": "HealthSherpa public apply URL (https://healthsherpa.com/public/apply?...). Always present for enrollment-session responses."
+            "description": "HealthSherpa-hosted apply URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned. Always present for enrollment-session responses."
           }
         }
       },

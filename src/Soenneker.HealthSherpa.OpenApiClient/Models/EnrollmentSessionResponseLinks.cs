@@ -14,7 +14,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>HealthSherpa public apply URL (https://healthsherpa.com/public/apply?...). Always present for enrollment-session responses.</summary>
+        /// <summary>HealthSherpa-hosted apply URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned. Always present for enrollment-session responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientApplyUrl { get; set; }
@@ -22,7 +22,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string ClientApplyUrl { get; set; }
 #endif
-        /// <summary>HealthSherpa public shop URL (https://healthsherpa.com/public/shop?...).</summary>
+        /// <summary>HealthSherpa-hosted shopping URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ShoppingUrl { get; set; }
