@@ -41,10 +41,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude? Include { get; set; }
+        public UntypedNode? Include { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude Include { get; set; }
+        public UntypedNode Include { get; set; }
 #endif
         /// <summary>Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext>(global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext.CreateFromDiscriminatorValue); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters.CreateFromDiscriminatorValue); } },
                 { "household", n => { Household = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput>(global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput.CreateFromDiscriminatorValue); } },
-                { "include", n => { Include = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude>(global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude.CreateFromDiscriminatorValue); } },
+                { "include", n => { Include = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "location", n => { Location = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput>(global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput.CreateFromDiscriminatorValue); } },
                 { "page", n => { Page = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PageInput>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PageInput.CreateFromDiscriminatorValue); } },
                 { "sort", n => { Sort = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput>(global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput.CreateFromDiscriminatorValue); } },
@@ -107,7 +107,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext>("context", Context);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters>("filters", Filters);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput>("household", Household);
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteRequestInclude>("include", Include);
+            writer.WriteObjectValue<UntypedNode>("include", Include);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.LocationInput>("location", Location);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PageInput>("page", Page);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SortInput>("sort", Sort);

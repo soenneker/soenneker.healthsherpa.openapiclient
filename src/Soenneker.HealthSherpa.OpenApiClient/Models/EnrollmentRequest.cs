@@ -12,10 +12,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// HealthSherpa ONE direct enrollment create request. Send the application payload at the request root and include the HealthSherpa ONE `context` object for routing. HealthSherpa ONE uses `context` only for routing and applies the agent and TPA identifiers (`_agent_id`, `tpa_slug`) from your approved account setup; caller-supplied `_agent_id`, `tpa_slug`, `actor.agent_id`, and `agent_of_record` are rejected.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class EnrollmentRequest : IAdditionalDataHolder, IParsable
+    public partial class EnrollmentRequest : global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequestAllOf2, IParsable
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Server-owned HealthSherpa agent identifier. Do not send this field; caller-supplied values return `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,14 +64,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #nullable restore
 #else
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences CommunicationPreferences { get; set; }
-#endif
-        /// <summary>Routing context for direct enrollment create requests. Direct enrollment currently supports only `product = ichra` and `exchange = off_exchange`. Use `POST /v1/enrollment-sessions` for on-exchange enrollment.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext? Context { get; set; }
-#nullable restore
-#else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext Context { get; set; }
 #endif
         /// <summary>Optional. When omitted, the carrier auto-determines the effective date based on the SEP type and event date. When provided, the date must be valid for the SEP reason and event date. Invalid dates return `422` with valid choices when available, or a message that effective-date selection is unavailable. There is no endpoint to query valid dates ahead of time.</summary>
         public Date? DesiredEffectiveDate { get; set; }
@@ -144,18 +134,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public string TpaSlug { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequest"/> and sets the default values.
-        /// </summary>
-        public EnrollmentRequest()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
-        /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
         /// <returns>A <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
             return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentRequest();
@@ -164,9 +147,9 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// The deserialization information for the current model
         /// </summary>
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-        public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+        public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "_agent_id", n => { AgentId = n.GetStringValue(); } },
                 { "agent_of_record", n => { AgentOfRecord = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AgentOfRecord>(global::Soenneker.HealthSherpa.OpenApiClient.Models.AgentOfRecord.CreateFromDiscriminatorValue); } },
@@ -175,7 +158,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "applicants", n => { Applicants = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants>(global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants.CreateFromDiscriminatorValue); } },
                 { "attestations", n => { Attestations = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations>(global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations.CreateFromDiscriminatorValue); } },
                 { "communication_preferences", n => { CommunicationPreferences = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences>(global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences.CreateFromDiscriminatorValue); } },
-                { "context", n => { Context = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext>(global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext.CreateFromDiscriminatorValue); } },
                 { "desired_effective_date", n => { DesiredEffectiveDate = n.GetDateValue(); } },
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "hra", n => { Hra = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra>(global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra.CreateFromDiscriminatorValue); } },
@@ -192,9 +174,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// Serializes information the current object
         /// </summary>
         /// <param name="writer">Serialization writer to use to serialize this model</param>
-        public virtual void Serialize(ISerializationWriter writer)
+        public override void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            base.Serialize(writer);
             writer.WriteStringValue("_agent_id", AgentId);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AgentOfRecord>("agent_of_record", AgentOfRecord);
             writer.WriteBoolValue("american_indian_or_alaskan_native_in_household", AmericanIndianOrAlaskanNativeInHousehold);
@@ -202,7 +185,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants>("applicants", Applicants);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations>("attestations", Attestations);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences>("communication_preferences", CommunicationPreferences);
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext>("context", Context);
             writer.WriteDateValue("desired_effective_date", DesiredEffectiveDate);
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra>("hra", Hra);
@@ -213,7 +195,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Signatures>("signatures", Signatures);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriod>("special_enrollment_period", SpecialEnrollmentPeriod);
             writer.WriteStringValue("tpa_slug", TpaSlug);
-            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

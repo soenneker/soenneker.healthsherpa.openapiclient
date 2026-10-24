@@ -611,7 +611,6 @@
                     "true"
                   ],
                   "type": "string",
-                  "additionalProperties": false,
                   "x-ms-enum": {
                     "name": "IdempotentReplay",
                     "modelAsString": false,
@@ -1799,10 +1798,14 @@
         "required": [
           "plan_hios_id",
           "applicants",
-          "residential_address",
-          "context"
+          "residential_address"
         ],
         "type": "object",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EnrollmentRequestAllOf2"
+          }
+        ],
         "properties": {
           "external_id": {
             "type": "string",
@@ -1867,10 +1870,6 @@
           "analytics": {
             "description": "Optional tracking and attribution parameters.",
             "$ref": "#/components/schemas/Analytics"
-          },
-          "context": {
-            "description": "Routing context for direct enrollment create requests. Direct enrollment currently supports only \u0060product = ichra\u0060 and \u0060exchange = off_exchange\u0060. Use \u0060POST /v1/enrollment-sessions\u0060 for on-exchange enrollment.",
-            "$ref": "#/components/schemas/EnrollmentContext"
           }
         },
         "description": "HealthSherpa ONE direct enrollment create request. Send the application payload at the request root and include the HealthSherpa ONE \u0060context\u0060 object for routing. HealthSherpa ONE uses \u0060context\u0060 only for routing and applies the agent and TPA identifiers (\u0060_agent_id\u0060, \u0060tpa_slug\u0060) from your approved account setup; caller-supplied \u0060_agent_id\u0060, \u0060tpa_slug\u0060, \u0060actor.agent_id\u0060, and \u0060agent_of_record\u0060 are rejected."
@@ -2744,7 +2743,7 @@
             "format": "date"
           },
           "gender": {
-            "$ref": "#/components/schemas/PrimaryApplicantGender"
+            "$ref": "#/components/schemas/DependentGender"
           },
           "married": {
             "type": "boolean"
@@ -3014,7 +3013,6 @@
           "other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ApplicantLanguage",
           "modelAsString": false,
@@ -4237,7 +4235,8 @@
             "$ref": "#/components/schemas/PageInput"
           },
           "include": {
-            "$ref": "#/components/schemas/QuoteRequestInclude"
+            "description": "Deprecated and ignored. Accepted for backward compatibility.",
+            "deprecated": true
           }
         },
         "additionalProperties": false,
@@ -5129,7 +5128,6 @@
         }
       },
       "EnrollmentErrorResponse": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/EnrollmentErrorsResponse"
@@ -5137,23 +5135,7 @@
           {
             "$ref": "#/components/schemas/ErrorResponse"
           }
-        ],
-        "properties": {
-          "errors": {
-            "minItems": 1,
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnrollmentErrorDetail"
-            }
-          },
-          "error": {
-            "$ref": "#/components/schemas/ErrorResponseError"
-          },
-          "message": {
-            "type": "string",
-            "description": "The primary error message."
-          }
-        }
+        ]
       },
       "EnrollmentRequestAllOf2": {
         "required": [
@@ -5289,7 +5271,6 @@
         }
       },
       "ApplicationResponsePayment": {
-        "type": "object",
         "anyOf": [
           {
             "$ref": "#/components/schemas/PolicyPaymentStatus"
@@ -5298,53 +5279,6 @@
             "type": "null"
           }
         ],
-        "properties": {
-          "payment_status": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "payment_status_updated_date": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date"
-          },
-          "grace_period_start_date": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date"
-          },
-          "paid_through_date": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date"
-          },
-          "past_due_member_responsibility_balance_due": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "current_member_responsibility_balance_due": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "autopay_indicator": {
-            "type": [
-              "null",
-              "boolean"
-            ]
-          }
-        },
         "description": "Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately."
       },
       "SupportingDocumentationRequestFile": {
@@ -5827,6 +5761,28 @@
         "type": "object",
         "description": "Placeholder schema for path example refs"
       },
+      "DependentGender": {
+        "enum": [
+          "male",
+          "female"
+        ],
+        "type": "string",
+        "description": "\u0060male\u0060 and \u0060female\u0060 are accepted by all carriers. \u0060x\u0060 is accepted for New York applicants; carriers in other states reject \u0060x\u0060 at submission.",
+        "x-ms-enum": {
+          "name": "DependentGender",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "male",
+              "name": "Male"
+            },
+            {
+              "value": "female",
+              "name": "Female"
+            }
+          ]
+        }
+      },
       "EnrollmentResponseApplication": {
         "type": "object",
         "description": "Echo of the application data as stored."
@@ -5834,11 +5790,6 @@
       "ApplicationResponseApplicationProperty": {
         "type": "object",
         "description": "Echo of the application data as stored."
-      },
-      "QuoteRequestInclude": {
-        "type": "object",
-        "description": "Deprecated and ignored. Accepted for backward compatibility.",
-        "deprecated": true
       },
       "ErrorResponseErrorDetailsProperty": {
         "type": "object",
@@ -5855,7 +5806,6 @@
           "sep"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of supporting document. Currently only \u0060sep\u0060 is accepted.",
         "x-ms-enum": {
           "name": "SepDocumentType",
@@ -5873,7 +5823,6 @@
           "ichra"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "IchraProduct",
           "modelAsString": false,
@@ -5890,7 +5839,6 @@
           "off_exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "OffExchangeExchange",
           "modelAsString": false,
@@ -5912,7 +5860,6 @@
           "terminated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ApplicationListItemPolicyStatus",
           "modelAsString": false,
@@ -5949,7 +5896,6 @@
           "POST"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "HTTP method to use. Always \u0060POST\u0060.",
         "x-ms-enum": {
           "name": "PostMethod",
@@ -5967,7 +5913,6 @@
           "medical"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MedicalCoverageFamily",
           "modelAsString": false,
@@ -5984,7 +5929,6 @@
           "medical"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MedicalCoverageType",
           "modelAsString": false,
@@ -6006,7 +5950,6 @@
           "V"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PrimaryApplicantSuffix",
           "modelAsString": false,
@@ -6041,7 +5984,6 @@
           "x"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060male\u0060 and \u0060female\u0060 are accepted by all carriers. \u0060x\u0060 is accepted for New York applicants; carriers in other states reject \u0060x\u0060 at submission.",
         "x-ms-enum": {
           "name": "PrimaryApplicantGender",
@@ -6079,7 +6021,6 @@
           "decline_to_answer"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Required by some carriers. Use \u0060decline_to_answer\u0060 if not collected.",
         "x-ms-enum": {
           "name": "PrimaryApplicantRaceEthnicity",
@@ -6147,7 +6088,6 @@
           "decline_to_answer"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Required by some carriers. Use \u0060decline_to_answer\u0060 if not collected.",
         "x-ms-enum": {
           "name": "PrimaryApplicantHispanicOrigin",
@@ -6177,7 +6117,6 @@
           "decline_to_answer"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Required when \u0060hispanic_origin\u0060 is \u0060yes\u0060.",
         "x-ms-enum": {
           "name": "PrimaryApplicantHispanicOriginDescription",
@@ -6213,7 +6152,6 @@
           "cell"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PrimaryApplicantPhoneType",
           "modelAsString": false,
@@ -6245,7 +6183,6 @@
           "other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060spouse\u0060, \u0060domestic_partner\u0060, and \u0060child\u0060 are supported by all carriers. Other values are accepted by select carriers and states.",
         "x-ms-enum": {
           "name": "DependentRelationship",
@@ -6292,7 +6229,6 @@
           "government"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060issuer\u0060: coverage with another issuer. \u0060government\u0060: government program such as Medicare or Medicaid.",
         "x-ms-enum": {
           "name": "ExistingCoverageType",
@@ -6319,7 +6255,6 @@
           "V"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GuardianSuffix",
           "modelAsString": false,
@@ -6353,7 +6288,6 @@
           "female"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GuardianGender",
           "modelAsString": false,
@@ -6377,7 +6311,6 @@
           "other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "GuardianRelationship",
           "modelAsString": false,
@@ -6407,7 +6340,6 @@
           "female"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ResponsiblePartySex",
           "modelAsString": false,
@@ -6429,7 +6361,6 @@
           "sibling"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ResponsiblePartyRelationship",
           "modelAsString": false,
@@ -6451,7 +6382,6 @@
           "qsehra"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "HraType",
           "modelAsString": false,
@@ -6473,7 +6403,6 @@
           "premium_oop"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060premium\u0060: premiums only. \u0060premium_oop\u0060: premiums and out-of-pocket costs.",
         "x-ms-enum": {
           "name": "HraContributionCovers",
@@ -6497,7 +6426,6 @@
           "unknown"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Whether the HRA is used for spousal or family premiums. Relevant for QSEHRA 834 indicators.",
         "x-ms-enum": {
           "name": "HraUsedForSpousalOrFamilyPremiums",
@@ -6550,7 +6478,6 @@
           "other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Standardized qualifying event type. HealthSherpa maps these to carrier-specific values automatically. \u0060pregnancy\u0060 is accepted in CO, VA, NJ, and MD. For ICHRA enrollments, \u0060offered_ichra\u0060 is the most common reason.",
         "x-ms-enum": {
           "name": "SpecialEnrollmentPeriodEventType",
@@ -6677,7 +6604,6 @@
           "not_applicable"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Pediatric dental attestation. \u0060purchased_separately\u0060: pediatric dental purchased via stand-alone dental plan. \u0060not_applicable\u0060: no children under 19 on the application.",
         "x-ms-enum": {
           "name": "AttestationsPediatricDental",
@@ -6701,7 +6627,6 @@
           "mail"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "CommunicationPreferencesPreferredCommunicationMethod",
           "modelAsString": false,
@@ -6731,7 +6656,6 @@
           "terminated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060draft\u0060 when the application has not yet been submitted. Transitions to \u0060pending_effectuation\u0060 on successful submission. \u0060submission_failed\u0060 means asynchronous carrier submission failed after submit returned.",
         "x-ms-enum": {
           "name": "EnrollmentResponsePolicyStatus",
@@ -6777,7 +6701,6 @@
           "null",
           "string"
         ],
-        "additionalProperties": false,
         "description": "SEP document verification status. \u0060required\u0060 means documentation must be uploaded; \u0060uploaded\u0060 means sent to carrier pending verification; \u0060verified\u0060 means accepted; \u0060denied\u0060 means carrier denied the documentation.",
         "x-ms-enum": {
           "name": "EnrollmentResponseDocumentStatus",
@@ -6814,7 +6737,6 @@
           "terminated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PolicyDetailStatus",
           "modelAsString": false,
@@ -6858,7 +6780,6 @@
           "ineligible_for_enrollment"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Machine-readable error code. Switch on this value instead of parsing \u0060message\u0060.",
         "x-ms-enum": {
           "name": "SubmissionReadinessErrorCode",
@@ -6944,7 +6865,6 @@
           "change_plan"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Relation type identifying the action.",
         "x-ms-enum": {
           "name": "NextActionRel",
@@ -6996,7 +6916,6 @@
           "POST"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "HTTP method to use.",
         "x-ms-enum": {
           "name": "NextActionMethod",
@@ -7027,7 +6946,6 @@
           "policy_status_updated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ApplicationEventType",
           "modelAsString": false,
@@ -7065,7 +6983,6 @@
           "applicant"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "For \u0060changed\u0060 events: whether the change was on the application or an applicant record.",
         "x-ms-enum": {
           "name": "ApplicationEventTarget",
@@ -7092,7 +7009,6 @@
           "catastrophic"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MedicalFiltersMetalLevelsItem",
           "modelAsString": false,
@@ -7133,7 +7049,6 @@
           "indemnity"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MedicalFiltersPlanTypesItem",
           "modelAsString": false,
@@ -7167,7 +7082,6 @@
           "low"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "DentalFiltersMetalLevelsItem",
           "modelAsString": false,
@@ -7189,7 +7103,6 @@
           "ichra"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "QuoteContextProduct",
           "modelAsString": false,
@@ -7211,7 +7124,6 @@
           "off_exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "QuoteContextExchange",
           "modelAsString": false,
@@ -7233,7 +7145,6 @@
           "ancillary"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "QuoteContextCoverageFamily",
           "modelAsString": false,
@@ -7257,7 +7168,6 @@
           "supplemental_other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "QuoteContextCoverageType",
           "modelAsString": false,
@@ -7288,7 +7198,6 @@
           "dependent"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ApplicantInputRelationship",
           "modelAsString": false,
@@ -7316,7 +7225,6 @@
           "unknown"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Optional applicant gender for quote flows that use gender in marketplace screening.",
         "x-ms-enum": {
           "name": "ApplicantInputGender",
@@ -7347,7 +7255,6 @@
           "desc"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SortInputDirection",
           "modelAsString": false,
@@ -7368,7 +7275,6 @@
           "aca"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "AcaProduct",
           "modelAsString": false,
@@ -7385,7 +7291,6 @@
           "on_exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "OnExchangeExchange",
           "modelAsString": false,
@@ -7403,7 +7308,6 @@
           "self_service"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Mapped to the deep link\u0027s \u0060user_type\u0060 (\u0060agent_assisted\u0060 -\u003E \u0060agent\u0060, \u0060self_service\u0060 -\u003E \u0060consumer\u0060).",
         "x-ms-enum": {
           "name": "EnrollmentSessionContextFlow",
@@ -7426,7 +7330,6 @@
           "es-MX"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "\u0060es-MX\u0060 enables the Spanish flow via the deep link\u0027s \u0060ljs\u0060 parameter.",
         "x-ms-enum": {
           "name": "EnrollmentSessionContextLocale",
@@ -7450,7 +7353,6 @@
           "dependent"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EnrollmentSessionApplicantRelationship",
           "modelAsString": false,
@@ -7476,7 +7378,6 @@
           "female"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EnrollmentSessionApplicantSex",
           "modelAsString": false,
@@ -7500,7 +7401,6 @@
           "one_time"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "EnrollmentSessionEnrollmentHraFrequency",
           "modelAsString": false,
@@ -7530,7 +7430,6 @@
           "female"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Dependent applicant gender.",
         "x-ms-enum": {
           "name": "DependentAllOf2Gender",
@@ -7554,7 +7453,6 @@
           "image/png"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "MIME type of the uploaded file.",
         "example": "application/pdf",
         "x-ms-enum": {
@@ -7582,7 +7480,6 @@
           "ichra"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PlanQuoteResultContextProduct",
           "modelAsString": false,
@@ -7604,7 +7501,6 @@
           "off_exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PlanQuoteResultContextExchange",
           "modelAsString": false,
@@ -7626,7 +7522,6 @@
           "ancillary"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PlanQuoteResultContextCoverageFamily",
           "modelAsString": false,
@@ -7650,7 +7545,6 @@
           "supplemental_other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PlanQuoteResultContextCoverageType",
           "modelAsString": false,
@@ -7679,7 +7573,6 @@
           "USD"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "UsdCurrency",
           "modelAsString": false,
@@ -7696,7 +7589,6 @@
           "monthly"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MonthlyBillingPeriod",
           "modelAsString": false,
@@ -7716,7 +7608,6 @@
           "supplemental_other"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsType",
           "modelAsString": false,
@@ -7750,7 +7641,6 @@
           "catastrophic"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Present for medical quote results.",
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsMetalLevel",
@@ -7792,7 +7682,6 @@
           "indemnity"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Present for medical quote results.",
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsPlanType",
@@ -7836,7 +7725,6 @@
           "null",
           "string"
         ],
-        "additionalProperties": false,
         "description": "CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.",
         "x-ms-enum": {
           "name": "PlanQuoteResultDetailsCsrLevel",
@@ -7883,7 +7771,6 @@
           "off_exchange"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SearchProvidersExchangeParameter",
           "modelAsString": false,
@@ -7909,7 +7796,6 @@
           "terminated"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "ListEnrollmentsPolicyStatusParameter",
           "modelAsString": false,
@@ -7959,7 +7845,6 @@
                 "true"
               ],
               "type": "string",
-              "additionalProperties": false,
               "x-ms-enum": {
                 "name": "IdempotentReplay",
                 "modelAsString": false,

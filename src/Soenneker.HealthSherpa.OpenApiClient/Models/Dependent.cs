@@ -74,7 +74,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The full_time_student property</summary>
         public bool? FullTimeStudent { get; set; }
         /// <summary>`male` and `female` are accepted by all carriers. `x` is accepted for New York applicants; carriers in other states reject `x` at submission.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantGender? Gender { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender? Gender { get; set; }
         /// <summary>Required if `full_time_student` is `true`.</summary>
         public Date? GraduationDate { get; set; }
         /// <summary>Required for primary applicants under 18.</summary>
@@ -206,7 +206,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "full_time_student", n => { FullTimeStudent = n.GetBoolValue(); } },
-                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantGender>(); } },
+                { "gender", n => { Gender = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender>(); } },
                 { "graduation_date", n => { GraduationDate = n.GetDateValue(); } },
                 { "guardian", n => { Guardian = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian>(global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian.CreateFromDiscriminatorValue); } },
                 { "has_disability", n => { HasDisability = n.GetBoolValue(); } },
@@ -255,7 +255,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteBoolValue("full_time_student", FullTimeStudent);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantGender>("gender", Gender);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender>("gender", Gender);
             writer.WriteDateValue("graduation_date", GraduationDate);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian>("guardian", Guardian);
             writer.WriteBoolValue("has_disability", HasDisability);
