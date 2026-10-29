@@ -104,7 +104,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultNetwork Network { get; set; }
 #endif
-        /// <summary>The plan_id property</summary>
+        /// <summary>Canonical marketplace plan identifier. HIOS-backed quoters generally expose the 14-character standard component ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlanId { get; set; }
@@ -128,7 +128,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultRelease Release { get; set; }
 #endif
-        /// <summary>The variant_id property</summary>
+        /// <summary>Two-digit plan-variant suffix for the quoted sellable record when exposed by the quoter. Federal HIOS examples include 00 for off-exchange, 01 for standard on-exchange, 02/03 for American Indian and Alaska Native variations, and 04/05/06 for Silver CSR variations. HIOS-backed quoters that canonicalize a bare standard on-exchange source ID expose 01. State programs may use other suffixes, such as New Mexico&apos;s 90/95/99; clients should treat the value as an opaque identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VariantId { get; set; }

@@ -4064,7 +4064,7 @@
       "LocationInput": {
         "type": "object",
         "additionalProperties": false,
-        "description": "Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.",
+        "description": "Residence used for quoting. zip_code and fips_code must be a known county pair for the request plan year. Known pairs include narrow, year-specific marketplace associations when the live marketplace differs from the Census-derived crosswalk. If that plan year has no local rows yet, the latest loaded year is used. When state is sent, it must match the state encoded in fips_code. Resolve the pair with the counties reference endpoint.",
         "required": [
           "zip_code",
           "fips_code"
@@ -4245,10 +4245,12 @@
         ],
         "properties": {
           "plan_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Canonical marketplace plan identifier. HIOS-backed quoters generally expose the 14-character standard component ID."
           },
           "variant_id": {
-            "type": "string"
+            "type": "string",
+            "description": "Two-digit plan-variant suffix for the quoted sellable record when exposed by the quoter. Federal HIOS examples include 00 for off-exchange, 01 for standard on-exchange, 02/03 for American Indian and Alaska Native variations, and 04/05/06 for Silver CSR variations. HIOS-backed quoters that canonicalize a bare standard on-exchange source ID expose 01. State programs may use other suffixes, such as New Mexico's 90/95/99; clients should treat the value as an opaque identifier."
           },
           "external_plan_id": {
             "type": "string"
@@ -4353,10 +4355,12 @@
             "nullable": true,
             "properties": {
               "network_id": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "name": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "type": {
                 "type": "string",
