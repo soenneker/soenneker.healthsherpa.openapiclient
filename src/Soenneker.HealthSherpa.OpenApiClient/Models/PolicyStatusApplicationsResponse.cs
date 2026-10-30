@@ -18,8 +18,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("applications") is { } nullNodeApplications && nullNodeApplications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applications = null;
-            if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
+            if (parseNode.GetChildNode("applications") is null) { _explicitNullValueApplications = default!; _explicitNullProperties?.Remove("applications"); }
+            else if (parseNode.GetChildNode("applications") is { } nullNodeApplications && nullNodeApplications.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applications = null;
+            if (parseNode.GetChildNode("pagination") is null) { _explicitNullValuePagination = default!; _explicitNullProperties?.Remove("pagination"); }
+            else if (parseNode.GetChildNode("pagination") is { } nullNodePagination && nullNodePagination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pagination = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The applications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem>? Applications { get => _explicitNullValueApplications; set { _explicitNullValueApplications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applications"); else _explicitNullProperties?.Remove("applications"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem>? Applications { get => _explicitNullValueApplications; set { _explicitNullValueApplications = value; AdditionalData?.Remove("applications"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applications"); else _explicitNullProperties?.Remove("applications"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem>? _explicitNullValueApplications = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem> Applications { get => _explicitNullValueApplications; set { _explicitNullValueApplications = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applications"); else _explicitNullProperties?.Remove("applications"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem> Applications { get => _explicitNullValueApplications; set { _explicitNullValueApplications = value; AdditionalData?.Remove("applications"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applications"); else _explicitNullProperties?.Remove("applications"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationListItem> _explicitNullValueApplications = default!;
 #endif
         /// <summary>Pagination metadata returned by the Marketplace policy status API.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination? Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; AdditionalData?.Remove("pagination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination? _explicitNullValuePagination = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination Pagination { get => _explicitNullValuePagination; set { _explicitNullValuePagination = value; AdditionalData?.Remove("pagination"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pagination"); else _explicitNullProperties?.Remove("pagination"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusApplicationPagination _explicitNullValuePagination = default!;
 #endif
         /// <summary>

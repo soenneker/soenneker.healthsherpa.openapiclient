@@ -18,7 +18,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("hra") is { } nullNodeHra && nullNodeHra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hra = null;
+            if (parseNode.GetChildNode("hra") is null) { _explicitNullValueHra = default!; _explicitNullProperties?.Remove("hra"); }
+            else if (parseNode.GetChildNode("hra") is { } nullNodeHra && nullNodeHra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hra = null;
         }
 
         /// <summary>When supplied, `amount` is required and must be greater than or equal to 0. `0` means the consumer declined available HRA funding; a positive value means funding was accepted. `frequency` is required when `amount &gt; 0` and is omitted from the deep link when `amount == 0`.</summary>

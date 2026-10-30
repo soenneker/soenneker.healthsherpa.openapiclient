@@ -17,17 +17,19 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("exchange") is { } nullNodeExchange && nullNodeExchange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exchange = null;
-            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+            if (parseNode.GetChildNode("exchange") is null) { _explicitNullValueExchange = default!; _explicitNullProperties?.Remove("exchange"); }
+            else if (parseNode.GetChildNode("exchange") is { } nullNodeExchange && nullNodeExchange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exchange = null;
+            if (parseNode.GetChildNode("product") is null) { _explicitNullValueProduct = default!; _explicitNullProperties?.Remove("product"); }
+            else if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The exchange property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get => _explicitNullValueExchange; set { _explicitNullValueExchange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange"); else _explicitNullProperties?.Remove("exchange"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get => _explicitNullValueExchange; set { _explicitNullValueExchange = value; AdditionalData?.Remove("exchange"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange"); else _explicitNullProperties?.Remove("exchange"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? _explicitNullValueExchange = default!;
         /// <summary>The product property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; AdditionalData?.Remove("product"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? _explicitNullValueProduct = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmitRequestContext"/> and sets the default values.
@@ -54,8 +56,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "exchange", n => { Exchange = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange>(); } },
-                { "product", n => { Product = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct>(); } },
+                { "exchange", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueExchange = default; _explicitNullProperties?.Remove("exchange"); AdditionalData["exchange"] = unknown; } else { Exchange = parsed; AdditionalData.Remove("exchange"); } } },
+                { "product", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueProduct = default; _explicitNullProperties?.Remove("product"); AdditionalData["product"] = unknown; } else { Product = parsed; AdditionalData.Remove("product"); } } },
             };
         }
         /// <summary>

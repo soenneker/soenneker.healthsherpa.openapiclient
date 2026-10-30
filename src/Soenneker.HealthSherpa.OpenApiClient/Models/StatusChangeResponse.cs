@@ -19,10 +19,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
-            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
-            if (parseNode.GetChildNode("policy_status") is { } nullNodePolicyStatus && nullNodePolicyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyStatus = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("application_id") is null) { _explicitNullValueApplicationId = default!; _explicitNullProperties?.Remove("application_id"); }
+            else if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
+            if (parseNode.GetChildNode("effective_date") is null) { _explicitNullValueEffectiveDate = default!; _explicitNullProperties?.Remove("effective_date"); }
+            else if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("policy_status") is null) { _explicitNullValuePolicyStatus = default!; _explicitNullProperties?.Remove("policy_status"); }
+            else if (parseNode.GetChildNode("policy_status") is { } nullNodePolicyStatus && nullNodePolicyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyStatus = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,28 +34,28 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Application whose policy status changed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string? _explicitNullValueApplicationId = default!;
 #nullable restore
 #else
-        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string _explicitNullValueApplicationId = default!;
 #endif
         /// <summary>The effective date of the status change when present.</summary>
-        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; AdditionalData?.Remove("effective_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
         private Date? _explicitNullValueEffectiveDate = default!;
         /// <summary>Updated policy status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PolicyStatus { get => _explicitNullValuePolicyStatus; set { _explicitNullValuePolicyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_status"); else _explicitNullProperties?.Remove("policy_status"); } }
+        public string? PolicyStatus { get => _explicitNullValuePolicyStatus; set { _explicitNullValuePolicyStatus = value; AdditionalData?.Remove("policy_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_status"); else _explicitNullProperties?.Remove("policy_status"); } }
         private string? _explicitNullValuePolicyStatus = default!;
 #nullable restore
 #else
-        public string PolicyStatus { get => _explicitNullValuePolicyStatus; set { _explicitNullValuePolicyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_status"); else _explicitNullProperties?.Remove("policy_status"); } }
+        public string PolicyStatus { get => _explicitNullValuePolicyStatus; set { _explicitNullValuePolicyStatus = value; AdditionalData?.Remove("policy_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_status"); else _explicitNullProperties?.Remove("policy_status"); } }
         private string _explicitNullValuePolicyStatus = default!;
 #endif
         /// <summary>When the status-change request updated the application.</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.StatusChangeResponse"/> and sets the default values.

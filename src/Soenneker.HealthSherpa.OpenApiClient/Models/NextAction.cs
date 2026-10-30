@@ -18,10 +18,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("href") is { } nullNodeHref && nullNodeHref.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Href = null;
-            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
-            if (parseNode.GetChildNode("rel") is { } nullNodeRel && nullNodeRel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rel = null;
-            if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
+            if (parseNode.GetChildNode("href") is null) { _explicitNullValueHref = default!; _explicitNullProperties?.Remove("href"); }
+            else if (parseNode.GetChildNode("href") is { } nullNodeHref && nullNodeHref.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Href = null;
+            if (parseNode.GetChildNode("method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("method"); }
+            else if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("rel") is null) { _explicitNullValueRel = default!; _explicitNullProperties?.Remove("rel"); }
+            else if (parseNode.GetChildNode("rel") is { } nullNodeRel && nullNodeRel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Rel = null;
+            if (parseNode.GetChildNode("required") is null) { _explicitNullValueRequired = default!; _explicitNullProperties?.Remove("required"); }
+            else if (parseNode.GetChildNode("required") is { } nullNodeRequired && nullNodeRequired.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Required = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,21 +33,21 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Relative HealthSherpa ONE URL for the action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Href { get => _explicitNullValueHref; set { _explicitNullValueHref = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("href"); else _explicitNullProperties?.Remove("href"); } }
+        public string? Href { get => _explicitNullValueHref; set { _explicitNullValueHref = value; AdditionalData?.Remove("href"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("href"); else _explicitNullProperties?.Remove("href"); } }
         private string? _explicitNullValueHref = default!;
 #nullable restore
 #else
-        public string Href { get => _explicitNullValueHref; set { _explicitNullValueHref = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("href"); else _explicitNullProperties?.Remove("href"); } }
+        public string Href { get => _explicitNullValueHref; set { _explicitNullValueHref = value; AdditionalData?.Remove("href"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("href"); else _explicitNullProperties?.Remove("href"); } }
         private string _explicitNullValueHref = default!;
 #endif
         /// <summary>HTTP method to use.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionMethod? _explicitNullValueMethod = default!;
         /// <summary>Relation type identifying the action.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionRel? Rel { get => _explicitNullValueRel; set { _explicitNullValueRel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rel"); else _explicitNullProperties?.Remove("rel"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionRel? Rel { get => _explicitNullValueRel; set { _explicitNullValueRel = value; AdditionalData?.Remove("rel"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rel"); else _explicitNullProperties?.Remove("rel"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionRel? _explicitNullValueRel = default!;
         /// <summary>When true, this action must be completed before submission. Used for prerequisites like supporting documentation or payment.</summary>
-        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
+        public bool? Required { get => _explicitNullValueRequired; set { _explicitNullValueRequired = value; AdditionalData?.Remove("required"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("required"); else _explicitNullProperties?.Remove("required"); } }
         private bool? _explicitNullValueRequired = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction"/> and sets the default values.
@@ -71,8 +75,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "href", n => { Href = n.GetStringValue(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionMethod>(); } },
-                { "rel", n => { Rel = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionRel>(); } },
+                { "method", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMethod = default; _explicitNullProperties?.Remove("method"); AdditionalData["method"] = unknown; } else { Method = parsed; AdditionalData.Remove("method"); } } },
+                { "rel", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextActionRel>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueRel = default; _explicitNullProperties?.Remove("rel"); AdditionalData["rel"] = unknown; } else { Rel = parsed; AdditionalData.Remove("rel"); } } },
                 { "required", n => { Required = n.GetBoolValue(); } },
             };
         }

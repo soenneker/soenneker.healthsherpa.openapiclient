@@ -17,31 +17,35 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("page_number") is { } nullNodePageNumber && nullNodePageNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageNumber = null;
-            if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
-            if (parseNode.GetChildNode("result_count") is { } nullNodeResultCount && nullNodeResultCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultCount = null;
-            if (parseNode.GetChildNode("warnings") is { } nullNodeWarnings && nullNodeWarnings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warnings = null;
+            if (parseNode.GetChildNode("page_number") is null) { _explicitNullValuePageNumber = default!; _explicitNullProperties?.Remove("page_number"); }
+            else if (parseNode.GetChildNode("page_number") is { } nullNodePageNumber && nullNodePageNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageNumber = null;
+            if (parseNode.GetChildNode("page_size") is null) { _explicitNullValuePageSize = default!; _explicitNullProperties?.Remove("page_size"); }
+            else if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
+            if (parseNode.GetChildNode("result_count") is null) { _explicitNullValueResultCount = default!; _explicitNullProperties?.Remove("result_count"); }
+            else if (parseNode.GetChildNode("result_count") is { } nullNodeResultCount && nullNodeResultCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultCount = null;
+            if (parseNode.GetChildNode("warnings") is null) { _explicitNullValueWarnings = default!; _explicitNullProperties?.Remove("warnings"); }
+            else if (parseNode.GetChildNode("warnings") is { } nullNodeWarnings && nullNodeWarnings.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Warnings = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The page_number property</summary>
-        public int? PageNumber { get => _explicitNullValuePageNumber; set { _explicitNullValuePageNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_number"); else _explicitNullProperties?.Remove("page_number"); } }
+        public int? PageNumber { get => _explicitNullValuePageNumber; set { _explicitNullValuePageNumber = value; AdditionalData?.Remove("page_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_number"); else _explicitNullProperties?.Remove("page_number"); } }
         private int? _explicitNullValuePageNumber = default!;
         /// <summary>The page_size property</summary>
-        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
+        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; AdditionalData?.Remove("page_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
         private int? _explicitNullValuePageSize = default!;
         /// <summary>The result_count property</summary>
-        public int? ResultCount { get => _explicitNullValueResultCount; set { _explicitNullValueResultCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_count"); else _explicitNullProperties?.Remove("result_count"); } }
+        public int? ResultCount { get => _explicitNullValueResultCount; set { _explicitNullValueResultCount = value; AdditionalData?.Remove("result_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_count"); else _explicitNullProperties?.Remove("result_count"); } }
         private int? _explicitNullValueResultCount = default!;
         /// <summary>Non-fatal advisories for the request. Includes an include deprecation warning when legacy `include` is supplied.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        public List<string>? Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; AdditionalData?.Remove("warnings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
         private List<string>? _explicitNullValueWarnings = default!;
 #nullable restore
 #else
-        public List<string> Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
+        public List<string> Warnings { get => _explicitNullValueWarnings; set { _explicitNullValueWarnings = value; AdditionalData?.Remove("warnings"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("warnings"); else _explicitNullProperties?.Remove("warnings"); } }
         private List<string> _explicitNullValueWarnings = default!;
 #endif
         /// <summary>

@@ -17,9 +17,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
-            if (parseNode.GetChildNode("document_type") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
-            if (parseNode.GetChildNode("file") is { } nullNodeFile && nullNodeFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) File = null;
+            if (parseNode.GetChildNode("context") is null) { _explicitNullValueContext = default!; _explicitNullProperties?.Remove("context"); }
+            else if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("document_type") is null) { _explicitNullValueDocumentType = default!; _explicitNullProperties?.Remove("document_type"); }
+            else if (parseNode.GetChildNode("document_type") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
+            if (parseNode.GetChildNode("file") is null) { _explicitNullValueFile = default!; _explicitNullProperties?.Remove("file"); }
+            else if (parseNode.GetChildNode("file") is { } nullNodeFile && nullNodeFile.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) File = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,24 +30,24 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The context property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext _explicitNullValueContext = default!;
 #endif
         /// <summary>Type of supporting document. Currently only `sep` is accepted.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; AdditionalData?.Remove("document_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType? _explicitNullValueDocumentType = default!;
         /// <summary>The document file. Supported formats are PDF, JPEG, and PNG.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public byte[]? File { get => _explicitNullValueFile; set { _explicitNullValueFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file"); else _explicitNullProperties?.Remove("file"); } }
+        public byte[]? File { get => _explicitNullValueFile; set { _explicitNullValueFile = value; AdditionalData?.Remove("file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file"); else _explicitNullProperties?.Remove("file"); } }
         private byte[]? _explicitNullValueFile = default!;
 #nullable restore
 #else
-        public byte[] File { get => _explicitNullValueFile; set { _explicitNullValueFile = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file"); else _explicitNullProperties?.Remove("file"); } }
+        public byte[] File { get => _explicitNullValueFile; set { _explicitNullValueFile = value; AdditionalData?.Remove("file"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("file"); else _explicitNullProperties?.Remove("file"); } }
         private byte[] _explicitNullValueFile = default!;
 #endif
         /// <summary>
@@ -73,7 +76,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext>(global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentActionContext.CreateFromDiscriminatorValue); } },
-                { "document_type", n => { DocumentType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType>(); } },
+                { "document_type", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SepDocumentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDocumentType = default; _explicitNullProperties?.Remove("document_type"); AdditionalData["document_type"] = unknown; } else { DocumentType = parsed; AdditionalData.Remove("document_type"); } } },
                 { "file", n => { File = n.GetByteArrayValue(); } },
             };
         }

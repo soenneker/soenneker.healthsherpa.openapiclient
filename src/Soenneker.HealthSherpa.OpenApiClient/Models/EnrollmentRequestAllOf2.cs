@@ -17,7 +17,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("context") is null) { _explicitNullValueContext = default!; _explicitNullProperties?.Remove("context"); }
+            else if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Routing context for direct enrollment create requests. Direct enrollment currently supports only `product = ichra` and `exchange = off_exchange`. Use `POST /v1/enrollment-sessions` for on-exchange enrollment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentContext _explicitNullValueContext = default!;
 #endif
         /// <summary>

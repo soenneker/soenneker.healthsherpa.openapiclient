@@ -17,7 +17,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("counties") is { } nullNodeCounties && nullNodeCounties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Counties = null;
+            if (parseNode.GetChildNode("counties") is null) { _explicitNullValueCounties = default!; _explicitNullProperties?.Remove("counties"); }
+            else if (parseNode.GetChildNode("counties") is { } nullNodeCounties && nullNodeCounties.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Counties = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The counties property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary>? Counties { get => _explicitNullValueCounties; set { _explicitNullValueCounties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counties"); else _explicitNullProperties?.Remove("counties"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary>? Counties { get => _explicitNullValueCounties; set { _explicitNullValueCounties = value; AdditionalData?.Remove("counties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counties"); else _explicitNullProperties?.Remove("counties"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary>? _explicitNullValueCounties = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary> Counties { get => _explicitNullValueCounties; set { _explicitNullValueCounties = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counties"); else _explicitNullProperties?.Remove("counties"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary> Counties { get => _explicitNullValueCounties; set { _explicitNullValueCounties = value; AdditionalData?.Remove("counties"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("counties"); else _explicitNullProperties?.Remove("counties"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.CountySummary> _explicitNullValueCounties = default!;
 #endif
         /// <summary>

@@ -118,7 +118,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.EnrollmentsRequestBuilder.EnrollmentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v1/enrollments?exchange={exchange}&product={product}{&employer_external_id*,external_id*,issuer_hios_id*,limit*,offset*,plan_hios_id*,plan_year*,policy_status*,updated_since*}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/v1/enrollments?exchange={exchange}&product={product}{&employer_external_id*,external_id*,issuer_hios_id*,limit*,offset*,plan_hios_id*,plan_year*,policy_status*,updated_since*}", RequestAdapter.BaseUrl, "https://api.one.healthsherpa.com", "/v1/enrollments", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -139,7 +139,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.POST, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.one.healthsherpa.com", "/v1/enrollments", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

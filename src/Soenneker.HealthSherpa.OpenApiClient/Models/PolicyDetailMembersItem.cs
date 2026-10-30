@@ -18,28 +18,31 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
-            if (parseNode.GetChildNode("member_id") is { } nullNodeMemberId && nullNodeMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberId = null;
-            if (parseNode.GetChildNode("removed_date") is { } nullNodeRemovedDate && nullNodeRemovedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedDate = null;
+            if (parseNode.GetChildNode("effective_date") is null) { _explicitNullValueEffectiveDate = default!; _explicitNullProperties?.Remove("effective_date"); }
+            else if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("member_id") is null) { _explicitNullValueMemberId = default!; _explicitNullProperties?.Remove("member_id"); }
+            else if (parseNode.GetChildNode("member_id") is { } nullNodeMemberId && nullNodeMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberId = null;
+            if (parseNode.GetChildNode("removed_date") is null) { _explicitNullValueRemovedDate = default!; _explicitNullProperties?.Remove("removed_date"); }
+            else if (parseNode.GetChildNode("removed_date") is { } nullNodeRemovedDate && nullNodeRemovedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RemovedDate = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The effective_date property</summary>
-        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; AdditionalData?.Remove("effective_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
         private Date? _explicitNullValueEffectiveDate = default!;
         /// <summary>The member_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
+        public string? MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; AdditionalData?.Remove("member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
         private string? _explicitNullValueMemberId = default!;
 #nullable restore
 #else
-        public string MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
+        public string MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; AdditionalData?.Remove("member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
         private string _explicitNullValueMemberId = default!;
 #endif
         /// <summary>The removed_date property</summary>
-        public Date? RemovedDate { get => _explicitNullValueRemovedDate; set { _explicitNullValueRemovedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_date"); else _explicitNullProperties?.Remove("removed_date"); } }
+        public Date? RemovedDate { get => _explicitNullValueRemovedDate; set { _explicitNullValueRemovedDate = value; AdditionalData?.Remove("removed_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("removed_date"); else _explicitNullProperties?.Remove("removed_date"); } }
         private Date? _explicitNullValueRemovedDate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetailMembersItem"/> and sets the default values.

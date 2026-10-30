@@ -17,8 +17,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("client_apply_url") is { } nullNodeClientApplyUrl && nullNodeClientApplyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientApplyUrl = null;
-            if (parseNode.GetChildNode("shopping_url") is { } nullNodeShoppingUrl && nullNodeShoppingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShoppingUrl = null;
+            if (parseNode.GetChildNode("client_apply_url") is null) { _explicitNullValueClientApplyUrl = default!; _explicitNullProperties?.Remove("client_apply_url"); }
+            else if (parseNode.GetChildNode("client_apply_url") is { } nullNodeClientApplyUrl && nullNodeClientApplyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientApplyUrl = null;
+            if (parseNode.GetChildNode("shopping_url") is null) { _explicitNullValueShoppingUrl = default!; _explicitNullProperties?.Remove("shopping_url"); }
+            else if (parseNode.GetChildNode("shopping_url") is { } nullNodeShoppingUrl && nullNodeShoppingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShoppingUrl = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>HealthSherpa-hosted apply URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned. Always present for enrollment-session responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
+        public string? ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; AdditionalData?.Remove("client_apply_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
         private string? _explicitNullValueClientApplyUrl = default!;
 #nullable restore
 #else
-        public string ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
+        public string ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; AdditionalData?.Remove("client_apply_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
         private string _explicitNullValueClientApplyUrl = default!;
 #endif
         /// <summary>HealthSherpa-hosted shopping URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
+        public string? ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; AdditionalData?.Remove("shopping_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
         private string? _explicitNullValueShoppingUrl = default!;
 #nullable restore
 #else
-        public string ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
+        public string ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; AdditionalData?.Remove("shopping_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
         private string _explicitNullValueShoppingUrl = default!;
 #endif
         /// <summary>

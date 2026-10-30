@@ -18,66 +18,75 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("has_existing_coverage") is { } nullNodeHasExistingCoverage && nullNodeHasExistingCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasExistingCoverage = null;
-            if (parseNode.GetChildNode("insurer") is { } nullNodeInsurer && nullNodeInsurer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insurer = null;
-            if (parseNode.GetChildNode("plan_replaces_existing_coverage") is { } nullNodePlanReplacesExistingCoverage && nullNodePlanReplacesExistingCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanReplacesExistingCoverage = null;
-            if (parseNode.GetChildNode("policyholder_name") is { } nullNodePolicyholderName && nullNodePolicyholderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyholderName = null;
-            if (parseNode.GetChildNode("policy_id") is { } nullNodePolicyId && nullNodePolicyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyId = null;
-            if (parseNode.GetChildNode("start_date") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
-            if (parseNode.GetChildNode("term_date") is { } nullNodeTermDate && nullNodeTermDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermDate = null;
-            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
-            if (parseNode.GetChildNode("will_continue") is { } nullNodeWillContinue && nullNodeWillContinue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WillContinue = null;
+            if (parseNode.GetChildNode("has_existing_coverage") is null) { _explicitNullValueHasExistingCoverage = default!; _explicitNullProperties?.Remove("has_existing_coverage"); }
+            else if (parseNode.GetChildNode("has_existing_coverage") is { } nullNodeHasExistingCoverage && nullNodeHasExistingCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasExistingCoverage = null;
+            if (parseNode.GetChildNode("insurer") is null) { _explicitNullValueInsurer = default!; _explicitNullProperties?.Remove("insurer"); }
+            else if (parseNode.GetChildNode("insurer") is { } nullNodeInsurer && nullNodeInsurer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Insurer = null;
+            if (parseNode.GetChildNode("plan_replaces_existing_coverage") is null) { _explicitNullValuePlanReplacesExistingCoverage = default!; _explicitNullProperties?.Remove("plan_replaces_existing_coverage"); }
+            else if (parseNode.GetChildNode("plan_replaces_existing_coverage") is { } nullNodePlanReplacesExistingCoverage && nullNodePlanReplacesExistingCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanReplacesExistingCoverage = null;
+            if (parseNode.GetChildNode("policyholder_name") is null) { _explicitNullValuePolicyholderName = default!; _explicitNullProperties?.Remove("policyholder_name"); }
+            else if (parseNode.GetChildNode("policyholder_name") is { } nullNodePolicyholderName && nullNodePolicyholderName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyholderName = null;
+            if (parseNode.GetChildNode("policy_id") is null) { _explicitNullValuePolicyId = default!; _explicitNullProperties?.Remove("policy_id"); }
+            else if (parseNode.GetChildNode("policy_id") is { } nullNodePolicyId && nullNodePolicyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyId = null;
+            if (parseNode.GetChildNode("start_date") is null) { _explicitNullValueStartDate = default!; _explicitNullProperties?.Remove("start_date"); }
+            else if (parseNode.GetChildNode("start_date") is { } nullNodeStartDate && nullNodeStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StartDate = null;
+            if (parseNode.GetChildNode("term_date") is null) { _explicitNullValueTermDate = default!; _explicitNullProperties?.Remove("term_date"); }
+            else if (parseNode.GetChildNode("term_date") is { } nullNodeTermDate && nullNodeTermDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TermDate = null;
+            if (parseNode.GetChildNode("type") is null) { _explicitNullValueType = default!; _explicitNullProperties?.Remove("type"); }
+            else if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("will_continue") is null) { _explicitNullValueWillContinue = default!; _explicitNullProperties?.Remove("will_continue"); }
+            else if (parseNode.GetChildNode("will_continue") is { } nullNodeWillContinue && nullNodeWillContinue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) WillContinue = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The has_existing_coverage property</summary>
-        public bool? HasExistingCoverage { get => _explicitNullValueHasExistingCoverage; set { _explicitNullValueHasExistingCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_existing_coverage"); else _explicitNullProperties?.Remove("has_existing_coverage"); } }
+        public bool? HasExistingCoverage { get => _explicitNullValueHasExistingCoverage; set { _explicitNullValueHasExistingCoverage = value; AdditionalData?.Remove("has_existing_coverage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_existing_coverage"); else _explicitNullProperties?.Remove("has_existing_coverage"); } }
         private bool? _explicitNullValueHasExistingCoverage = default!;
         /// <summary>The insurer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Insurer { get => _explicitNullValueInsurer; set { _explicitNullValueInsurer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insurer"); else _explicitNullProperties?.Remove("insurer"); } }
+        public string? Insurer { get => _explicitNullValueInsurer; set { _explicitNullValueInsurer = value; AdditionalData?.Remove("insurer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insurer"); else _explicitNullProperties?.Remove("insurer"); } }
         private string? _explicitNullValueInsurer = default!;
 #nullable restore
 #else
-        public string Insurer { get => _explicitNullValueInsurer; set { _explicitNullValueInsurer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insurer"); else _explicitNullProperties?.Remove("insurer"); } }
+        public string Insurer { get => _explicitNullValueInsurer; set { _explicitNullValueInsurer = value; AdditionalData?.Remove("insurer"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("insurer"); else _explicitNullProperties?.Remove("insurer"); } }
         private string _explicitNullValueInsurer = default!;
 #endif
         /// <summary>The plan_replaces_existing_coverage property</summary>
-        public bool? PlanReplacesExistingCoverage { get => _explicitNullValuePlanReplacesExistingCoverage; set { _explicitNullValuePlanReplacesExistingCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_replaces_existing_coverage"); else _explicitNullProperties?.Remove("plan_replaces_existing_coverage"); } }
+        public bool? PlanReplacesExistingCoverage { get => _explicitNullValuePlanReplacesExistingCoverage; set { _explicitNullValuePlanReplacesExistingCoverage = value; AdditionalData?.Remove("plan_replaces_existing_coverage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_replaces_existing_coverage"); else _explicitNullProperties?.Remove("plan_replaces_existing_coverage"); } }
         private bool? _explicitNullValuePlanReplacesExistingCoverage = default!;
         /// <summary>The policyholder_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PolicyholderName { get => _explicitNullValuePolicyholderName; set { _explicitNullValuePolicyholderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policyholder_name"); else _explicitNullProperties?.Remove("policyholder_name"); } }
+        public string? PolicyholderName { get => _explicitNullValuePolicyholderName; set { _explicitNullValuePolicyholderName = value; AdditionalData?.Remove("policyholder_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policyholder_name"); else _explicitNullProperties?.Remove("policyholder_name"); } }
         private string? _explicitNullValuePolicyholderName = default!;
 #nullable restore
 #else
-        public string PolicyholderName { get => _explicitNullValuePolicyholderName; set { _explicitNullValuePolicyholderName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policyholder_name"); else _explicitNullProperties?.Remove("policyholder_name"); } }
+        public string PolicyholderName { get => _explicitNullValuePolicyholderName; set { _explicitNullValuePolicyholderName = value; AdditionalData?.Remove("policyholder_name"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policyholder_name"); else _explicitNullProperties?.Remove("policyholder_name"); } }
         private string _explicitNullValuePolicyholderName = default!;
 #endif
         /// <summary>The policy_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PolicyId { get => _explicitNullValuePolicyId; set { _explicitNullValuePolicyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_id"); else _explicitNullProperties?.Remove("policy_id"); } }
+        public string? PolicyId { get => _explicitNullValuePolicyId; set { _explicitNullValuePolicyId = value; AdditionalData?.Remove("policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_id"); else _explicitNullProperties?.Remove("policy_id"); } }
         private string? _explicitNullValuePolicyId = default!;
 #nullable restore
 #else
-        public string PolicyId { get => _explicitNullValuePolicyId; set { _explicitNullValuePolicyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_id"); else _explicitNullProperties?.Remove("policy_id"); } }
+        public string PolicyId { get => _explicitNullValuePolicyId; set { _explicitNullValuePolicyId = value; AdditionalData?.Remove("policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_id"); else _explicitNullProperties?.Remove("policy_id"); } }
         private string _explicitNullValuePolicyId = default!;
 #endif
         /// <summary>The start_date property</summary>
-        public Date? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_date"); else _explicitNullProperties?.Remove("start_date"); } }
+        public Date? StartDate { get => _explicitNullValueStartDate; set { _explicitNullValueStartDate = value; AdditionalData?.Remove("start_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start_date"); else _explicitNullProperties?.Remove("start_date"); } }
         private Date? _explicitNullValueStartDate = default!;
         /// <summary>The term_date property</summary>
-        public Date? TermDate { get => _explicitNullValueTermDate; set { _explicitNullValueTermDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term_date"); else _explicitNullProperties?.Remove("term_date"); } }
+        public Date? TermDate { get => _explicitNullValueTermDate; set { _explicitNullValueTermDate = value; AdditionalData?.Remove("term_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("term_date"); else _explicitNullProperties?.Remove("term_date"); } }
         private Date? _explicitNullValueTermDate = default!;
         /// <summary>`issuer`: coverage with another issuer. `government`: government program such as Medicare or Medicaid.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; AdditionalData?.Remove("type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType? _explicitNullValueType = default!;
         /// <summary>Whether the existing coverage will continue alongside the new plan.</summary>
-        public bool? WillContinue { get => _explicitNullValueWillContinue; set { _explicitNullValueWillContinue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("will_continue"); else _explicitNullProperties?.Remove("will_continue"); } }
+        public bool? WillContinue { get => _explicitNullValueWillContinue; set { _explicitNullValueWillContinue = value; AdditionalData?.Remove("will_continue"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("will_continue"); else _explicitNullProperties?.Remove("will_continue"); } }
         private bool? _explicitNullValueWillContinue = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage"/> and sets the default values.
@@ -111,7 +120,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "policyholder_name", n => { PolicyholderName = n.GetStringValue(); } },
                 { "start_date", n => { StartDate = n.GetDateValue(); } },
                 { "term_date", n => { TermDate = n.GetDateValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType>(); } },
+                { "type", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverageType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueType = default; _explicitNullProperties?.Remove("type"); AdditionalData["type"] = unknown; } else { Type = parsed; AdditionalData.Remove("type"); } } },
                 { "will_continue", n => { WillContinue = n.GetBoolValue(); } },
             };
         }

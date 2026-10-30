@@ -17,8 +17,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("dependents") is { } nullNodeDependents && nullNodeDependents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dependents = null;
-            if (parseNode.GetChildNode("primary") is { } nullNodePrimary && nullNodePrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Primary = null;
+            if (parseNode.GetChildNode("dependents") is null) { _explicitNullValueDependents = default!; _explicitNullProperties?.Remove("dependents"); }
+            else if (parseNode.GetChildNode("dependents") is { } nullNodeDependents && nullNodeDependents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dependents = null;
+            if (parseNode.GetChildNode("primary") is null) { _explicitNullValuePrimary = default!; _explicitNullProperties?.Remove("primary"); }
+            else if (parseNode.GetChildNode("primary") is { } nullNodePrimary && nullNodePrimary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Primary = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The dependents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent>? Dependents { get => _explicitNullValueDependents; set { _explicitNullValueDependents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependents"); else _explicitNullProperties?.Remove("dependents"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent>? Dependents { get => _explicitNullValueDependents; set { _explicitNullValueDependents = value; AdditionalData?.Remove("dependents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependents"); else _explicitNullProperties?.Remove("dependents"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent>? _explicitNullValueDependents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent> Dependents { get => _explicitNullValueDependents; set { _explicitNullValueDependents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependents"); else _explicitNullProperties?.Remove("dependents"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent> Dependents { get => _explicitNullValueDependents; set { _explicitNullValueDependents = value; AdditionalData?.Remove("dependents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dependents"); else _explicitNullProperties?.Remove("dependents"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent> _explicitNullValueDependents = default!;
 #endif
         /// <summary>The primary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant? Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant? Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; AdditionalData?.Remove("primary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant? _explicitNullValuePrimary = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant Primary { get => _explicitNullValuePrimary; set { _explicitNullValuePrimary = value; AdditionalData?.Remove("primary"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary"); else _explicitNullProperties?.Remove("primary"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicant _explicitNullValuePrimary = default!;
 #endif
         /// <summary>

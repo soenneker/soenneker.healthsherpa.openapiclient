@@ -84,7 +84,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Reference.Providers
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.HealthSherpa.OpenApiClient.V1.Reference.Providers.ProvidersRequestBuilder.ProvidersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.one.healthsherpa.com", "/v1/reference/providers", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

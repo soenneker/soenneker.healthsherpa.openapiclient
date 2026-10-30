@@ -18,7 +18,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("policy_statuses") is { } nullNodePolicyStatuses && nullNodePolicyStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyStatuses = null;
+            if (parseNode.GetChildNode("policy_statuses") is null) { _explicitNullValuePolicyStatuses = default!; _explicitNullProperties?.Remove("policy_statuses"); }
+            else if (parseNode.GetChildNode("policy_statuses") is { } nullNodePolicyStatuses && nullNodePolicyStatuses.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyStatuses = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,11 +27,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The policy_statuses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem>? PolicyStatuses { get => _explicitNullValuePolicyStatuses; set { _explicitNullValuePolicyStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_statuses"); else _explicitNullProperties?.Remove("policy_statuses"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem>? PolicyStatuses { get => _explicitNullValuePolicyStatuses; set { _explicitNullValuePolicyStatuses = value; AdditionalData?.Remove("policy_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_statuses"); else _explicitNullProperties?.Remove("policy_statuses"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem>? _explicitNullValuePolicyStatuses = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem> PolicyStatuses { get => _explicitNullValuePolicyStatuses; set { _explicitNullValuePolicyStatuses = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_statuses"); else _explicitNullProperties?.Remove("policy_statuses"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem> PolicyStatuses { get => _explicitNullValuePolicyStatuses; set { _explicitNullValuePolicyStatuses = value; AdditionalData?.Remove("policy_statuses"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_statuses"); else _explicitNullProperties?.Remove("policy_statuses"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem> _explicitNullValuePolicyStatuses = default!;
 #endif
         /// <summary>

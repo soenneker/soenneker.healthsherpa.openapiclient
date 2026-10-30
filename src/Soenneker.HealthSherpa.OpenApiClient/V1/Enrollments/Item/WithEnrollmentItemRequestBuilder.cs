@@ -137,7 +137,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.WithEnrollmentItemRequestBuilder.WithEnrollmentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/v1/enrollments/{enrollmentId}?exchange={exchange}&product={product}", PathParameters);
+            var requestInfo = new RequestInformation(Method.GET, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve("{+baseurl}/v1/enrollments/{enrollmentId}?exchange={exchange}&product={product}", RequestAdapter.BaseUrl, "https://api.one.healthsherpa.com", "/v1/enrollments/{enrollmentId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
@@ -158,7 +158,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, global::Soenneker.OpenApi.Generated.OpenApiServiceRoutes.Resolve(UrlTemplate, RequestAdapter.BaseUrl, "https://api.one.healthsherpa.com", "/v1/enrollments/{enrollmentId}", PathParameters.ContainsKey("request-raw-url")), PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

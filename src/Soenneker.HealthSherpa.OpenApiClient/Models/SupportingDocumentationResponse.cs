@@ -17,11 +17,16 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
-            if (parseNode.GetChildNode("document_id") is { } nullNodeDocumentId && nullNodeDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentId = null;
-            if (parseNode.GetChildNode("document_type") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
-            if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
-            if (parseNode.GetChildNode("uploaded_at") is { } nullNodeUploadedAt && nullNodeUploadedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UploadedAt = null;
+            if (parseNode.GetChildNode("application_id") is null) { _explicitNullValueApplicationId = default!; _explicitNullProperties?.Remove("application_id"); }
+            else if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
+            if (parseNode.GetChildNode("document_id") is null) { _explicitNullValueDocumentId = default!; _explicitNullProperties?.Remove("document_id"); }
+            else if (parseNode.GetChildNode("document_id") is { } nullNodeDocumentId && nullNodeDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentId = null;
+            if (parseNode.GetChildNode("document_type") is null) { _explicitNullValueDocumentType = default!; _explicitNullProperties?.Remove("document_type"); }
+            else if (parseNode.GetChildNode("document_type") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
+            if (parseNode.GetChildNode("filename") is null) { _explicitNullValueFilename = default!; _explicitNullProperties?.Remove("filename"); }
+            else if (parseNode.GetChildNode("filename") is { } nullNodeFilename && nullNodeFilename.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Filename = null;
+            if (parseNode.GetChildNode("uploaded_at") is null) { _explicitNullValueUploadedAt = default!; _explicitNullProperties?.Remove("uploaded_at"); }
+            else if (parseNode.GetChildNode("uploaded_at") is { } nullNodeUploadedAt && nullNodeUploadedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UploadedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -29,45 +34,45 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Application this document is attached to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string? _explicitNullValueApplicationId = default!;
 #nullable restore
 #else
-        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string _explicitNullValueApplicationId = default!;
 #endif
         /// <summary>Identifier assigned to the uploaded document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentId { get => _explicitNullValueDocumentId; set { _explicitNullValueDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_id"); else _explicitNullProperties?.Remove("document_id"); } }
+        public string? DocumentId { get => _explicitNullValueDocumentId; set { _explicitNullValueDocumentId = value; AdditionalData?.Remove("document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_id"); else _explicitNullProperties?.Remove("document_id"); } }
         private string? _explicitNullValueDocumentId = default!;
 #nullable restore
 #else
-        public string DocumentId { get => _explicitNullValueDocumentId; set { _explicitNullValueDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_id"); else _explicitNullProperties?.Remove("document_id"); } }
+        public string DocumentId { get => _explicitNullValueDocumentId; set { _explicitNullValueDocumentId = value; AdditionalData?.Remove("document_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_id"); else _explicitNullProperties?.Remove("document_id"); } }
         private string _explicitNullValueDocumentId = default!;
 #endif
         /// <summary>Type of supporting document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
+        public string? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; AdditionalData?.Remove("document_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
         private string? _explicitNullValueDocumentType = default!;
 #nullable restore
 #else
-        public string DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
+        public string DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; AdditionalData?.Remove("document_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_type"); else _explicitNullProperties?.Remove("document_type"); } }
         private string _explicitNullValueDocumentType = default!;
 #endif
         /// <summary>The filename property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string? Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string? _explicitNullValueFilename = default!;
 #nullable restore
 #else
-        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
+        public string Filename { get => _explicitNullValueFilename; set { _explicitNullValueFilename = value; AdditionalData?.Remove("filename"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("filename"); else _explicitNullProperties?.Remove("filename"); } }
         private string _explicitNullValueFilename = default!;
 #endif
         /// <summary>When the document was received.</summary>
-        public DateTimeOffset? UploadedAt { get => _explicitNullValueUploadedAt; set { _explicitNullValueUploadedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uploaded_at"); else _explicitNullProperties?.Remove("uploaded_at"); } }
+        public DateTimeOffset? UploadedAt { get => _explicitNullValueUploadedAt; set { _explicitNullValueUploadedAt = value; AdditionalData?.Remove("uploaded_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uploaded_at"); else _explicitNullProperties?.Remove("uploaded_at"); } }
         private DateTimeOffset? _explicitNullValueUploadedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse"/> and sets the default values.

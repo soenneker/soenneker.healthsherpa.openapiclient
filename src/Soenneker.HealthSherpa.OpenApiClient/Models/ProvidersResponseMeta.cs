@@ -17,21 +17,24 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("page_number") is { } nullNodePageNumber && nullNodePageNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageNumber = null;
-            if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
-            if (parseNode.GetChildNode("result_count") is { } nullNodeResultCount && nullNodeResultCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultCount = null;
+            if (parseNode.GetChildNode("page_number") is null) { _explicitNullValuePageNumber = default!; _explicitNullProperties?.Remove("page_number"); }
+            else if (parseNode.GetChildNode("page_number") is { } nullNodePageNumber && nullNodePageNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageNumber = null;
+            if (parseNode.GetChildNode("page_size") is null) { _explicitNullValuePageSize = default!; _explicitNullProperties?.Remove("page_size"); }
+            else if (parseNode.GetChildNode("page_size") is { } nullNodePageSize && nullNodePageSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PageSize = null;
+            if (parseNode.GetChildNode("result_count") is null) { _explicitNullValueResultCount = default!; _explicitNullProperties?.Remove("result_count"); }
+            else if (parseNode.GetChildNode("result_count") is { } nullNodeResultCount && nullNodeResultCount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultCount = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Current page number.</summary>
-        public int? PageNumber { get => _explicitNullValuePageNumber; set { _explicitNullValuePageNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_number"); else _explicitNullProperties?.Remove("page_number"); } }
+        public int? PageNumber { get => _explicitNullValuePageNumber; set { _explicitNullValuePageNumber = value; AdditionalData?.Remove("page_number"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_number"); else _explicitNullProperties?.Remove("page_number"); } }
         private int? _explicitNullValuePageNumber = default!;
         /// <summary>Results per page (at most 50).</summary>
-        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
+        public int? PageSize { get => _explicitNullValuePageSize; set { _explicitNullValuePageSize = value; AdditionalData?.Remove("page_size"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("page_size"); else _explicitNullProperties?.Remove("page_size"); } }
         private int? _explicitNullValuePageSize = default!;
         /// <summary>Total number of matches across all pages.</summary>
-        public int? ResultCount { get => _explicitNullValueResultCount; set { _explicitNullValueResultCount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_count"); else _explicitNullProperties?.Remove("result_count"); } }
+        public int? ResultCount { get => _explicitNullValueResultCount; set { _explicitNullValueResultCount = value; AdditionalData?.Remove("result_count"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("result_count"); else _explicitNullProperties?.Remove("result_count"); } }
         private int? _explicitNullValueResultCount = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ProvidersResponseMeta"/> and sets the default values.

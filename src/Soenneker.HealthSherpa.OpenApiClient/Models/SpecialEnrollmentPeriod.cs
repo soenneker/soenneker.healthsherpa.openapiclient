@@ -18,17 +18,19 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("event_date") is { } nullNodeEventDate && nullNodeEventDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventDate = null;
-            if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
+            if (parseNode.GetChildNode("event_date") is null) { _explicitNullValueEventDate = default!; _explicitNullProperties?.Remove("event_date"); }
+            else if (parseNode.GetChildNode("event_date") is { } nullNodeEventDate && nullNodeEventDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventDate = null;
+            if (parseNode.GetChildNode("event_type") is null) { _explicitNullValueEventType = default!; _explicitNullProperties?.Remove("event_type"); }
+            else if (parseNode.GetChildNode("event_type") is { } nullNodeEventType && nullNodeEventType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EventType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The event_date property</summary>
-        public Date? EventDate { get => _explicitNullValueEventDate; set { _explicitNullValueEventDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_date"); else _explicitNullProperties?.Remove("event_date"); } }
+        public Date? EventDate { get => _explicitNullValueEventDate; set { _explicitNullValueEventDate = value; AdditionalData?.Remove("event_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_date"); else _explicitNullProperties?.Remove("event_date"); } }
         private Date? _explicitNullValueEventDate = default!;
         /// <summary>Standardized qualifying event type. HealthSherpa maps these to carrier-specific values automatically. `pregnancy` is accepted in CO, VA, NJ, and MD. For ICHRA enrollments, `offered_ichra` is the most common reason.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriodEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriodEventType? EventType { get => _explicitNullValueEventType; set { _explicitNullValueEventType = value; AdditionalData?.Remove("event_type"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("event_type"); else _explicitNullProperties?.Remove("event_type"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriodEventType? _explicitNullValueEventType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriod"/> and sets the default values.
@@ -56,7 +58,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "event_date", n => { EventDate = n.GetDateValue(); } },
-                { "event_type", n => { EventType = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriodEventType>(); } },
+                { "event_type", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SpecialEnrollmentPeriodEventType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueEventType = default; _explicitNullProperties?.Remove("event_type"); AdditionalData["event_type"] = unknown; } else { EventType = parsed; AdditionalData.Remove("event_type"); } } },
             };
         }
         /// <summary>

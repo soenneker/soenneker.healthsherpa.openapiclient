@@ -17,23 +17,25 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("plan_year") is { } nullNodePlanYear && nullNodePlanYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanYear = null;
-            if (parseNode.GetChildNode("release_id") is { } nullNodeReleaseId && nullNodeReleaseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReleaseId = null;
+            if (parseNode.GetChildNode("plan_year") is null) { _explicitNullValuePlanYear = default!; _explicitNullProperties?.Remove("plan_year"); }
+            else if (parseNode.GetChildNode("plan_year") is { } nullNodePlanYear && nullNodePlanYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanYear = null;
+            if (parseNode.GetChildNode("release_id") is null) { _explicitNullValueReleaseId = default!; _explicitNullProperties?.Remove("release_id"); }
+            else if (parseNode.GetChildNode("release_id") is { } nullNodeReleaseId && nullNodeReleaseId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ReleaseId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The plan_year property</summary>
-        public int? PlanYear { get => _explicitNullValuePlanYear; set { _explicitNullValuePlanYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_year"); else _explicitNullProperties?.Remove("plan_year"); } }
+        public int? PlanYear { get => _explicitNullValuePlanYear; set { _explicitNullValuePlanYear = value; AdditionalData?.Remove("plan_year"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_year"); else _explicitNullProperties?.Remove("plan_year"); } }
         private int? _explicitNullValuePlanYear = default!;
         /// <summary>The release_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ReleaseId { get => _explicitNullValueReleaseId; set { _explicitNullValueReleaseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("release_id"); else _explicitNullProperties?.Remove("release_id"); } }
+        public string? ReleaseId { get => _explicitNullValueReleaseId; set { _explicitNullValueReleaseId = value; AdditionalData?.Remove("release_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("release_id"); else _explicitNullProperties?.Remove("release_id"); } }
         private string? _explicitNullValueReleaseId = default!;
 #nullable restore
 #else
-        public string ReleaseId { get => _explicitNullValueReleaseId; set { _explicitNullValueReleaseId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("release_id"); else _explicitNullProperties?.Remove("release_id"); } }
+        public string ReleaseId { get => _explicitNullValueReleaseId; set { _explicitNullValueReleaseId = value; AdditionalData?.Remove("release_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("release_id"); else _explicitNullProperties?.Remove("release_id"); } }
         private string _explicitNullValueReleaseId = default!;
 #endif
         /// <summary>

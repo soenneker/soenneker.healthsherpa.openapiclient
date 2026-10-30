@@ -18,8 +18,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("applicants") is { } nullNodeApplicants && nullNodeApplicants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicants = null;
-            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("applicants") is null) { _explicitNullValueApplicants = default!; _explicitNullProperties?.Remove("applicants"); }
+            else if (parseNode.GetChildNode("applicants") is { } nullNodeApplicants && nullNodeApplicants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicants = null;
+            if (parseNode.GetChildNode("context") is null) { _explicitNullValueContext = default!; _explicitNullProperties?.Remove("context"); }
+            else if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,21 +29,21 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Applicant objects are replacement-shaped. When sending `applicants.primary`, include the full current primary applicant object; omitted primary fields may be cleared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants? Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants? Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; AdditionalData?.Remove("applicants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants? _explicitNullValueApplicants = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; AdditionalData?.Remove("applicants"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.Applicants _explicitNullValueApplicants = default!;
 #endif
         /// <summary>Routing context for direct enrollment updates. Send `product = ichra`, `exchange = off_exchange`, and `plan_year`; `plan_year` is mapped to the application plan year.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; AdditionalData?.Remove("context"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext _explicitNullValueContext = default!;
 #endif
         /// <summary>

@@ -17,10 +17,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
-            if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
-            if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
-            if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
+            if (parseNode.GetChildNode("application_id") is null) { _explicitNullValueApplicationId = default!; _explicitNullProperties?.Remove("application_id"); }
+            else if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
+            if (parseNode.GetChildNode("endpoint") is null) { _explicitNullValueEndpoint = default!; _explicitNullProperties?.Remove("endpoint"); }
+            else if (parseNode.GetChildNode("endpoint") is { } nullNodeEndpoint && nullNodeEndpoint.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Endpoint = null;
+            if (parseNode.GetChildNode("fields") is null) { _explicitNullValueFields = default!; _explicitNullProperties?.Remove("fields"); }
+            else if (parseNode.GetChildNode("fields") is { } nullNodeFields && nullNodeFields.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Fields = null;
+            if (parseNode.GetChildNode("method") is null) { _explicitNullValueMethod = default!; _explicitNullProperties?.Remove("method"); }
+            else if (parseNode.GetChildNode("method") is { } nullNodeMethod && nullNodeMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Method = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,35 +32,35 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Application id returned by `POST /v1/enrollments`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string? _explicitNullValueApplicationId = default!;
 #nullable restore
 #else
-        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; AdditionalData?.Remove("application_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
         private string _explicitNullValueApplicationId = default!;
 #endif
         /// <summary>The carrier payment URL. Submit the form POST to this URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string? Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string? _explicitNullValueEndpoint = default!;
 #nullable restore
 #else
-        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
+        public string Endpoint { get => _explicitNullValueEndpoint; set { _explicitNullValueEndpoint = value; AdditionalData?.Remove("endpoint"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("endpoint"); else _explicitNullProperties?.Remove("endpoint"); } }
         private string _explicitNullValueEndpoint = default!;
 #endif
         /// <summary>Form fields to include as hidden inputs in the POST to `endpoint`. The fields vary by carrier payment integration. Include every returned field exactly as provided; do not filter, rename, or modify entries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>? Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>? _explicitNullValueFields = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem> Fields { get => _explicitNullValueFields; set { _explicitNullValueFields = value; AdditionalData?.Remove("fields"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fields"); else _explicitNullProperties?.Remove("fields"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem> _explicitNullValueFields = default!;
 #endif
         /// <summary>HTTP method to use. Always `POST`.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod? Method { get => _explicitNullValueMethod; set { _explicitNullValueMethod = value; AdditionalData?.Remove("method"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("method"); else _explicitNullProperties?.Remove("method"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod? _explicitNullValueMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponse"/> and sets the default values.
@@ -86,7 +90,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "application_id", n => { ApplicationId = n.GetStringValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "fields", n => { Fields = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentRedirectResponseFieldsItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "method", n => { Method = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod>(); } },
+                { "method", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PostMethod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMethod = default; _explicitNullProperties?.Remove("method"); AdditionalData["method"] = unknown; } else { Method = parsed; AdditionalData.Remove("method"); } } },
             };
         }
         /// <summary>

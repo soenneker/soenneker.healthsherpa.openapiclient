@@ -19,77 +19,87 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("current_balance_cents") is { } nullNodeCurrentBalanceCents && nullNodeCurrentBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentBalanceCents = null;
-            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
-            if (parseNode.GetChildNode("exchange_assigned_policy_id") is { } nullNodeExchangeAssignedPolicyId && nullNodeExchangeAssignedPolicyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeAssignedPolicyId = null;
-            if (parseNode.GetChildNode("grace_period_start_date") is { } nullNodeGracePeriodStartDate && nullNodeGracePeriodStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodStartDate = null;
-            if (parseNode.GetChildNode("issuer_hios_id") is { } nullNodeIssuerHiosId && nullNodeIssuerHiosId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerHiosId = null;
-            if (parseNode.GetChildNode("paid_through_date") is { } nullNodePaidThroughDate && nullNodePaidThroughDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaidThroughDate = null;
-            if (parseNode.GetChildNode("past_due_balance_cents") is { } nullNodePastDueBalanceCents && nullNodePastDueBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PastDueBalanceCents = null;
-            if (parseNode.GetChildNode("payment_status") is { } nullNodePaymentStatus && nullNodePaymentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentStatus = null;
-            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
-            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+            if (parseNode.GetChildNode("current_balance_cents") is null) { _explicitNullValueCurrentBalanceCents = default!; _explicitNullProperties?.Remove("current_balance_cents"); }
+            else if (parseNode.GetChildNode("current_balance_cents") is { } nullNodeCurrentBalanceCents && nullNodeCurrentBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentBalanceCents = null;
+            if (parseNode.GetChildNode("effective_date") is null) { _explicitNullValueEffectiveDate = default!; _explicitNullProperties?.Remove("effective_date"); }
+            else if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("exchange_assigned_policy_id") is null) { _explicitNullValueExchangeAssignedPolicyId = default!; _explicitNullProperties?.Remove("exchange_assigned_policy_id"); }
+            else if (parseNode.GetChildNode("exchange_assigned_policy_id") is { } nullNodeExchangeAssignedPolicyId && nullNodeExchangeAssignedPolicyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeAssignedPolicyId = null;
+            if (parseNode.GetChildNode("grace_period_start_date") is null) { _explicitNullValueGracePeriodStartDate = default!; _explicitNullProperties?.Remove("grace_period_start_date"); }
+            else if (parseNode.GetChildNode("grace_period_start_date") is { } nullNodeGracePeriodStartDate && nullNodeGracePeriodStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodStartDate = null;
+            if (parseNode.GetChildNode("issuer_hios_id") is null) { _explicitNullValueIssuerHiosId = default!; _explicitNullProperties?.Remove("issuer_hios_id"); }
+            else if (parseNode.GetChildNode("issuer_hios_id") is { } nullNodeIssuerHiosId && nullNodeIssuerHiosId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerHiosId = null;
+            if (parseNode.GetChildNode("paid_through_date") is null) { _explicitNullValuePaidThroughDate = default!; _explicitNullProperties?.Remove("paid_through_date"); }
+            else if (parseNode.GetChildNode("paid_through_date") is { } nullNodePaidThroughDate && nullNodePaidThroughDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaidThroughDate = null;
+            if (parseNode.GetChildNode("past_due_balance_cents") is null) { _explicitNullValuePastDueBalanceCents = default!; _explicitNullProperties?.Remove("past_due_balance_cents"); }
+            else if (parseNode.GetChildNode("past_due_balance_cents") is { } nullNodePastDueBalanceCents && nullNodePastDueBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PastDueBalanceCents = null;
+            if (parseNode.GetChildNode("payment_status") is null) { _explicitNullValuePaymentStatus = default!; _explicitNullProperties?.Remove("payment_status"); }
+            else if (parseNode.GetChildNode("payment_status") is { } nullNodePaymentStatus && nullNodePaymentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentStatus = null;
+            if (parseNode.GetChildNode("status") is null) { _explicitNullValueStatus = default!; _explicitNullProperties?.Remove("status"); }
+            else if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("updated_at") is null) { _explicitNullValueUpdatedAt = default!; _explicitNullProperties?.Remove("updated_at"); }
+            else if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Current balance in cents when returned by the Marketplace policy status API.</summary>
-        public int? CurrentBalanceCents { get => _explicitNullValueCurrentBalanceCents; set { _explicitNullValueCurrentBalanceCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_balance_cents"); else _explicitNullProperties?.Remove("current_balance_cents"); } }
+        public int? CurrentBalanceCents { get => _explicitNullValueCurrentBalanceCents; set { _explicitNullValueCurrentBalanceCents = value; AdditionalData?.Remove("current_balance_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_balance_cents"); else _explicitNullProperties?.Remove("current_balance_cents"); } }
         private int? _explicitNullValueCurrentBalanceCents = default!;
         /// <summary>The effective_date property</summary>
-        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; AdditionalData?.Remove("effective_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
         private Date? _explicitNullValueEffectiveDate = default!;
         /// <summary>The exchange_assigned_policy_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
+        public string? ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; AdditionalData?.Remove("exchange_assigned_policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
         private string? _explicitNullValueExchangeAssignedPolicyId = default!;
 #nullable restore
 #else
-        public string ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
+        public string ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; AdditionalData?.Remove("exchange_assigned_policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
         private string _explicitNullValueExchangeAssignedPolicyId = default!;
 #endif
         /// <summary>The grace_period_start_date property</summary>
-        public Date? GracePeriodStartDate { get => _explicitNullValueGracePeriodStartDate; set { _explicitNullValueGracePeriodStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_start_date"); else _explicitNullProperties?.Remove("grace_period_start_date"); } }
+        public Date? GracePeriodStartDate { get => _explicitNullValueGracePeriodStartDate; set { _explicitNullValueGracePeriodStartDate = value; AdditionalData?.Remove("grace_period_start_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_start_date"); else _explicitNullProperties?.Remove("grace_period_start_date"); } }
         private Date? _explicitNullValueGracePeriodStartDate = default!;
         /// <summary>The issuer_hios_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
+        public string? IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; AdditionalData?.Remove("issuer_hios_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
         private string? _explicitNullValueIssuerHiosId = default!;
 #nullable restore
 #else
-        public string IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
+        public string IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; AdditionalData?.Remove("issuer_hios_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
         private string _explicitNullValueIssuerHiosId = default!;
 #endif
         /// <summary>The paid_through_date property</summary>
-        public Date? PaidThroughDate { get => _explicitNullValuePaidThroughDate; set { _explicitNullValuePaidThroughDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paid_through_date"); else _explicitNullProperties?.Remove("paid_through_date"); } }
+        public Date? PaidThroughDate { get => _explicitNullValuePaidThroughDate; set { _explicitNullValuePaidThroughDate = value; AdditionalData?.Remove("paid_through_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paid_through_date"); else _explicitNullProperties?.Remove("paid_through_date"); } }
         private Date? _explicitNullValuePaidThroughDate = default!;
         /// <summary>Past-due balance in cents when returned by the Marketplace policy status API.</summary>
-        public int? PastDueBalanceCents { get => _explicitNullValuePastDueBalanceCents; set { _explicitNullValuePastDueBalanceCents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("past_due_balance_cents"); else _explicitNullProperties?.Remove("past_due_balance_cents"); } }
+        public int? PastDueBalanceCents { get => _explicitNullValuePastDueBalanceCents; set { _explicitNullValuePastDueBalanceCents = value; AdditionalData?.Remove("past_due_balance_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("past_due_balance_cents"); else _explicitNullProperties?.Remove("past_due_balance_cents"); } }
         private int? _explicitNullValuePastDueBalanceCents = default!;
         /// <summary>The payment_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
+        public string? PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; AdditionalData?.Remove("payment_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
         private string? _explicitNullValuePaymentStatus = default!;
 #nullable restore
 #else
-        public string PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
+        public string PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; AdditionalData?.Remove("payment_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
         private string _explicitNullValuePaymentStatus = default!;
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string? _explicitNullValueStatus = default!;
 #nullable restore
 #else
-        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        public string Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; AdditionalData?.Remove("status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
         private string _explicitNullValueStatus = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; AdditionalData?.Remove("updated_at"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
         private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItem"/> and sets the default values.

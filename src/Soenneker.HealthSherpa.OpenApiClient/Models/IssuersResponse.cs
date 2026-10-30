@@ -17,7 +17,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("issuers") is { } nullNodeIssuers && nullNodeIssuers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issuers = null;
+            if (parseNode.GetChildNode("issuers") is null) { _explicitNullValueIssuers = default!; _explicitNullProperties?.Remove("issuers"); }
+            else if (parseNode.GetChildNode("issuers") is { } nullNodeIssuers && nullNodeIssuers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Issuers = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Issuers active in the requested state, sorted by `name` (case-insensitive) and then by `hios_issuer_id` as a stable tiebreaker. One entry per HIOS issuer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary>? Issuers { get => _explicitNullValueIssuers; set { _explicitNullValueIssuers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuers"); else _explicitNullProperties?.Remove("issuers"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary>? Issuers { get => _explicitNullValueIssuers; set { _explicitNullValueIssuers = value; AdditionalData?.Remove("issuers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuers"); else _explicitNullProperties?.Remove("issuers"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary>? _explicitNullValueIssuers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary> Issuers { get => _explicitNullValueIssuers; set { _explicitNullValueIssuers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuers"); else _explicitNullProperties?.Remove("issuers"); } }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary> Issuers { get => _explicitNullValueIssuers; set { _explicitNullValueIssuers = value; AdditionalData?.Remove("issuers"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuers"); else _explicitNullProperties?.Remove("issuers"); } }
         private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.IssuerSummary> _explicitNullValueIssuers = default!;
 #endif
         /// <summary>

@@ -18,9 +18,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("rating_area") is { } nullNodeRatingArea && nullNodeRatingArea.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RatingArea = null;
-            if (parseNode.GetChildNode("service_area_id") is { } nullNodeServiceAreaId && nullNodeServiceAreaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAreaId = null;
-            if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
+            if (parseNode.GetChildNode("rating_area") is null) { _explicitNullValueRatingArea = default!; _explicitNullProperties?.Remove("rating_area"); }
+            else if (parseNode.GetChildNode("rating_area") is { } nullNodeRatingArea && nullNodeRatingArea.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RatingArea = null;
+            if (parseNode.GetChildNode("service_area_id") is null) { _explicitNullValueServiceAreaId = default!; _explicitNullProperties?.Remove("service_area_id"); }
+            else if (parseNode.GetChildNode("service_area_id") is { } nullNodeServiceAreaId && nullNodeServiceAreaId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ServiceAreaId = null;
+            if (parseNode.GetChildNode("state") is null) { _explicitNullValueState = default!; _explicitNullProperties?.Remove("state"); }
+            else if (parseNode.GetChildNode("state") is { } nullNodeState && nullNodeState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) State = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The rating_area property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? RatingArea { get => _explicitNullValueRatingArea; set { _explicitNullValueRatingArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating_area"); else _explicitNullProperties?.Remove("rating_area"); } }
+        public string? RatingArea { get => _explicitNullValueRatingArea; set { _explicitNullValueRatingArea = value; AdditionalData?.Remove("rating_area"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating_area"); else _explicitNullProperties?.Remove("rating_area"); } }
         private string? _explicitNullValueRatingArea = default!;
 #nullable restore
 #else
-        public string RatingArea { get => _explicitNullValueRatingArea; set { _explicitNullValueRatingArea = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating_area"); else _explicitNullProperties?.Remove("rating_area"); } }
+        public string RatingArea { get => _explicitNullValueRatingArea; set { _explicitNullValueRatingArea = value; AdditionalData?.Remove("rating_area"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("rating_area"); else _explicitNullProperties?.Remove("rating_area"); } }
         private string _explicitNullValueRatingArea = default!;
 #endif
         /// <summary>The service_area_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ServiceAreaId { get => _explicitNullValueServiceAreaId; set { _explicitNullValueServiceAreaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_area_id"); else _explicitNullProperties?.Remove("service_area_id"); } }
+        public string? ServiceAreaId { get => _explicitNullValueServiceAreaId; set { _explicitNullValueServiceAreaId = value; AdditionalData?.Remove("service_area_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_area_id"); else _explicitNullProperties?.Remove("service_area_id"); } }
         private string? _explicitNullValueServiceAreaId = default!;
 #nullable restore
 #else
-        public string ServiceAreaId { get => _explicitNullValueServiceAreaId; set { _explicitNullValueServiceAreaId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_area_id"); else _explicitNullProperties?.Remove("service_area_id"); } }
+        public string ServiceAreaId { get => _explicitNullValueServiceAreaId; set { _explicitNullValueServiceAreaId = value; AdditionalData?.Remove("service_area_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("service_area_id"); else _explicitNullProperties?.Remove("service_area_id"); } }
         private string _explicitNullValueServiceAreaId = default!;
 #endif
         /// <summary>The state property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public string? State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private string? _explicitNullValueState = default!;
 #nullable restore
 #else
-        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
+        public string State { get => _explicitNullValueState; set { _explicitNullValueState = value; AdditionalData?.Remove("state"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("state"); else _explicitNullProperties?.Remove("state"); } }
         private string _explicitNullValueState = default!;
 #endif
         /// <summary>
