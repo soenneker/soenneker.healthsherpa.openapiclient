@@ -11,23 +11,44 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PlanQuoteResultPricing : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("billing_period") is { } nullNodeBillingPeriod && nullNodeBillingPeriod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BillingPeriod = null;
+            if (parseNode.GetChildNode("currency") is { } nullNodeCurrency && nullNodeCurrency.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Currency = null;
+            if (parseNode.GetChildNode("ehb_premium") is { } nullNodeEhbPremium && nullNodeEhbPremium.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EhbPremium = null;
+            if (parseNode.GetChildNode("gross_premium") is { } nullNodeGrossPremium && nullNodeGrossPremium.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GrossPremium = null;
+            if (parseNode.GetChildNode("max_aptc") is { } nullNodeMaxAptc && nullNodeMaxAptc.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaxAptc = null;
+            if (parseNode.GetChildNode("net_premium") is { } nullNodeNetPremium && nullNodeNetPremium.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetPremium = null;
+            if (parseNode.GetChildNode("subsidy_applied") is { } nullNodeSubsidyApplied && nullNodeSubsidyApplied.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubsidyApplied = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The billing_period property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod? BillingPeriod { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod? BillingPeriod { get => _explicitNullValueBillingPeriod; set { _explicitNullValueBillingPeriod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("billing_period"); else _explicitNullProperties?.Remove("billing_period"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod? _explicitNullValueBillingPeriod = default!;
         /// <summary>The currency property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency? Currency { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency? Currency { get => _explicitNullValueCurrency; set { _explicitNullValueCurrency = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currency"); else _explicitNullProperties?.Remove("currency"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency? _explicitNullValueCurrency = default!;
         /// <summary>The ehb_premium property</summary>
-        public double? EhbPremium { get; set; }
+        public double? EhbPremium { get => _explicitNullValueEhbPremium; set { _explicitNullValueEhbPremium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ehb_premium"); else _explicitNullProperties?.Remove("ehb_premium"); } }
+        private double? _explicitNullValueEhbPremium = default!;
         /// <summary>The gross_premium property</summary>
-        public double? GrossPremium { get; set; }
+        public double? GrossPremium { get => _explicitNullValueGrossPremium; set { _explicitNullValueGrossPremium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gross_premium"); else _explicitNullProperties?.Remove("gross_premium"); } }
+        private double? _explicitNullValueGrossPremium = default!;
         /// <summary>The max_aptc property</summary>
-        public double? MaxAptc { get; set; }
+        public double? MaxAptc { get => _explicitNullValueMaxAptc; set { _explicitNullValueMaxAptc = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("max_aptc"); else _explicitNullProperties?.Remove("max_aptc"); } }
+        private double? _explicitNullValueMaxAptc = default!;
         /// <summary>The net_premium property</summary>
-        public double? NetPremium { get; set; }
+        public double? NetPremium { get => _explicitNullValueNetPremium; set { _explicitNullValueNetPremium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("net_premium"); else _explicitNullProperties?.Remove("net_premium"); } }
+        private double? _explicitNullValueNetPremium = default!;
         /// <summary>The subsidy_applied property</summary>
-        public double? SubsidyApplied { get; set; }
+        public double? SubsidyApplied { get => _explicitNullValueSubsidyApplied; set { _explicitNullValueSubsidyApplied = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("subsidy_applied"); else _explicitNullProperties?.Remove("subsidy_applied"); } }
+        private double? _explicitNullValueSubsidyApplied = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricing"/> and sets the default values.
         /// </summary>
@@ -43,7 +64,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricing();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultPricing(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,6 +97,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("max_aptc", MaxAptc);
             writer.WriteDoubleValue("net_premium", NetPremium);
             writer.WriteDoubleValue("subsidy_applied", SubsidyApplied);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,15 +12,28 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentUpdateContext : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("exchange") is { } nullNodeExchange && nullNodeExchange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exchange = null;
+            if (parseNode.GetChildNode("plan_year") is { } nullNodePlanYear && nullNodePlanYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanYear = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The exchange property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? Exchange { get => _explicitNullValueExchange; set { _explicitNullValueExchange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange"); else _explicitNullProperties?.Remove("exchange"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange? _explicitNullValueExchange = default!;
         /// <summary>The plan_year property</summary>
-        public int? PlanYear { get; set; }
+        public int? PlanYear { get => _explicitNullValuePlanYear; set { _explicitNullValuePlanYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_year"); else _explicitNullProperties?.Remove("plan_year"); } }
+        private int? _explicitNullValuePlanYear = default!;
         /// <summary>The product property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct? _explicitNullValueProduct = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext"/> and sets the default values.
         /// </summary>
@@ -36,7 +49,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentUpdateContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,6 +74,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.OffExchangeExchange>("exchange", Exchange);
             writer.WriteIntValue("plan_year", PlanYear);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.IchraProduct>("product", Product);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

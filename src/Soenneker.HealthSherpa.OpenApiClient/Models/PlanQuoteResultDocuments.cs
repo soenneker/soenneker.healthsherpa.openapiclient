@@ -12,48 +12,70 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PlanQuoteResultDocuments : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("brochure_url") is { } nullNodeBrochureUrl && nullNodeBrochureUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrochureUrl = null;
+            if (parseNode.GetChildNode("formulary_url") is { } nullNodeFormularyUrl && nullNodeFormularyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FormularyUrl = null;
+            if (parseNode.GetChildNode("network_url") is { } nullNodeNetworkUrl && nullNodeNetworkUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkUrl = null;
+            if (parseNode.GetChildNode("payment_url") is { } nullNodePaymentUrl && nullNodePaymentUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentUrl = null;
+            if (parseNode.GetChildNode("sbc_url") is { } nullNodeSbcUrl && nullNodeSbcUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SbcUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The brochure_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BrochureUrl { get; set; }
+        public string? BrochureUrl { get => _explicitNullValueBrochureUrl; set { _explicitNullValueBrochureUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brochure_url"); else _explicitNullProperties?.Remove("brochure_url"); } }
+        private string? _explicitNullValueBrochureUrl = default!;
 #nullable restore
 #else
-        public string BrochureUrl { get; set; }
+        public string BrochureUrl { get => _explicitNullValueBrochureUrl; set { _explicitNullValueBrochureUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("brochure_url"); else _explicitNullProperties?.Remove("brochure_url"); } }
+        private string _explicitNullValueBrochureUrl = default!;
 #endif
         /// <summary>The formulary_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FormularyUrl { get; set; }
+        public string? FormularyUrl { get => _explicitNullValueFormularyUrl; set { _explicitNullValueFormularyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formulary_url"); else _explicitNullProperties?.Remove("formulary_url"); } }
+        private string? _explicitNullValueFormularyUrl = default!;
 #nullable restore
 #else
-        public string FormularyUrl { get; set; }
+        public string FormularyUrl { get => _explicitNullValueFormularyUrl; set { _explicitNullValueFormularyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("formulary_url"); else _explicitNullProperties?.Remove("formulary_url"); } }
+        private string _explicitNullValueFormularyUrl = default!;
 #endif
         /// <summary>The network_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? NetworkUrl { get; set; }
+        public string? NetworkUrl { get => _explicitNullValueNetworkUrl; set { _explicitNullValueNetworkUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_url"); else _explicitNullProperties?.Remove("network_url"); } }
+        private string? _explicitNullValueNetworkUrl = default!;
 #nullable restore
 #else
-        public string NetworkUrl { get; set; }
+        public string NetworkUrl { get => _explicitNullValueNetworkUrl; set { _explicitNullValueNetworkUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_url"); else _explicitNullProperties?.Remove("network_url"); } }
+        private string _explicitNullValueNetworkUrl = default!;
 #endif
         /// <summary>Issuer-hosted page for making a premium payment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentUrl { get; set; }
+        public string? PaymentUrl { get => _explicitNullValuePaymentUrl; set { _explicitNullValuePaymentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_url"); else _explicitNullProperties?.Remove("payment_url"); } }
+        private string? _explicitNullValuePaymentUrl = default!;
 #nullable restore
 #else
-        public string PaymentUrl { get; set; }
+        public string PaymentUrl { get => _explicitNullValuePaymentUrl; set { _explicitNullValuePaymentUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_url"); else _explicitNullProperties?.Remove("payment_url"); } }
+        private string _explicitNullValuePaymentUrl = default!;
 #endif
         /// <summary>Summary of Benefits and Coverage document URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SbcUrl { get; set; }
+        public string? SbcUrl { get => _explicitNullValueSbcUrl; set { _explicitNullValueSbcUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbc_url"); else _explicitNullProperties?.Remove("sbc_url"); } }
+        private string? _explicitNullValueSbcUrl = default!;
 #nullable restore
 #else
-        public string SbcUrl { get; set; }
+        public string SbcUrl { get => _explicitNullValueSbcUrl; set { _explicitNullValueSbcUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sbc_url"); else _explicitNullProperties?.Remove("sbc_url"); } }
+        private string _explicitNullValueSbcUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDocuments"/> and sets the default values.
@@ -70,7 +92,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDocuments CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDocuments();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDocuments(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,6 +121,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("network_url", NetworkUrl);
             writer.WriteStringValue("payment_url", PaymentUrl);
             writer.WriteStringValue("sbc_url", SbcUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

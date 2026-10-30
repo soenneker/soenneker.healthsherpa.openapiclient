@@ -4570,7 +4570,7 @@
           },
           "variant_id": {
             "type": "string",
-            "description": "Two-digit plan-variant suffix for the quoted sellable record when exposed by the quoter. Federal HIOS examples include 00 for off-exchange, 01 for standard on-exchange, 02/03 for American Indian and Alaska Native variations, and 04/05/06 for Silver CSR variations. HIOS-backed quoters that canonicalize a bare standard on-exchange source ID expose 01. State programs may use other suffixes, such as New Mexico\u0027s 90/95/99; clients should treat the value as an opaque identifier."
+            "description": "Two-digit plan-variant suffix for the quoted sellable record when exposed by the quoter. Federal HIOS examples include 00 for off-exchange, 01 for standard on-exchange, 02/03 for American Indian and Alaska Native variations, and 04/05/06 for Silver CSR variations. HIOS-backed quoters that canonicalize a bare standard on-exchange source ID expose 01. When ExchangeCompare sends a two-digit csr_code, these quotes copy that suffix into variant_id. State programs may use other suffixes, such as New Mexico\u0027s 90/95/99; clients should treat the value as an opaque identifier."
           },
           "external_plan_id": {
             "type": "string"

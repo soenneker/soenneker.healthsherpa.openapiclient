@@ -12,21 +12,37 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentSessionHousehold : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annual_income") is { } nullNodeAnnualIncome && nullNodeAnnualIncome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualIncome = null;
+            if (parseNode.GetChildNode("applicants") is { } nullNodeApplicants && nullNodeApplicants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicants = null;
+            if (parseNode.GetChildNode("household_size") is { } nullNodeHouseholdSize && nullNodeHouseholdSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HouseholdSize = null;
+            if (parseNode.GetChildNode("someone_has_employer_coverage") is { } nullNodeSomeoneHasEmployerCoverage && nullNodeSomeoneHasEmployerCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SomeoneHasEmployerCoverage = null;
+        }
+
         /// <summary>The annual_income property</summary>
-        public double? AnnualIncome { get; set; }
+        public double? AnnualIncome { get => _explicitNullValueAnnualIncome; set { _explicitNullValueAnnualIncome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_income"); else _explicitNullProperties?.Remove("annual_income"); } }
+        private double? _explicitNullValueAnnualIncome = default!;
         /// <summary>The applicants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant>? Applicants { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant>? Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant>? _explicitNullValueApplicants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant> Applicants { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant> Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant> _explicitNullValueApplicants = default!;
 #endif
         /// <summary>The household_size property</summary>
-        public int? HouseholdSize { get; set; }
+        public int? HouseholdSize { get => _explicitNullValueHouseholdSize; set { _explicitNullValueHouseholdSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("household_size"); else _explicitNullProperties?.Remove("household_size"); } }
+        private int? _explicitNullValueHouseholdSize = default!;
         /// <summary>The someone_has_employer_coverage property</summary>
-        public bool? SomeoneHasEmployerCoverage { get; set; }
+        public bool? SomeoneHasEmployerCoverage { get => _explicitNullValueSomeoneHasEmployerCoverage; set { _explicitNullValueSomeoneHasEmployerCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("someone_has_employer_coverage"); else _explicitNullProperties?.Remove("someone_has_employer_coverage"); } }
+        private bool? _explicitNullValueSomeoneHasEmployerCoverage = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -35,7 +51,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +77,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("annual_income", AnnualIncome);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicant>("applicants", Applicants);
             writer.WriteIntValue("household_size", HouseholdSize);
-            writer.WriteBoolValue("someone_has_employer_coverage", SomeoneHasEmployerCoverage);
+            writer.WriteBoolValue("someone_has_employer_coverage", SomeoneHasEmployerCoverage);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

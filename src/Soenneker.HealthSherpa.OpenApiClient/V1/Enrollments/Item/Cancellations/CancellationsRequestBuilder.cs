@@ -57,6 +57,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Cancellations
             {
                 { "502", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.StatusChangeResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.StatusChangeResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

@@ -68,6 +68,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments
             {
                 { "502", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationListResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -97,6 +99,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments
                 { "413", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

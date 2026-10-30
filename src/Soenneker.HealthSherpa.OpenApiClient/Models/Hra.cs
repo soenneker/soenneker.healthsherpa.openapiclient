@@ -13,49 +13,81 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Hra : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("amount") is { } nullNodeAmount && nullNodeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Amount = null;
+            if (parseNode.GetChildNode("annual_household_income") is { } nullNodeAnnualHouseholdIncome && nullNodeAnnualHouseholdIncome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualHouseholdIncome = null;
+            if (parseNode.GetChildNode("annual_household_income_determination") is { } nullNodeAnnualHouseholdIncomeDetermination && nullNodeAnnualHouseholdIncomeDetermination.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualHouseholdIncomeDetermination = null;
+            if (parseNode.GetChildNode("contribution_covers") is { } nullNodeContributionCovers && nullNodeContributionCovers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContributionCovers = null;
+            if (parseNode.GetChildNode("employer") is { } nullNodeEmployer && nullNodeEmployer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Employer = null;
+            if (parseNode.GetChildNode("household_size") is { } nullNodeHouseholdSize && nullNodeHouseholdSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HouseholdSize = null;
+            if (parseNode.GetChildNode("offered_hra") is { } nullNodeOfferedHra && nullNodeOfferedHra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferedHra = null;
+            if (parseNode.GetChildNode("premium_payer") is { } nullNodePremiumPayer && nullNodePremiumPayer.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PremiumPayer = null;
+            if (parseNode.GetChildNode("start") is { } nullNodeStart && nullNodeStart.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Start = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("used_for_spousal_or_family_premiums") is { } nullNodeUsedForSpousalOrFamilyPremiums && nullNodeUsedForSpousalOrFamilyPremiums.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsedForSpousalOrFamilyPremiums = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Monthly contribution in USD.</summary>
-        public float? Amount { get; set; }
+        public float? Amount { get => _explicitNullValueAmount; set { _explicitNullValueAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("amount"); else _explicitNullProperties?.Remove("amount"); } }
+        private float? _explicitNullValueAmount = default!;
         /// <summary>The annual_household_income property</summary>
-        public float? AnnualHouseholdIncome { get; set; }
+        public float? AnnualHouseholdIncome { get => _explicitNullValueAnnualHouseholdIncome; set { _explicitNullValueAnnualHouseholdIncome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_household_income"); else _explicitNullProperties?.Remove("annual_household_income"); } }
+        private float? _explicitNullValueAnnualHouseholdIncome = default!;
         /// <summary>The annual_household_income_determination property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AnnualHouseholdIncomeDetermination { get; set; }
+        public string? AnnualHouseholdIncomeDetermination { get => _explicitNullValueAnnualHouseholdIncomeDetermination; set { _explicitNullValueAnnualHouseholdIncomeDetermination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_household_income_determination"); else _explicitNullProperties?.Remove("annual_household_income_determination"); } }
+        private string? _explicitNullValueAnnualHouseholdIncomeDetermination = default!;
 #nullable restore
 #else
-        public string AnnualHouseholdIncomeDetermination { get; set; }
+        public string AnnualHouseholdIncomeDetermination { get => _explicitNullValueAnnualHouseholdIncomeDetermination; set { _explicitNullValueAnnualHouseholdIncomeDetermination = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_household_income_determination"); else _explicitNullProperties?.Remove("annual_household_income_determination"); } }
+        private string _explicitNullValueAnnualHouseholdIncomeDetermination = default!;
 #endif
         /// <summary>`premium`: premiums only. `premium_oop`: premiums and out-of-pocket costs.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraContributionCovers? ContributionCovers { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraContributionCovers? ContributionCovers { get => _explicitNullValueContributionCovers; set { _explicitNullValueContributionCovers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contribution_covers"); else _explicitNullProperties?.Remove("contribution_covers"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.HraContributionCovers? _explicitNullValueContributionCovers = default!;
         /// <summary>The employer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer? Employer { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer? Employer { get => _explicitNullValueEmployer; set { _explicitNullValueEmployer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer"); else _explicitNullProperties?.Remove("employer"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer? _explicitNullValueEmployer = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer Employer { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer Employer { get => _explicitNullValueEmployer; set { _explicitNullValueEmployer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employer"); else _explicitNullProperties?.Remove("employer"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.Employer _explicitNullValueEmployer = default!;
 #endif
         /// <summary>The household_size property</summary>
-        public int? HouseholdSize { get; set; }
+        public int? HouseholdSize { get => _explicitNullValueHouseholdSize; set { _explicitNullValueHouseholdSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("household_size"); else _explicitNullProperties?.Remove("household_size"); } }
+        private int? _explicitNullValueHouseholdSize = default!;
         /// <summary>`true`: applicant is offered an HRA. `false`: applicant is not offered an HRA. `null`: unknown.</summary>
-        public bool? OfferedHra { get; set; }
+        public bool? OfferedHra { get => _explicitNullValueOfferedHra; set { _explicitNullValueOfferedHra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offered_hra"); else _explicitNullProperties?.Remove("offered_hra"); } }
+        private bool? _explicitNullValueOfferedHra = default!;
         /// <summary>The premium_payer property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PremiumPayer { get; set; }
+        public string? PremiumPayer { get => _explicitNullValuePremiumPayer; set { _explicitNullValuePremiumPayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("premium_payer"); else _explicitNullProperties?.Remove("premium_payer"); } }
+        private string? _explicitNullValuePremiumPayer = default!;
 #nullable restore
 #else
-        public string PremiumPayer { get; set; }
+        public string PremiumPayer { get => _explicitNullValuePremiumPayer; set { _explicitNullValuePremiumPayer = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("premium_payer"); else _explicitNullProperties?.Remove("premium_payer"); } }
+        private string _explicitNullValuePremiumPayer = default!;
 #endif
         /// <summary>The start property</summary>
-        public Date? Start { get; set; }
+        public Date? Start { get => _explicitNullValueStart; set { _explicitNullValueStart = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("start"); else _explicitNullProperties?.Remove("start"); } }
+        private Date? _explicitNullValueStart = default!;
         /// <summary>The type property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraType? Type { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.HraType? _explicitNullValueType = default!;
         /// <summary>Whether the HRA is used for spousal or family premiums. Relevant for QSEHRA 834 indicators.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraUsedForSpousalOrFamilyPremiums? UsedForSpousalOrFamilyPremiums { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.HraUsedForSpousalOrFamilyPremiums? UsedForSpousalOrFamilyPremiums { get => _explicitNullValueUsedForSpousalOrFamilyPremiums; set { _explicitNullValueUsedForSpousalOrFamilyPremiums = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("used_for_spousal_or_family_premiums"); else _explicitNullProperties?.Remove("used_for_spousal_or_family_premiums"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.HraUsedForSpousalOrFamilyPremiums? _explicitNullValueUsedForSpousalOrFamilyPremiums = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra"/> and sets the default values.
         /// </summary>
@@ -71,7 +103,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.Hra(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,6 +144,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDateValue("start", Start);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.HraType>("type", Type);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.HraUsedForSpousalOrFamilyPremiums>("used_for_spousal_or_family_premiums", UsedForSpousalOrFamilyPremiums);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -11,24 +11,37 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnrollmentSessionResponseLinks : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("client_apply_url") is { } nullNodeClientApplyUrl && nullNodeClientApplyUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientApplyUrl = null;
+            if (parseNode.GetChildNode("shopping_url") is { } nullNodeShoppingUrl && nullNodeShoppingUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ShoppingUrl = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>HealthSherpa-hosted apply URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned. Always present for enrollment-session responses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientApplyUrl { get; set; }
+        public string? ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
+        private string? _explicitNullValueClientApplyUrl = default!;
 #nullable restore
 #else
-        public string ClientApplyUrl { get; set; }
+        public string ClientApplyUrl { get => _explicitNullValueClientApplyUrl; set { _explicitNullValueClientApplyUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_apply_url"); else _explicitNullProperties?.Remove("client_apply_url"); } }
+        private string _explicitNullValueClientApplyUrl = default!;
 #endif
         /// <summary>HealthSherpa-hosted shopping URL. The URL format varies by flow; clients should treat it as opaque and use it exactly as returned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ShoppingUrl { get; set; }
+        public string? ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
+        private string? _explicitNullValueShoppingUrl = default!;
 #nullable restore
 #else
-        public string ShoppingUrl { get; set; }
+        public string ShoppingUrl { get => _explicitNullValueShoppingUrl; set { _explicitNullValueShoppingUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("shopping_url"); else _explicitNullProperties?.Remove("shopping_url"); } }
+        private string _explicitNullValueShoppingUrl = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionResponseLinks"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionResponseLinks CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionResponseLinks();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionResponseLinks(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("client_apply_url", ClientApplyUrl);
             writer.WriteStringValue("shopping_url", ShoppingUrl);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

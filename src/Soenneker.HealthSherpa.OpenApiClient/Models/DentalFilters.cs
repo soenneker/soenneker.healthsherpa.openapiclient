@@ -11,23 +11,41 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class DentalFilters : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("adult_coverage") is { } nullNodeAdultCoverage && nullNodeAdultCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdultCoverage = null;
+            if (parseNode.GetChildNode("annual_maximum_min") is { } nullNodeAnnualMaximumMin && nullNodeAnnualMaximumMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualMaximumMin = null;
+            if (parseNode.GetChildNode("child_coverage") is { } nullNodeChildCoverage && nullNodeChildCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildCoverage = null;
+            if (parseNode.GetChildNode("metal_levels") is { } nullNodeMetalLevels && nullNodeMetalLevels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetalLevels = null;
+            if (parseNode.GetChildNode("orthodontia_coverage") is { } nullNodeOrthodontiaCoverage && nullNodeOrthodontiaCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OrthodontiaCoverage = null;
+        }
+
         /// <summary>The adult_coverage property</summary>
-        public bool? AdultCoverage { get; set; }
+        public bool? AdultCoverage { get => _explicitNullValueAdultCoverage; set { _explicitNullValueAdultCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adult_coverage"); else _explicitNullProperties?.Remove("adult_coverage"); } }
+        private bool? _explicitNullValueAdultCoverage = default!;
         /// <summary>The annual_maximum_min property</summary>
-        public double? AnnualMaximumMin { get; set; }
+        public double? AnnualMaximumMin { get => _explicitNullValueAnnualMaximumMin; set { _explicitNullValueAnnualMaximumMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_maximum_min"); else _explicitNullProperties?.Remove("annual_maximum_min"); } }
+        private double? _explicitNullValueAnnualMaximumMin = default!;
         /// <summary>The child_coverage property</summary>
-        public bool? ChildCoverage { get; set; }
+        public bool? ChildCoverage { get => _explicitNullValueChildCoverage; set { _explicitNullValueChildCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_coverage"); else _explicitNullProperties?.Remove("child_coverage"); } }
+        private bool? _explicitNullValueChildCoverage = default!;
         /// <summary>The metal_levels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?>? MetalLevels { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?>? MetalLevels { get => _explicitNullValueMetalLevels; set { _explicitNullValueMetalLevels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metal_levels"); else _explicitNullProperties?.Remove("metal_levels"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?>? _explicitNullValueMetalLevels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?> MetalLevels { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?> MetalLevels { get => _explicitNullValueMetalLevels; set { _explicitNullValueMetalLevels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metal_levels"); else _explicitNullProperties?.Remove("metal_levels"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem?> _explicitNullValueMetalLevels = default!;
 #endif
         /// <summary>The orthodontia_coverage property</summary>
-        public bool? OrthodontiaCoverage { get; set; }
+        public bool? OrthodontiaCoverage { get => _explicitNullValueOrthodontiaCoverage; set { _explicitNullValueOrthodontiaCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("orthodontia_coverage"); else _explicitNullProperties?.Remove("orthodontia_coverage"); } }
+        private bool? _explicitNullValueOrthodontiaCoverage = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -36,7 +54,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,7 +82,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("annual_maximum_min", AnnualMaximumMin);
             writer.WriteBoolValue("child_coverage", ChildCoverage);
             writer.WriteCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFiltersMetalLevelsItem>("metal_levels", MetalLevels);
-            writer.WriteBoolValue("orthodontia_coverage", OrthodontiaCoverage);
+            writer.WriteBoolValue("orthodontia_coverage", OrthodontiaCoverage);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

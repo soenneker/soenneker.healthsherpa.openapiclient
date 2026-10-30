@@ -11,21 +11,42 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnrollmentSessionContext : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("coverage_family") is { } nullNodeCoverageFamily && nullNodeCoverageFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverageFamily = null;
+            if (parseNode.GetChildNode("coverage_type") is { } nullNodeCoverageType && nullNodeCoverageType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverageType = null;
+            if (parseNode.GetChildNode("exchange") is { } nullNodeExchange && nullNodeExchange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Exchange = null;
+            if (parseNode.GetChildNode("flow") is { } nullNodeFlow && nullNodeFlow.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Flow = null;
+            if (parseNode.GetChildNode("locale") is { } nullNodeLocale && nullNodeLocale.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Locale = null;
+            if (parseNode.GetChildNode("plan_year") is { } nullNodePlanYear && nullNodePlanYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanYear = null;
+            if (parseNode.GetChildNode("product") is { } nullNodeProduct && nullNodeProduct.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Product = null;
+        }
+
         /// <summary>The coverage_family property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily? CoverageFamily { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily? CoverageFamily { get => _explicitNullValueCoverageFamily; set { _explicitNullValueCoverageFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverage_family"); else _explicitNullProperties?.Remove("coverage_family"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily? _explicitNullValueCoverageFamily = default!;
         /// <summary>The coverage_type property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType? CoverageType { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType? CoverageType { get => _explicitNullValueCoverageType; set { _explicitNullValueCoverageType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverage_type"); else _explicitNullProperties?.Remove("coverage_type"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType? _explicitNullValueCoverageType = default!;
         /// <summary>The exchange property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? Exchange { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? Exchange { get => _explicitNullValueExchange; set { _explicitNullValueExchange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange"); else _explicitNullProperties?.Remove("exchange"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.OnExchangeExchange? _explicitNullValueExchange = default!;
         /// <summary>Mapped to the deep link&apos;s `user_type` (`agent_assisted` -&gt; `agent`, `self_service` -&gt; `consumer`).</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow? Flow { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow? Flow { get => _explicitNullValueFlow; set { _explicitNullValueFlow = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("flow"); else _explicitNullProperties?.Remove("flow"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow? _explicitNullValueFlow = default!;
         /// <summary>`es-MX` enables the Spanish flow via the deep link&apos;s `ljs` parameter.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale? Locale { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale? Locale { get => _explicitNullValueLocale; set { _explicitNullValueLocale = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("locale"); else _explicitNullProperties?.Remove("locale"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale? _explicitNullValueLocale = default!;
         /// <summary>The plan_year property</summary>
-        public int? PlanYear { get; set; }
+        public int? PlanYear { get => _explicitNullValuePlanYear; set { _explicitNullValuePlanYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_year"); else _explicitNullProperties?.Remove("plan_year"); } }
+        private int? _explicitNullValuePlanYear = default!;
         /// <summary>The product property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct? Product { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct? Product { get => _explicitNullValueProduct; set { _explicitNullValueProduct = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("product"); else _explicitNullProperties?.Remove("product"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct? _explicitNullValueProduct = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -34,7 +55,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +87,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextFlow>("flow", Flow);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContextLocale>("locale", Locale);
             writer.WriteIntValue("plan_year", PlanYear);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct>("product", Product);
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AcaProduct>("product", Product);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

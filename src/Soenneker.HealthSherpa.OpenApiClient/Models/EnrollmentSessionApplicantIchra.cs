@@ -11,15 +11,30 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class EnrollmentSessionApplicantIchra : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("employee_amount") is { } nullNodeEmployeeAmount && nullNodeEmployeeAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmployeeAmount = null;
+            if (parseNode.GetChildNode("family_amount") is { } nullNodeFamilyAmount && nullNodeFamilyAmount.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FamilyAmount = null;
+            if (parseNode.GetChildNode("offered") is { } nullNodeOffered && nullNodeOffered.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Offered = null;
+            if (parseNode.GetChildNode("offered_cafeteria") is { } nullNodeOfferedCafeteria && nullNodeOfferedCafeteria.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OfferedCafeteria = null;
+        }
+
         /// <summary>The employee_amount property</summary>
-        public double? EmployeeAmount { get; set; }
+        public double? EmployeeAmount { get => _explicitNullValueEmployeeAmount; set { _explicitNullValueEmployeeAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("employee_amount"); else _explicitNullProperties?.Remove("employee_amount"); } }
+        private double? _explicitNullValueEmployeeAmount = default!;
         /// <summary>The family_amount property</summary>
-        public double? FamilyAmount { get; set; }
+        public double? FamilyAmount { get => _explicitNullValueFamilyAmount; set { _explicitNullValueFamilyAmount = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("family_amount"); else _explicitNullProperties?.Remove("family_amount"); } }
+        private double? _explicitNullValueFamilyAmount = default!;
         /// <summary>The offered property</summary>
-        public bool? Offered { get; set; }
+        public bool? Offered { get => _explicitNullValueOffered; set { _explicitNullValueOffered = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offered"); else _explicitNullProperties?.Remove("offered"); } }
+        private bool? _explicitNullValueOffered = default!;
         /// <summary>The offered_cafeteria property</summary>
-        public bool? OfferedCafeteria { get; set; }
+        public bool? OfferedCafeteria { get => _explicitNullValueOfferedCafeteria; set { _explicitNullValueOfferedCafeteria = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("offered_cafeteria"); else _explicitNullProperties?.Remove("offered_cafeteria"); } }
+        private bool? _explicitNullValueOfferedCafeteria = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -28,7 +43,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicantIchra CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicantIchra();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionApplicantIchra(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +69,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("employee_amount", EmployeeAmount);
             writer.WriteDoubleValue("family_amount", FamilyAmount);
             writer.WriteBoolValue("offered", Offered);
-            writer.WriteBoolValue("offered_cafeteria", OfferedCafeteria);
+            writer.WriteBoolValue("offered_cafeteria", OfferedCafeteria);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,64 +11,107 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class PlanQuoteResultDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("adult_dental") is { } nullNodeAdultDental && nullNodeAdultDental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AdultDental = null;
+            if (parseNode.GetChildNode("child_dental") is { } nullNodeChildDental && nullNodeChildDental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ChildDental = null;
+            if (parseNode.GetChildNode("csr_level") is { } nullNodeCsrLevel && nullNodeCsrLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CsrLevel = null;
+            if (parseNode.GetChildNode("deductible_family") is { } nullNodeDeductibleFamily && nullNodeDeductibleFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeductibleFamily = null;
+            if (parseNode.GetChildNode("deductible_individual") is { } nullNodeDeductibleIndividual && nullNodeDeductibleIndividual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeductibleIndividual = null;
+            if (parseNode.GetChildNode("generic_rx_summary") is { } nullNodeGenericRxSummary && nullNodeGenericRxSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GenericRxSummary = null;
+            if (parseNode.GetChildNode("hsa_eligible") is { } nullNodeHsaEligible && nullNodeHsaEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HsaEligible = null;
+            if (parseNode.GetChildNode("is_standardized") is { } nullNodeIsStandardized && nullNodeIsStandardized.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IsStandardized = null;
+            if (parseNode.GetChildNode("metal_level") is { } nullNodeMetalLevel && nullNodeMetalLevel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetalLevel = null;
+            if (parseNode.GetChildNode("moop_family") is { } nullNodeMoopFamily && nullNodeMoopFamily.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MoopFamily = null;
+            if (parseNode.GetChildNode("moop_individual") is { } nullNodeMoopIndividual && nullNodeMoopIndividual.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MoopIndividual = null;
+            if (parseNode.GetChildNode("plan_type") is { } nullNodePlanType && nullNodePlanType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanType = null;
+            if (parseNode.GetChildNode("primary_care_summary") is { } nullNodePrimaryCareSummary && nullNodePrimaryCareSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PrimaryCareSummary = null;
+            if (parseNode.GetChildNode("specialist_summary") is { } nullNodeSpecialistSummary && nullNodeSpecialistSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpecialistSummary = null;
+            if (parseNode.GetChildNode("type") is { } nullNodeType && nullNodeType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Type = null;
+            if (parseNode.GetChildNode("urgent_care_summary") is { } nullNodeUrgentCareSummary && nullNodeUrgentCareSummary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UrgentCareSummary = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the medical plan embeds adult dental coverage. Present for medical quote results.</summary>
-        public bool? AdultDental { get; set; }
+        public bool? AdultDental { get => _explicitNullValueAdultDental; set { _explicitNullValueAdultDental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("adult_dental"); else _explicitNullProperties?.Remove("adult_dental"); } }
+        private bool? _explicitNullValueAdultDental = default!;
         /// <summary>Whether the medical plan embeds pediatric (child) dental coverage. Present for medical quote results.</summary>
-        public bool? ChildDental { get; set; }
+        public bool? ChildDental { get => _explicitNullValueChildDental; set { _explicitNullValueChildDental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("child_dental"); else _explicitNullProperties?.Remove("child_dental"); } }
+        private bool? _explicitNullValueChildDental = default!;
         /// <summary>CMS CSR variation derived from the 2-digit HIOS variant suffix. Source: PlanAttributes PUF CSRVariationType.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsCsrLevel? CsrLevel { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsCsrLevel? CsrLevel { get => _explicitNullValueCsrLevel; set { _explicitNullValueCsrLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("csr_level"); else _explicitNullProperties?.Remove("csr_level"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsCsrLevel? _explicitNullValueCsrLevel = default!;
         /// <summary>Family annual deductible (USD). Present for medical quote results.</summary>
-        public double? DeductibleFamily { get; set; }
+        public double? DeductibleFamily { get => _explicitNullValueDeductibleFamily; set { _explicitNullValueDeductibleFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductible_family"); else _explicitNullProperties?.Remove("deductible_family"); } }
+        private double? _explicitNullValueDeductibleFamily = default!;
         /// <summary>Individual annual deductible (USD). Present for medical quote results.</summary>
-        public double? DeductibleIndividual { get; set; }
+        public double? DeductibleIndividual { get => _explicitNullValueDeductibleIndividual; set { _explicitNullValueDeductibleIndividual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("deductible_individual"); else _explicitNullProperties?.Remove("deductible_individual"); } }
+        private double? _explicitNullValueDeductibleIndividual = default!;
         /// <summary>Cost-share summary for generic prescription drugs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? GenericRxSummary { get; set; }
+        public string? GenericRxSummary { get => _explicitNullValueGenericRxSummary; set { _explicitNullValueGenericRxSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generic_rx_summary"); else _explicitNullProperties?.Remove("generic_rx_summary"); } }
+        private string? _explicitNullValueGenericRxSummary = default!;
 #nullable restore
 #else
-        public string GenericRxSummary { get; set; }
+        public string GenericRxSummary { get => _explicitNullValueGenericRxSummary; set { _explicitNullValueGenericRxSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("generic_rx_summary"); else _explicitNullProperties?.Remove("generic_rx_summary"); } }
+        private string _explicitNullValueGenericRxSummary = default!;
 #endif
         /// <summary>Present for medical quote results.</summary>
-        public bool? HsaEligible { get; set; }
+        public bool? HsaEligible { get => _explicitNullValueHsaEligible; set { _explicitNullValueHsaEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hsa_eligible"); else _explicitNullProperties?.Remove("hsa_eligible"); } }
+        private bool? _explicitNullValueHsaEligible = default!;
         /// <summary>Whether the plan follows a CMS- or state-defined standardized design. Present for medical quote results.</summary>
-        public bool? IsStandardized { get; set; }
+        public bool? IsStandardized { get => _explicitNullValueIsStandardized; set { _explicitNullValueIsStandardized = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("is_standardized"); else _explicitNullProperties?.Remove("is_standardized"); } }
+        private bool? _explicitNullValueIsStandardized = default!;
         /// <summary>Present for medical quote results.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsMetalLevel? MetalLevel { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsMetalLevel? MetalLevel { get => _explicitNullValueMetalLevel; set { _explicitNullValueMetalLevel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metal_level"); else _explicitNullProperties?.Remove("metal_level"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsMetalLevel? _explicitNullValueMetalLevel = default!;
         /// <summary>Family maximum out-of-pocket (USD). Present for medical quote results.</summary>
-        public double? MoopFamily { get; set; }
+        public double? MoopFamily { get => _explicitNullValueMoopFamily; set { _explicitNullValueMoopFamily = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moop_family"); else _explicitNullProperties?.Remove("moop_family"); } }
+        private double? _explicitNullValueMoopFamily = default!;
         /// <summary>Individual maximum out-of-pocket (USD). Present for medical quote results.</summary>
-        public double? MoopIndividual { get; set; }
+        public double? MoopIndividual { get => _explicitNullValueMoopIndividual; set { _explicitNullValueMoopIndividual = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("moop_individual"); else _explicitNullProperties?.Remove("moop_individual"); } }
+        private double? _explicitNullValueMoopIndividual = default!;
         /// <summary>Present for medical quote results.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsPlanType? PlanType { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsPlanType? PlanType { get => _explicitNullValuePlanType; set { _explicitNullValuePlanType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_type"); else _explicitNullProperties?.Remove("plan_type"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsPlanType? _explicitNullValuePlanType = default!;
         /// <summary>Cost-share summary for a primary-care visit (e.g. &quot;$25 Copay&quot;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PrimaryCareSummary { get; set; }
+        public string? PrimaryCareSummary { get => _explicitNullValuePrimaryCareSummary; set { _explicitNullValuePrimaryCareSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_care_summary"); else _explicitNullProperties?.Remove("primary_care_summary"); } }
+        private string? _explicitNullValuePrimaryCareSummary = default!;
 #nullable restore
 #else
-        public string PrimaryCareSummary { get; set; }
+        public string PrimaryCareSummary { get => _explicitNullValuePrimaryCareSummary; set { _explicitNullValuePrimaryCareSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("primary_care_summary"); else _explicitNullProperties?.Remove("primary_care_summary"); } }
+        private string _explicitNullValuePrimaryCareSummary = default!;
 #endif
         /// <summary>Cost-share summary for a specialist visit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpecialistSummary { get; set; }
+        public string? SpecialistSummary { get => _explicitNullValueSpecialistSummary; set { _explicitNullValueSpecialistSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specialist_summary"); else _explicitNullProperties?.Remove("specialist_summary"); } }
+        private string? _explicitNullValueSpecialistSummary = default!;
 #nullable restore
 #else
-        public string SpecialistSummary { get; set; }
+        public string SpecialistSummary { get => _explicitNullValueSpecialistSummary; set { _explicitNullValueSpecialistSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("specialist_summary"); else _explicitNullProperties?.Remove("specialist_summary"); } }
+        private string _explicitNullValueSpecialistSummary = default!;
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsType? Type { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsType? Type { get => _explicitNullValueType; set { _explicitNullValueType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("type"); else _explicitNullProperties?.Remove("type"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsType? _explicitNullValueType = default!;
         /// <summary>Cost-share summary for an urgent-care visit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? UrgentCareSummary { get; set; }
+        public string? UrgentCareSummary { get => _explicitNullValueUrgentCareSummary; set { _explicitNullValueUrgentCareSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("urgent_care_summary"); else _explicitNullProperties?.Remove("urgent_care_summary"); } }
+        private string? _explicitNullValueUrgentCareSummary = default!;
 #nullable restore
 #else
-        public string UrgentCareSummary { get; set; }
+        public string UrgentCareSummary { get => _explicitNullValueUrgentCareSummary; set { _explicitNullValueUrgentCareSummary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("urgent_care_summary"); else _explicitNullProperties?.Remove("urgent_care_summary"); } }
+        private string _explicitNullValueUrgentCareSummary = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetails"/> and sets the default values.
@@ -85,7 +128,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetails();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetails(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -136,6 +179,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("specialist_summary", SpecialistSummary);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PlanQuoteResultDetailsType>("type", Type);
             writer.WriteStringValue("urgent_care_summary", UrgentCareSummary);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,161 +12,260 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Dependent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("add_to_donate_life_registry") is { } nullNodeAddToDonateLifeRegistry && nullNodeAddToDonateLifeRegistry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AddToDonateLifeRegistry = null;
+            if (parseNode.GetChildNode("alternate_address") is { } nullNodeAlternateAddress && nullNodeAlternateAddress.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateAddress = null;
+            if (parseNode.GetChildNode("currently_incarcerated") is { } nullNodeCurrentlyIncarcerated && nullNodeCurrentlyIncarcerated.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentlyIncarcerated = null;
+            if (parseNode.GetChildNode("date_of_birth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("disability_end_date") is { } nullNodeDisabilityEndDate && nullNodeDisabilityEndDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabilityEndDate = null;
+            if (parseNode.GetChildNode("disability_is_temporary") is { } nullNodeDisabilityIsTemporary && nullNodeDisabilityIsTemporary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisabilityIsTemporary = null;
+            if (parseNode.GetChildNode("email") is { } nullNodeEmail && nullNodeEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Email = null;
+            if (parseNode.GetChildNode("enrolled_in_medicaid_chip_or_other_gov_program") is { } nullNodeEnrolledInMedicaidChipOrOtherGovProgram && nullNodeEnrolledInMedicaidChipOrOtherGovProgram.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrolledInMedicaidChipOrOtherGovProgram = null;
+            if (parseNode.GetChildNode("enrolled_in_medicare") is { } nullNodeEnrolledInMedicare && nullNodeEnrolledInMedicare.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrolledInMedicare = null;
+            if (parseNode.GetChildNode("enrolled_in_medicare_parts_a_or_b") is { } nullNodeEnrolledInMedicarePartsAOrB && nullNodeEnrolledInMedicarePartsAOrB.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EnrolledInMedicarePartsAOrB = null;
+            if (parseNode.GetChildNode("existing_coverage") is { } nullNodeExistingCoverage && nullNodeExistingCoverage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExistingCoverage = null;
+            if (parseNode.GetChildNode("external_id") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
+            if (parseNode.GetChildNode("first_name") is { } nullNodeFirstName && nullNodeFirstName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstName = null;
+            if (parseNode.GetChildNode("full_time_student") is { } nullNodeFullTimeStudent && nullNodeFullTimeStudent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullTimeStudent = null;
+            if (parseNode.GetChildNode("gender") is { } nullNodeGender && nullNodeGender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gender = null;
+            if (parseNode.GetChildNode("graduation_date") is { } nullNodeGraduationDate && nullNodeGraduationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GraduationDate = null;
+            if (parseNode.GetChildNode("guardian") is { } nullNodeGuardian && nullNodeGuardian.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Guardian = null;
+            if (parseNode.GetChildNode("has_disability") is { } nullNodeHasDisability && nullNodeHasDisability.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasDisability = null;
+            if (parseNode.GetChildNode("has_eligible_immigration_status") is { } nullNodeHasEligibleImmigrationStatus && nullNodeHasEligibleImmigrationStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HasEligibleImmigrationStatus = null;
+            if (parseNode.GetChildNode("hispanic_origin") is { } nullNodeHispanicOrigin && nullNodeHispanicOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HispanicOrigin = null;
+            if (parseNode.GetChildNode("hispanic_origin_description") is { } nullNodeHispanicOriginDescription && nullNodeHispanicOriginDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HispanicOriginDescription = null;
+            if (parseNode.GetChildNode("itin") is { } nullNodeItin && nullNodeItin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Itin = null;
+            if (parseNode.GetChildNode("language_spoken") is { } nullNodeLanguageSpoken && nullNodeLanguageSpoken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageSpoken = null;
+            if (parseNode.GetChildNode("language_written") is { } nullNodeLanguageWritten && nullNodeLanguageWritten.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LanguageWritten = null;
+            if (parseNode.GetChildNode("last_name") is { } nullNodeLastName && nullNodeLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastName = null;
+            if (parseNode.GetChildNode("marital_status") is { } nullNodeMaritalStatus && nullNodeMaritalStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MaritalStatus = null;
+            if (parseNode.GetChildNode("married") is { } nullNodeMarried && nullNodeMarried.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Married = null;
+            if (parseNode.GetChildNode("medicare_eligible") is { } nullNodeMedicareEligible && nullNodeMedicareEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MedicareEligible = null;
+            if (parseNode.GetChildNode("medicare_medicaid_eligible") is { } nullNodeMedicareMedicaidEligible && nullNodeMedicareMedicaidEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MedicareMedicaidEligible = null;
+            if (parseNode.GetChildNode("middle_name") is { } nullNodeMiddleName && nullNodeMiddleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MiddleName = null;
+            if (parseNode.GetChildNode("phone") is { } nullNodePhone && nullNodePhone.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Phone = null;
+            if (parseNode.GetChildNode("race_ethnicity") is { } nullNodeRaceEthnicity && nullNodeRaceEthnicity.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) RaceEthnicity = null;
+            if (parseNode.GetChildNode("relationship") is { } nullNodeRelationship && nullNodeRelationship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relationship = null;
+            if (parseNode.GetChildNode("resides_in_state") is { } nullNodeResidesInState && nullNodeResidesInState.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResidesInState = null;
+            if (parseNode.GetChildNode("ssn") is { } nullNodeSsn && nullNodeSsn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Ssn = null;
+            if (parseNode.GetChildNode("suffix") is { } nullNodeSuffix && nullNodeSuffix.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Suffix = null;
+            if (parseNode.GetChildNode("tobacco_not_applicable") is { } nullNodeTobaccoNotApplicable && nullNodeTobaccoNotApplicable.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TobaccoNotApplicable = null;
+            if (parseNode.GetChildNode("us_citizen") is { } nullNodeUsCitizen && nullNodeUsCitizen.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsCitizen = null;
+            if (parseNode.GetChildNode("uses_tobacco") is { } nullNodeUsesTobacco && nullNodeUsesTobacco.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsesTobacco = null;
+            if (parseNode.GetChildNode("veteran_or_active_duty_military") is { } nullNodeVeteranOrActiveDutyMilitary && nullNodeVeteranOrActiveDutyMilitary.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) VeteranOrActiveDutyMilitary = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Whether the applicant wants to be added to the Donate Life registry. Only accepted by carriers that support this field.</summary>
-        public bool? AddToDonateLifeRegistry { get; set; }
+        public bool? AddToDonateLifeRegistry { get => _explicitNullValueAddToDonateLifeRegistry; set { _explicitNullValueAddToDonateLifeRegistry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("add_to_donate_life_registry"); else _explicitNullProperties?.Remove("add_to_donate_life_registry"); } }
+        private bool? _explicitNullValueAddToDonateLifeRegistry = default!;
         /// <summary>Address for a dependent living at a different address than the primary applicant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress? AlternateAddress { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress? AlternateAddress { get => _explicitNullValueAlternateAddress; set { _explicitNullValueAlternateAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternate_address"); else _explicitNullProperties?.Remove("alternate_address"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress? _explicitNullValueAlternateAddress = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress AlternateAddress { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress AlternateAddress { get => _explicitNullValueAlternateAddress; set { _explicitNullValueAlternateAddress = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternate_address"); else _explicitNullProperties?.Remove("alternate_address"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress _explicitNullValueAlternateAddress = default!;
 #endif
         /// <summary>The currently_incarcerated property</summary>
-        public bool? CurrentlyIncarcerated { get; set; }
+        public bool? CurrentlyIncarcerated { get => _explicitNullValueCurrentlyIncarcerated; set { _explicitNullValueCurrentlyIncarcerated = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("currently_incarcerated"); else _explicitNullProperties?.Remove("currently_incarcerated"); } }
+        private bool? _explicitNullValueCurrentlyIncarcerated = default!;
         /// <summary>The date_of_birth property</summary>
-        public Date? DateOfBirth { get; set; }
+        public Date? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_of_birth"); else _explicitNullProperties?.Remove("date_of_birth"); } }
+        private Date? _explicitNullValueDateOfBirth = default!;
         /// <summary>Expected end date of a temporary disability. Only accepted by carriers that require disability follow-up questions.</summary>
-        public Date? DisabilityEndDate { get; set; }
+        public Date? DisabilityEndDate { get => _explicitNullValueDisabilityEndDate; set { _explicitNullValueDisabilityEndDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disability_end_date"); else _explicitNullProperties?.Remove("disability_end_date"); } }
+        private Date? _explicitNullValueDisabilityEndDate = default!;
         /// <summary>Whether the disability is temporary. Only accepted by carriers that require disability follow-up questions.</summary>
-        public bool? DisabilityIsTemporary { get; set; }
+        public bool? DisabilityIsTemporary { get => _explicitNullValueDisabilityIsTemporary; set { _explicitNullValueDisabilityIsTemporary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disability_is_temporary"); else _explicitNullProperties?.Remove("disability_is_temporary"); } }
+        private bool? _explicitNullValueDisabilityIsTemporary = default!;
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Email { get; set; }
+        public string? Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string? _explicitNullValueEmail = default!;
 #nullable restore
 #else
-        public string Email { get; set; }
+        public string Email { get => _explicitNullValueEmail; set { _explicitNullValueEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email"); else _explicitNullProperties?.Remove("email"); } }
+        private string _explicitNullValueEmail = default!;
 #endif
         /// <summary>The enrolled_in_medicaid_chip_or_other_gov_program property</summary>
-        public bool? EnrolledInMedicaidChipOrOtherGovProgram { get; set; }
+        public bool? EnrolledInMedicaidChipOrOtherGovProgram { get => _explicitNullValueEnrolledInMedicaidChipOrOtherGovProgram; set { _explicitNullValueEnrolledInMedicaidChipOrOtherGovProgram = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrolled_in_medicaid_chip_or_other_gov_program"); else _explicitNullProperties?.Remove("enrolled_in_medicaid_chip_or_other_gov_program"); } }
+        private bool? _explicitNullValueEnrolledInMedicaidChipOrOtherGovProgram = default!;
         /// <summary>The enrolled_in_medicare property</summary>
-        public bool? EnrolledInMedicare { get; set; }
+        public bool? EnrolledInMedicare { get => _explicitNullValueEnrolledInMedicare; set { _explicitNullValueEnrolledInMedicare = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrolled_in_medicare"); else _explicitNullProperties?.Remove("enrolled_in_medicare"); } }
+        private bool? _explicitNullValueEnrolledInMedicare = default!;
         /// <summary>The enrolled_in_medicare_parts_a_or_b property</summary>
-        public bool? EnrolledInMedicarePartsAOrB { get; set; }
+        public bool? EnrolledInMedicarePartsAOrB { get => _explicitNullValueEnrolledInMedicarePartsAOrB; set { _explicitNullValueEnrolledInMedicarePartsAOrB = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrolled_in_medicare_parts_a_or_b"); else _explicitNullProperties?.Remove("enrolled_in_medicare_parts_a_or_b"); } }
+        private bool? _explicitNullValueEnrolledInMedicarePartsAOrB = default!;
         /// <summary>The existing_coverage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage? ExistingCoverage { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage? ExistingCoverage { get => _explicitNullValueExistingCoverage; set { _explicitNullValueExistingCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_coverage"); else _explicitNullProperties?.Remove("existing_coverage"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage? _explicitNullValueExistingCoverage = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage ExistingCoverage { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage ExistingCoverage { get => _explicitNullValueExistingCoverage; set { _explicitNullValueExistingCoverage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("existing_coverage"); else _explicitNullProperties?.Remove("existing_coverage"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ExistingCoverage _explicitNullValueExistingCoverage = default!;
 #endif
         /// <summary>Your identifier for this member.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalId { get; set; }
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string? _explicitNullValueExternalId = default!;
 #nullable restore
 #else
-        public string ExternalId { get; set; }
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string _explicitNullValueExternalId = default!;
 #endif
         /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstName { get; set; }
+        public string? FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
+        private string? _explicitNullValueFirstName = default!;
 #nullable restore
 #else
-        public string FirstName { get; set; }
+        public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("first_name"); else _explicitNullProperties?.Remove("first_name"); } }
+        private string _explicitNullValueFirstName = default!;
 #endif
         /// <summary>The full_time_student property</summary>
-        public bool? FullTimeStudent { get; set; }
+        public bool? FullTimeStudent { get => _explicitNullValueFullTimeStudent; set { _explicitNullValueFullTimeStudent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("full_time_student"); else _explicitNullProperties?.Remove("full_time_student"); } }
+        private bool? _explicitNullValueFullTimeStudent = default!;
         /// <summary>`male` and `female` are accepted by all carriers. `x` is accepted for New York applicants; carriers in other states reject `x` at submission.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender? Gender { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentGender? _explicitNullValueGender = default!;
         /// <summary>Required if `full_time_student` is `true`.</summary>
-        public Date? GraduationDate { get; set; }
+        public Date? GraduationDate { get => _explicitNullValueGraduationDate; set { _explicitNullValueGraduationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("graduation_date"); else _explicitNullProperties?.Remove("graduation_date"); } }
+        private Date? _explicitNullValueGraduationDate = default!;
         /// <summary>Required for primary applicants under 18.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian? Guardian { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian? Guardian { get => _explicitNullValueGuardian; set { _explicitNullValueGuardian = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardian"); else _explicitNullProperties?.Remove("guardian"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian? _explicitNullValueGuardian = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian Guardian { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian Guardian { get => _explicitNullValueGuardian; set { _explicitNullValueGuardian = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guardian"); else _explicitNullProperties?.Remove("guardian"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.Guardian _explicitNullValueGuardian = default!;
 #endif
         /// <summary>Affects dependent age eligibility limits.</summary>
-        public bool? HasDisability { get; set; }
+        public bool? HasDisability { get => _explicitNullValueHasDisability; set { _explicitNullValueHasDisability = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_disability"); else _explicitNullProperties?.Remove("has_disability"); } }
+        private bool? _explicitNullValueHasDisability = default!;
         /// <summary>The has_eligible_immigration_status property</summary>
-        public bool? HasEligibleImmigrationStatus { get; set; }
+        public bool? HasEligibleImmigrationStatus { get => _explicitNullValueHasEligibleImmigrationStatus; set { _explicitNullValueHasEligibleImmigrationStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("has_eligible_immigration_status"); else _explicitNullProperties?.Remove("has_eligible_immigration_status"); } }
+        private bool? _explicitNullValueHasEligibleImmigrationStatus = default!;
         /// <summary>Required by some carriers. Use `decline_to_answer` if not collected.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOrigin? HispanicOrigin { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOrigin? HispanicOrigin { get => _explicitNullValueHispanicOrigin; set { _explicitNullValueHispanicOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hispanic_origin"); else _explicitNullProperties?.Remove("hispanic_origin"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOrigin? _explicitNullValueHispanicOrigin = default!;
         /// <summary>Required when `hispanic_origin` is `yes`.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOriginDescription? HispanicOriginDescription { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOriginDescription? HispanicOriginDescription { get => _explicitNullValueHispanicOriginDescription; set { _explicitNullValueHispanicOriginDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hispanic_origin_description"); else _explicitNullProperties?.Remove("hispanic_origin_description"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantHispanicOriginDescription? _explicitNullValueHispanicOriginDescription = default!;
         /// <summary>Individual Taxpayer Identification Number. Alternative to SSN.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Itin { get; set; }
+        public string? Itin { get => _explicitNullValueItin; set { _explicitNullValueItin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("itin"); else _explicitNullProperties?.Remove("itin"); } }
+        private string? _explicitNullValueItin = default!;
 #nullable restore
 #else
-        public string Itin { get; set; }
+        public string Itin { get => _explicitNullValueItin; set { _explicitNullValueItin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("itin"); else _explicitNullProperties?.Remove("itin"); } }
+        private string _explicitNullValueItin = default!;
 #endif
         /// <summary>The language_spoken property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? LanguageSpoken { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? LanguageSpoken { get => _explicitNullValueLanguageSpoken; set { _explicitNullValueLanguageSpoken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_spoken"); else _explicitNullProperties?.Remove("language_spoken"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? _explicitNullValueLanguageSpoken = default!;
         /// <summary>The language_written property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? LanguageWritten { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? LanguageWritten { get => _explicitNullValueLanguageWritten; set { _explicitNullValueLanguageWritten = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("language_written"); else _explicitNullProperties?.Remove("language_written"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantLanguage? _explicitNullValueLanguageWritten = default!;
         /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastName { get; set; }
+        public string? LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_name"); else _explicitNullProperties?.Remove("last_name"); } }
+        private string? _explicitNullValueLastName = default!;
 #nullable restore
 #else
-        public string LastName { get; set; }
+        public string LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("last_name"); else _explicitNullProperties?.Remove("last_name"); } }
+        private string _explicitNullValueLastName = default!;
 #endif
         /// <summary>Carrier-specific marital status. When provided, takes precedence over the `married` boolean.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MaritalStatus { get; set; }
+        public string? MaritalStatus { get => _explicitNullValueMaritalStatus; set { _explicitNullValueMaritalStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marital_status"); else _explicitNullProperties?.Remove("marital_status"); } }
+        private string? _explicitNullValueMaritalStatus = default!;
 #nullable restore
 #else
-        public string MaritalStatus { get; set; }
+        public string MaritalStatus { get => _explicitNullValueMaritalStatus; set { _explicitNullValueMaritalStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marital_status"); else _explicitNullProperties?.Remove("marital_status"); } }
+        private string _explicitNullValueMaritalStatus = default!;
 #endif
         /// <summary>The married property</summary>
-        public bool? Married { get; set; }
+        public bool? Married { get => _explicitNullValueMarried; set { _explicitNullValueMarried = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("married"); else _explicitNullProperties?.Remove("married"); } }
+        private bool? _explicitNullValueMarried = default!;
         /// <summary>Whether the applicant is eligible for Medicare.</summary>
-        public bool? MedicareEligible { get; set; }
+        public bool? MedicareEligible { get => _explicitNullValueMedicareEligible; set { _explicitNullValueMedicareEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medicare_eligible"); else _explicitNullProperties?.Remove("medicare_eligible"); } }
+        private bool? _explicitNullValueMedicareEligible = default!;
         /// <summary>Whether the applicant is eligible for Medicare or Medicaid. Only accepted by carriers that require this field.</summary>
-        public bool? MedicareMedicaidEligible { get; set; }
+        public bool? MedicareMedicaidEligible { get => _explicitNullValueMedicareMedicaidEligible; set { _explicitNullValueMedicareMedicaidEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medicare_medicaid_eligible"); else _explicitNullProperties?.Remove("medicare_medicaid_eligible"); } }
+        private bool? _explicitNullValueMedicareMedicaidEligible = default!;
         /// <summary>The middle_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MiddleName { get; set; }
+        public string? MiddleName { get => _explicitNullValueMiddleName; set { _explicitNullValueMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middle_name"); else _explicitNullProperties?.Remove("middle_name"); } }
+        private string? _explicitNullValueMiddleName = default!;
 #nullable restore
 #else
-        public string MiddleName { get; set; }
+        public string MiddleName { get => _explicitNullValueMiddleName; set { _explicitNullValueMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middle_name"); else _explicitNullProperties?.Remove("middle_name"); } }
+        private string _explicitNullValueMiddleName = default!;
 #endif
         /// <summary>The phone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Phone { get; set; }
+        public string? Phone { get => _explicitNullValuePhone; set { _explicitNullValuePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone"); else _explicitNullProperties?.Remove("phone"); } }
+        private string? _explicitNullValuePhone = default!;
 #nullable restore
 #else
-        public string Phone { get; set; }
+        public string Phone { get => _explicitNullValuePhone; set { _explicitNullValuePhone = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("phone"); else _explicitNullProperties?.Remove("phone"); } }
+        private string _explicitNullValuePhone = default!;
 #endif
         /// <summary>Required by some carriers. Use `decline_to_answer` if not collected.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantRaceEthnicity? RaceEthnicity { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantRaceEthnicity? RaceEthnicity { get => _explicitNullValueRaceEthnicity; set { _explicitNullValueRaceEthnicity = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("race_ethnicity"); else _explicitNullProperties?.Remove("race_ethnicity"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantRaceEthnicity? _explicitNullValueRaceEthnicity = default!;
         /// <summary>`spouse`, `domestic_partner`, and `child` are supported by all carriers. Other values are accepted by select carriers and states.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentRelationship? Relationship { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentRelationship? Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.DependentRelationship? _explicitNullValueRelationship = default!;
         /// <summary>The resides_in_state property</summary>
-        public bool? ResidesInState { get; set; }
+        public bool? ResidesInState { get => _explicitNullValueResidesInState; set { _explicitNullValueResidesInState = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resides_in_state"); else _explicitNullProperties?.Remove("resides_in_state"); } }
+        private bool? _explicitNullValueResidesInState = default!;
         /// <summary>9 digits, no dashes. Encrypted at rest.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Ssn { get; set; }
+        public string? Ssn { get => _explicitNullValueSsn; set { _explicitNullValueSsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssn"); else _explicitNullProperties?.Remove("ssn"); } }
+        private string? _explicitNullValueSsn = default!;
 #nullable restore
 #else
-        public string Ssn { get; set; }
+        public string Ssn { get => _explicitNullValueSsn; set { _explicitNullValueSsn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ssn"); else _explicitNullProperties?.Remove("ssn"); } }
+        private string _explicitNullValueSsn = default!;
 #endif
         /// <summary>The suffix property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantSuffix? Suffix { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantSuffix? Suffix { get => _explicitNullValueSuffix; set { _explicitNullValueSuffix = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("suffix"); else _explicitNullProperties?.Remove("suffix"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PrimaryApplicantSuffix? _explicitNullValueSuffix = default!;
         /// <summary>Set to `true` if tobacco question is not applicable for this applicant.</summary>
-        public bool? TobaccoNotApplicable { get; set; }
+        public bool? TobaccoNotApplicable { get => _explicitNullValueTobaccoNotApplicable; set { _explicitNullValueTobaccoNotApplicable = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tobacco_not_applicable"); else _explicitNullProperties?.Remove("tobacco_not_applicable"); } }
+        private bool? _explicitNullValueTobaccoNotApplicable = default!;
         /// <summary>The us_citizen property</summary>
-        public bool? UsCitizen { get; set; }
+        public bool? UsCitizen { get => _explicitNullValueUsCitizen; set { _explicitNullValueUsCitizen = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("us_citizen"); else _explicitNullProperties?.Remove("us_citizen"); } }
+        private bool? _explicitNullValueUsCitizen = default!;
         /// <summary>Tobacco use in the last 6 months.</summary>
-        public bool? UsesTobacco { get; set; }
+        public bool? UsesTobacco { get => _explicitNullValueUsesTobacco; set { _explicitNullValueUsesTobacco = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uses_tobacco"); else _explicitNullProperties?.Remove("uses_tobacco"); } }
+        private bool? _explicitNullValueUsesTobacco = default!;
         /// <summary>The veteran_or_active_duty_military property</summary>
-        public bool? VeteranOrActiveDutyMilitary { get; set; }
+        public bool? VeteranOrActiveDutyMilitary { get => _explicitNullValueVeteranOrActiveDutyMilitary; set { _explicitNullValueVeteranOrActiveDutyMilitary = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("veteran_or_active_duty_military"); else _explicitNullProperties?.Remove("veteran_or_active_duty_military"); } }
+        private bool? _explicitNullValueVeteranOrActiveDutyMilitary = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent"/> and sets the default values.
         /// </summary>
@@ -182,7 +281,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.Dependent(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -281,6 +380,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("us_citizen", UsCitizen);
             writer.WriteBoolValue("uses_tobacco", UsesTobacco);
             writer.WriteBoolValue("veteran_or_active_duty_military", VeteranOrActiveDutyMilitary);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

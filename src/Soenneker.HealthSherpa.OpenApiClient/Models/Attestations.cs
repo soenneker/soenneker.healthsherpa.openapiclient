@@ -11,33 +11,64 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Attestations : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agent_advised_consumer_of_product_features") is { } nullNodeAgentAdvisedConsumerOfProductFeatures && nullNodeAgentAdvisedConsumerOfProductFeatures.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentAdvisedConsumerOfProductFeatures = null;
+            if (parseNode.GetChildNode("agent_provided_consumer_marketing_materials") is { } nullNodeAgentProvidedConsumerMarketingMaterials && nullNodeAgentProvidedConsumerMarketingMaterials.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentProvidedConsumerMarketingMaterials = null;
+            if (parseNode.GetChildNode("agent_retained_signed_application_copy") is { } nullNodeAgentRetainedSignedApplicationCopy && nullNodeAgentRetainedSignedApplicationCopy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentRetainedSignedApplicationCopy = null;
+            if (parseNode.GetChildNode("agent_submitted_application") is { } nullNodeAgentSubmittedApplication && nullNodeAgentSubmittedApplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentSubmittedApplication = null;
+            if (parseNode.GetChildNode("agrees_issuer_attestations") is { } nullNodeAgreesIssuerAttestations && nullNodeAgreesIssuerAttestations.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgreesIssuerAttestations = null;
+            if (parseNode.GetChildNode("broker_signature_attestation") is { } nullNodeBrokerSignatureAttestation && nullNodeBrokerSignatureAttestation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BrokerSignatureAttestation = null;
+            if (parseNode.GetChildNode("consumer_working_with_agent") is { } nullNodeConsumerWorkingWithAgent && nullNodeConsumerWorkingWithAgent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ConsumerWorkingWithAgent = null;
+            if (parseNode.GetChildNode("coverage_replacement_attestation_accepted") is { } nullNodeCoverageReplacementAttestationAccepted && nullNodeCoverageReplacementAttestationAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CoverageReplacementAttestationAccepted = null;
+            if (parseNode.GetChildNode("disclosure_statement_accepted") is { } nullNodeDisclosureStatementAccepted && nullNodeDisclosureStatementAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DisclosureStatementAccepted = null;
+            if (parseNode.GetChildNode("electronic_signature_consent") is { } nullNodeElectronicSignatureConsent && nullNodeElectronicSignatureConsent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ElectronicSignatureConsent = null;
+            if (parseNode.GetChildNode("pediatric_dental") is { } nullNodePediatricDental && nullNodePediatricDental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PediatricDental = null;
+            if (parseNode.GetChildNode("spouse_or_dependent_authorization") is { } nullNodeSpouseOrDependentAuthorization && nullNodeSpouseOrDependentAuthorization.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpouseOrDependentAuthorization = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agent_advised_consumer_of_product_features property</summary>
-        public bool? AgentAdvisedConsumerOfProductFeatures { get; set; }
+        public bool? AgentAdvisedConsumerOfProductFeatures { get => _explicitNullValueAgentAdvisedConsumerOfProductFeatures; set { _explicitNullValueAgentAdvisedConsumerOfProductFeatures = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_advised_consumer_of_product_features"); else _explicitNullProperties?.Remove("agent_advised_consumer_of_product_features"); } }
+        private bool? _explicitNullValueAgentAdvisedConsumerOfProductFeatures = default!;
         /// <summary>The agent_provided_consumer_marketing_materials property</summary>
-        public bool? AgentProvidedConsumerMarketingMaterials { get; set; }
+        public bool? AgentProvidedConsumerMarketingMaterials { get => _explicitNullValueAgentProvidedConsumerMarketingMaterials; set { _explicitNullValueAgentProvidedConsumerMarketingMaterials = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_provided_consumer_marketing_materials"); else _explicitNullProperties?.Remove("agent_provided_consumer_marketing_materials"); } }
+        private bool? _explicitNullValueAgentProvidedConsumerMarketingMaterials = default!;
         /// <summary>The agent_retained_signed_application_copy property</summary>
-        public bool? AgentRetainedSignedApplicationCopy { get; set; }
+        public bool? AgentRetainedSignedApplicationCopy { get => _explicitNullValueAgentRetainedSignedApplicationCopy; set { _explicitNullValueAgentRetainedSignedApplicationCopy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_retained_signed_application_copy"); else _explicitNullProperties?.Remove("agent_retained_signed_application_copy"); } }
+        private bool? _explicitNullValueAgentRetainedSignedApplicationCopy = default!;
         /// <summary>The agent_submitted_application property</summary>
-        public bool? AgentSubmittedApplication { get; set; }
+        public bool? AgentSubmittedApplication { get => _explicitNullValueAgentSubmittedApplication; set { _explicitNullValueAgentSubmittedApplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_submitted_application"); else _explicitNullProperties?.Remove("agent_submitted_application"); } }
+        private bool? _explicitNullValueAgentSubmittedApplication = default!;
         /// <summary>The agrees_issuer_attestations property</summary>
-        public bool? AgreesIssuerAttestations { get; set; }
+        public bool? AgreesIssuerAttestations { get => _explicitNullValueAgreesIssuerAttestations; set { _explicitNullValueAgreesIssuerAttestations = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agrees_issuer_attestations"); else _explicitNullProperties?.Remove("agrees_issuer_attestations"); } }
+        private bool? _explicitNullValueAgreesIssuerAttestations = default!;
         /// <summary>The broker_signature_attestation property</summary>
-        public bool? BrokerSignatureAttestation { get; set; }
+        public bool? BrokerSignatureAttestation { get => _explicitNullValueBrokerSignatureAttestation; set { _explicitNullValueBrokerSignatureAttestation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("broker_signature_attestation"); else _explicitNullProperties?.Remove("broker_signature_attestation"); } }
+        private bool? _explicitNullValueBrokerSignatureAttestation = default!;
         /// <summary>The consumer_working_with_agent property</summary>
-        public bool? ConsumerWorkingWithAgent { get; set; }
+        public bool? ConsumerWorkingWithAgent { get => _explicitNullValueConsumerWorkingWithAgent; set { _explicitNullValueConsumerWorkingWithAgent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("consumer_working_with_agent"); else _explicitNullProperties?.Remove("consumer_working_with_agent"); } }
+        private bool? _explicitNullValueConsumerWorkingWithAgent = default!;
         /// <summary>The coverage_replacement_attestation_accepted property</summary>
-        public bool? CoverageReplacementAttestationAccepted { get; set; }
+        public bool? CoverageReplacementAttestationAccepted { get => _explicitNullValueCoverageReplacementAttestationAccepted; set { _explicitNullValueCoverageReplacementAttestationAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("coverage_replacement_attestation_accepted"); else _explicitNullProperties?.Remove("coverage_replacement_attestation_accepted"); } }
+        private bool? _explicitNullValueCoverageReplacementAttestationAccepted = default!;
         /// <summary>The disclosure_statement_accepted property</summary>
-        public bool? DisclosureStatementAccepted { get; set; }
+        public bool? DisclosureStatementAccepted { get => _explicitNullValueDisclosureStatementAccepted; set { _explicitNullValueDisclosureStatementAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("disclosure_statement_accepted"); else _explicitNullProperties?.Remove("disclosure_statement_accepted"); } }
+        private bool? _explicitNullValueDisclosureStatementAccepted = default!;
         /// <summary>The electronic_signature_consent property</summary>
-        public bool? ElectronicSignatureConsent { get; set; }
+        public bool? ElectronicSignatureConsent { get => _explicitNullValueElectronicSignatureConsent; set { _explicitNullValueElectronicSignatureConsent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("electronic_signature_consent"); else _explicitNullProperties?.Remove("electronic_signature_consent"); } }
+        private bool? _explicitNullValueElectronicSignatureConsent = default!;
         /// <summary>Pediatric dental attestation. `purchased_separately`: pediatric dental purchased via stand-alone dental plan. `not_applicable`: no children under 19 on the application.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AttestationsPediatricDental? PediatricDental { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.AttestationsPediatricDental? PediatricDental { get => _explicitNullValuePediatricDental; set { _explicitNullValuePediatricDental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pediatric_dental"); else _explicitNullProperties?.Remove("pediatric_dental"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.AttestationsPediatricDental? _explicitNullValuePediatricDental = default!;
         /// <summary>Authorization for dependents/spouse to be included on the application.</summary>
-        public bool? SpouseOrDependentAuthorization { get; set; }
+        public bool? SpouseOrDependentAuthorization { get => _explicitNullValueSpouseOrDependentAuthorization; set { _explicitNullValueSpouseOrDependentAuthorization = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spouse_or_dependent_authorization"); else _explicitNullProperties?.Remove("spouse_or_dependent_authorization"); } }
+        private bool? _explicitNullValueSpouseOrDependentAuthorization = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations"/> and sets the default values.
         /// </summary>
@@ -53,7 +84,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.Attestations(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +127,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("electronic_signature_consent", ElectronicSignatureConsent);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AttestationsPediatricDental>("pediatric_dental", PediatricDental);
             writer.WriteBoolValue("spouse_or_dependent_authorization", SpouseOrDependentAuthorization);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -12,87 +12,124 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentSessionRequest : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("campaign") is { } nullNodeCampaign && nullNodeCampaign.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Campaign = null;
+            if (parseNode.GetChildNode("client") is { } nullNodeClient && nullNodeClient.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Client = null;
+            if (parseNode.GetChildNode("context") is { } nullNodeContext && nullNodeContext.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Context = null;
+            if (parseNode.GetChildNode("enrollment") is { } nullNodeEnrollment && nullNodeEnrollment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enrollment = null;
+            if (parseNode.GetChildNode("external_id") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
+            if (parseNode.GetChildNode("household") is { } nullNodeHousehold && nullNodeHousehold.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Household = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("notes") is { } nullNodeNotes && nullNodeNotes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Notes = null;
+            if (parseNode.GetChildNode("plan_id") is { } nullNodePlanId && nullNodePlanId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanId = null;
+            if (parseNode.GetChildNode("providers") is { } nullNodeProviders && nullNodeProviders.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Providers = null;
+        }
+
         /// <summary>Marketing attribution. Only accepted when `context.flow` is `self_service`; sending any field with `flow: &quot;agent_assisted&quot;` is rejected with `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign? Campaign { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign? Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign? _explicitNullValueCampaign = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign Campaign { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign Campaign { get => _explicitNullValueCampaign; set { _explicitNullValueCampaign = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("campaign"); else _explicitNullProperties?.Remove("campaign"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionCampaign _explicitNullValueCampaign = default!;
 #endif
         /// <summary>DEPRECATED legacy contact block. Every property here has a 1:1 replacement on `household.applicants[]` and is preferred when both are supplied: `first_name` → `household.applicants[primary].first_name`, `last_name` → `household.applicants[primary].last_name`, `email` → `household.applicants[primary].email`, `phone_number` → `household.applicants[primary].phone_number`. Each field that is still supplied here surfaces a `deprecated_field` entry in the response&apos;s `warnings[]` array. The block remains accepted for backwards compatibility but may be removed at any time; migrate to the applicant-level fields.</summary>
         [Obsolete("")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient? Client { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient? Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient? _explicitNullValueClient = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient Client { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient Client { get => _explicitNullValueClient; set { _explicitNullValueClient = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client"); else _explicitNullProperties?.Remove("client"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionClient _explicitNullValueClient = default!;
 #endif
         /// <summary>The context property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext? Context { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext? Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext? _explicitNullValueContext = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext Context { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext Context { get => _explicitNullValueContext; set { _explicitNullValueContext = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("context"); else _explicitNullProperties?.Remove("context"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionContext _explicitNullValueContext = default!;
 #endif
         /// <summary>Accepts `hra`. Other enrollment subobjects (`special_enrollment_period`, `communication_preferences`) are not supported and are rejected with `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment? Enrollment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment? Enrollment { get => _explicitNullValueEnrollment; set { _explicitNullValueEnrollment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrollment"); else _explicitNullProperties?.Remove("enrollment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment? _explicitNullValueEnrollment = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment Enrollment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment Enrollment { get => _explicitNullValueEnrollment; set { _explicitNullValueEnrollment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enrollment"); else _explicitNullProperties?.Remove("enrollment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment _explicitNullValueEnrollment = default!;
 #endif
         /// <summary>Partner-supplied identifier echoed in the response and used for CRM correlation. Strongly recommended; must not contain PII.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalId { get; set; }
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string? _explicitNullValueExternalId = default!;
 #nullable restore
 #else
-        public string ExternalId { get; set; }
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string _explicitNullValueExternalId = default!;
 #endif
         /// <summary>`household_size` must be at least 1. Applicants can include at most one `primary` and one `spouse`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold? Household { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold? Household { get => _explicitNullValueHousehold; set { _explicitNullValueHousehold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("household"); else _explicitNullProperties?.Remove("household"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold? _explicitNullValueHousehold = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold Household { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold Household { get => _explicitNullValueHousehold; set { _explicitNullValueHousehold = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("household"); else _explicitNullProperties?.Remove("household"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionHousehold _explicitNullValueHousehold = default!;
 #endif
         /// <summary>Routing geography plus optional street address. `zip_code`, `fips_code`, and `state` route the request; `address_line_1`, `address_line_2`, and `city` are used by the agent-assisted enrollment flow only and ignored on self-service deep links.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation? Location { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation Location { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation _explicitNullValueLocation = default!;
 #endif
         /// <summary>Free-form note for the assisting agent. Used only in the agent-assisted enrollment flow; ignored on self-service deep links. Capped at 500 characters; longer values are rejected with `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Notes { get; set; }
+        public string? Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        private string? _explicitNullValueNotes = default!;
 #nullable restore
 #else
-        public string Notes { get; set; }
+        public string Notes { get => _explicitNullValueNotes; set { _explicitNullValueNotes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("notes"); else _explicitNullProperties?.Remove("notes"); } }
+        private string _explicitNullValueNotes = default!;
 #endif
         /// <summary>Plan ID (HIOS ID). Available only for the `self_service` flow, where it identifies the plan for the generated apply link. Invalid for `agent_assisted` — requests carrying `plan_id` with `context.flow` set to `agent_assisted` are rejected with `400 invalid_request`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanId { get; set; }
+        public string? PlanId { get => _explicitNullValuePlanId; set { _explicitNullValuePlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_id"); else _explicitNullProperties?.Remove("plan_id"); } }
+        private string? _explicitNullValuePlanId = default!;
 #nullable restore
 #else
-        public string PlanId { get; set; }
+        public string PlanId { get => _explicitNullValuePlanId; set { _explicitNullValuePlanId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_id"); else _explicitNullProperties?.Remove("plan_id"); } }
+        private string _explicitNullValuePlanId = default!;
 #endif
         /// <summary>Provider identifiers (NPI strings) the household cares about. Used by the agent-assisted enrollment flow and added to the self-service `shopping_url` as a network filter (shop only; not added to `client_apply_url`).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Providers { get; set; }
+        public List<string>? Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private List<string>? _explicitNullValueProviders = default!;
 #nullable restore
 #else
-        public List<string> Providers { get; set; }
+        public List<string> Providers { get => _explicitNullValueProviders; set { _explicitNullValueProviders = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("providers"); else _explicitNullProperties?.Remove("providers"); } }
+        private List<string> _explicitNullValueProviders = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -102,7 +139,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionRequest();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionRequest(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -140,7 +177,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionLocation>("location", Location);
             writer.WriteStringValue("notes", Notes);
             writer.WriteStringValue("plan_id", PlanId);
-            writer.WriteCollectionOfPrimitiveValues<string>("providers", Providers);
+            writer.WriteCollectionOfPrimitiveValues<string>("providers", Providers);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

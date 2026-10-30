@@ -11,27 +11,52 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class CommunicationPreferences : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("agrees_hsa_contact_opt_in") is { } nullNodeAgreesHsaContactOptIn && nullNodeAgreesHsaContactOptIn.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgreesHsaContactOptIn = null;
+            if (parseNode.GetChildNode("application_notification_call") is { } nullNodeApplicationNotificationCall && nullNodeApplicationNotificationCall.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationNotificationCall = null;
+            if (parseNode.GetChildNode("application_notification_email") is { } nullNodeApplicationNotificationEmail && nullNodeApplicationNotificationEmail.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationNotificationEmail = null;
+            if (parseNode.GetChildNode("application_notification_text") is { } nullNodeApplicationNotificationText && nullNodeApplicationNotificationText.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationNotificationText = null;
+            if (parseNode.GetChildNode("communication_preference_affirmed") is { } nullNodeCommunicationPreferenceAffirmed && nullNodeCommunicationPreferenceAffirmed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CommunicationPreferenceAffirmed = null;
+            if (parseNode.GetChildNode("decline_marketing_contact") is { } nullNodeDeclineMarketingContact && nullNodeDeclineMarketingContact.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DeclineMarketingContact = null;
+            if (parseNode.GetChildNode("email_contact_consent") is { } nullNodeEmailContactConsent && nullNodeEmailContactConsent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EmailContactConsent = null;
+            if (parseNode.GetChildNode("marketing_contact_consent") is { } nullNodeMarketingContactConsent && nullNodeMarketingContactConsent.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MarketingContactConsent = null;
+            if (parseNode.GetChildNode("preferred_communication_method") is { } nullNodePreferredCommunicationMethod && nullNodePreferredCommunicationMethod.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PreferredCommunicationMethod = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The agrees_hsa_contact_opt_in property</summary>
-        public bool? AgreesHsaContactOptIn { get; set; }
+        public bool? AgreesHsaContactOptIn { get => _explicitNullValueAgreesHsaContactOptIn; set { _explicitNullValueAgreesHsaContactOptIn = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agrees_hsa_contact_opt_in"); else _explicitNullProperties?.Remove("agrees_hsa_contact_opt_in"); } }
+        private bool? _explicitNullValueAgreesHsaContactOptIn = default!;
         /// <summary>The application_notification_call property</summary>
-        public bool? ApplicationNotificationCall { get; set; }
+        public bool? ApplicationNotificationCall { get => _explicitNullValueApplicationNotificationCall; set { _explicitNullValueApplicationNotificationCall = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_notification_call"); else _explicitNullProperties?.Remove("application_notification_call"); } }
+        private bool? _explicitNullValueApplicationNotificationCall = default!;
         /// <summary>The application_notification_email property</summary>
-        public bool? ApplicationNotificationEmail { get; set; }
+        public bool? ApplicationNotificationEmail { get => _explicitNullValueApplicationNotificationEmail; set { _explicitNullValueApplicationNotificationEmail = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_notification_email"); else _explicitNullProperties?.Remove("application_notification_email"); } }
+        private bool? _explicitNullValueApplicationNotificationEmail = default!;
         /// <summary>The application_notification_text property</summary>
-        public bool? ApplicationNotificationText { get; set; }
+        public bool? ApplicationNotificationText { get => _explicitNullValueApplicationNotificationText; set { _explicitNullValueApplicationNotificationText = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_notification_text"); else _explicitNullProperties?.Remove("application_notification_text"); } }
+        private bool? _explicitNullValueApplicationNotificationText = default!;
         /// <summary>Whether the applicant has affirmed their communication preferences.</summary>
-        public bool? CommunicationPreferenceAffirmed { get; set; }
+        public bool? CommunicationPreferenceAffirmed { get => _explicitNullValueCommunicationPreferenceAffirmed; set { _explicitNullValueCommunicationPreferenceAffirmed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("communication_preference_affirmed"); else _explicitNullProperties?.Remove("communication_preference_affirmed"); } }
+        private bool? _explicitNullValueCommunicationPreferenceAffirmed = default!;
         /// <summary>The decline_marketing_contact property</summary>
-        public bool? DeclineMarketingContact { get; set; }
+        public bool? DeclineMarketingContact { get => _explicitNullValueDeclineMarketingContact; set { _explicitNullValueDeclineMarketingContact = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("decline_marketing_contact"); else _explicitNullProperties?.Remove("decline_marketing_contact"); } }
+        private bool? _explicitNullValueDeclineMarketingContact = default!;
         /// <summary>The email_contact_consent property</summary>
-        public bool? EmailContactConsent { get; set; }
+        public bool? EmailContactConsent { get => _explicitNullValueEmailContactConsent; set { _explicitNullValueEmailContactConsent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("email_contact_consent"); else _explicitNullProperties?.Remove("email_contact_consent"); } }
+        private bool? _explicitNullValueEmailContactConsent = default!;
         /// <summary>The marketing_contact_consent property</summary>
-        public bool? MarketingContactConsent { get; set; }
+        public bool? MarketingContactConsent { get => _explicitNullValueMarketingContactConsent; set { _explicitNullValueMarketingContactConsent = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("marketing_contact_consent"); else _explicitNullProperties?.Remove("marketing_contact_consent"); } }
+        private bool? _explicitNullValueMarketingContactConsent = default!;
         /// <summary>The preferred_communication_method property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferencesPreferredCommunicationMethod? PreferredCommunicationMethod { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferencesPreferredCommunicationMethod? PreferredCommunicationMethod { get => _explicitNullValuePreferredCommunicationMethod; set { _explicitNullValuePreferredCommunicationMethod = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("preferred_communication_method"); else _explicitNullProperties?.Remove("preferred_communication_method"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferencesPreferredCommunicationMethod? _explicitNullValuePreferredCommunicationMethod = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences"/> and sets the default values.
         /// </summary>
@@ -47,7 +72,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferences(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,6 +109,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("email_contact_consent", EmailContactConsent);
             writer.WriteBoolValue("marketing_contact_consent", MarketingContactConsent);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.CommunicationPreferencesPreferredCommunicationMethod>("preferred_communication_method", PreferredCommunicationMethod);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

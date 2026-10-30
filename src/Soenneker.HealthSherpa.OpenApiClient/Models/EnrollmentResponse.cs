@@ -13,133 +13,199 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentResponse : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("application") is { } nullNodeApplication && nullNodeApplication.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Application = null;
+            if (parseNode.GetChildNode("application_id") is { } nullNodeApplicationId && nullNodeApplicationId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ApplicationId = null;
+            if (parseNode.GetChildNode("can_change_plan") is { } nullNodeCanChangePlan && nullNodeCanChangePlan.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanChangePlan = null;
+            if (parseNode.GetChildNode("can_report_change") is { } nullNodeCanReportChange && nullNodeCanReportChange.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CanReportChange = null;
+            if (parseNode.GetChildNode("created_at") is { } nullNodeCreatedAt && nullNodeCreatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CreatedAt = null;
+            if (parseNode.GetChildNode("desired_effective_date") is { } nullNodeDesiredEffectiveDate && nullNodeDesiredEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DesiredEffectiveDate = null;
+            if (parseNode.GetChildNode("document_status") is { } nullNodeDocumentStatus && nullNodeDocumentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentStatus = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("events") is { } nullNodeEvents && nullNodeEvents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Events = null;
+            if (parseNode.GetChildNode("external_id") is { } nullNodeExternalId && nullNodeExternalId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExternalId = null;
+            if (parseNode.GetChildNode("issuer_hios_id") is { } nullNodeIssuerHiosId && nullNodeIssuerHiosId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerHiosId = null;
+            if (parseNode.GetChildNode("next_actions") is { } nullNodeNextActions && nullNodeNextActions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NextActions = null;
+            if (parseNode.GetChildNode("payment") is { } nullNodePayment && nullNodePayment.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Payment = null;
+            if (parseNode.GetChildNode("payment_instructions") is { } nullNodePaymentInstructions && nullNodePaymentInstructions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentInstructions = null;
+            if (parseNode.GetChildNode("plan_hios_id") is { } nullNodePlanHiosId && nullNodePlanHiosId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanHiosId = null;
+            if (parseNode.GetChildNode("plan_year") is { } nullNodePlanYear && nullNodePlanYear.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanYear = null;
+            if (parseNode.GetChildNode("policies") is { } nullNodePolicies && nullNodePolicies.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Policies = null;
+            if (parseNode.GetChildNode("policy_status") is { } nullNodePolicyStatus && nullNodePolicyStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PolicyStatus = null;
+            if (parseNode.GetChildNode("sep_reason") is { } nullNodeSepReason && nullNodeSepReason.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SepReason = null;
+            if (parseNode.GetChildNode("submitted_at") is { } nullNodeSubmittedAt && nullNodeSubmittedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SubmittedAt = null;
+            if (parseNode.GetChildNode("supports_changes") is { } nullNodeSupportsChanges && nullNodeSupportsChanges.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupportsChanges = null;
+            if (parseNode.GetChildNode("tpa_slug") is { } nullNodeTpaSlug && nullNodeTpaSlug.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TpaSlug = null;
+            if (parseNode.GetChildNode("updated_at") is { } nullNodeUpdatedAt && nullNodeUpdatedAt.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UpdatedAt = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Echo of the application data as stored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication? Application { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication? Application { get => _explicitNullValueApplication; set { _explicitNullValueApplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application"); else _explicitNullProperties?.Remove("application"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication? _explicitNullValueApplication = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication Application { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication Application { get => _explicitNullValueApplication; set { _explicitNullValueApplication = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application"); else _explicitNullProperties?.Remove("application"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseApplication _explicitNullValueApplication = default!;
 #endif
         /// <summary>The application_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ApplicationId { get; set; }
+        public string? ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        private string? _explicitNullValueApplicationId = default!;
 #nullable restore
 #else
-        public string ApplicationId { get; set; }
+        public string ApplicationId { get => _explicitNullValueApplicationId; set { _explicitNullValueApplicationId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("application_id"); else _explicitNullProperties?.Remove("application_id"); } }
+        private string _explicitNullValueApplicationId = default!;
 #endif
         /// <summary>Whether a plan change is currently allowed. Only present on submitted applications.</summary>
-        public bool? CanChangePlan { get; set; }
+        public bool? CanChangePlan { get => _explicitNullValueCanChangePlan; set { _explicitNullValueCanChangePlan = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_change_plan"); else _explicitNullProperties?.Remove("can_change_plan"); } }
+        private bool? _explicitNullValueCanChangePlan = default!;
         /// <summary>Whether demographic changes can be reported. Only present on submitted applications.</summary>
-        public bool? CanReportChange { get; set; }
+        public bool? CanReportChange { get => _explicitNullValueCanReportChange; set { _explicitNullValueCanReportChange = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("can_report_change"); else _explicitNullProperties?.Remove("can_report_change"); } }
+        private bool? _explicitNullValueCanReportChange = default!;
         /// <summary>The created_at property</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
+        public DateTimeOffset? CreatedAt { get => _explicitNullValueCreatedAt; set { _explicitNullValueCreatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("created_at"); else _explicitNullProperties?.Remove("created_at"); } }
+        private DateTimeOffset? _explicitNullValueCreatedAt = default!;
         /// <summary>The desired_effective_date property</summary>
-        public Date? DesiredEffectiveDate { get; set; }
+        public Date? DesiredEffectiveDate { get => _explicitNullValueDesiredEffectiveDate; set { _explicitNullValueDesiredEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("desired_effective_date"); else _explicitNullProperties?.Remove("desired_effective_date"); } }
+        private Date? _explicitNullValueDesiredEffectiveDate = default!;
         /// <summary>SEP document verification status. `required` means documentation must be uploaded; `uploaded` means sent to carrier pending verification; `verified` means accepted; `denied` means carrier denied the documentation.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus? DocumentStatus { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus? DocumentStatus { get => _explicitNullValueDocumentStatus; set { _explicitNullValueDocumentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_status"); else _explicitNullProperties?.Remove("document_status"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus? _explicitNullValueDocumentStatus = default!;
         /// <summary>Submission-readiness errors. Present on every successful POST, PUT, and GET response. Empty means the application is ready to submit. Each entry has `code`, `message`, and optional `field`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError>? Errors { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError> Errors { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError> _explicitNullValueErrors = default!;
 #endif
         /// <summary>Audit timeline of the application lifecycle when available, ordered newest-first.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent>? Events { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent>? Events { get => _explicitNullValueEvents; set { _explicitNullValueEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events"); else _explicitNullProperties?.Remove("events"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent>? _explicitNullValueEvents = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent> Events { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent> Events { get => _explicitNullValueEvents; set { _explicitNullValueEvents = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("events"); else _explicitNullProperties?.Remove("events"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent> _explicitNullValueEvents = default!;
 #endif
         /// <summary>The external_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExternalId { get; set; }
+        public string? ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string? _explicitNullValueExternalId = default!;
 #nullable restore
 #else
-        public string ExternalId { get; set; }
+        public string ExternalId { get => _explicitNullValueExternalId; set { _explicitNullValueExternalId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("external_id"); else _explicitNullProperties?.Remove("external_id"); } }
+        private string _explicitNullValueExternalId = default!;
 #endif
         /// <summary>The issuer_hios_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssuerHiosId { get; set; }
+        public string? IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
+        private string? _explicitNullValueIssuerHiosId = default!;
 #nullable restore
 #else
-        public string IssuerHiosId { get; set; }
+        public string IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
+        private string _explicitNullValueIssuerHiosId = default!;
 #endif
         /// <summary>State-aware actions the partner can currently take. HealthSherpa ONE generates `href` and `method` from `rel` so links point at public `/v1/enrollments` routes. POST and PUT actions still require the request bodies documented for those endpoints.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>? NextActions { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>? NextActions { get => _explicitNullValueNextActions; set { _explicitNullValueNextActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_actions"); else _explicitNullProperties?.Remove("next_actions"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>? _explicitNullValueNextActions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction> NextActions { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction> NextActions { get => _explicitNullValueNextActions; set { _explicitNullValueNextActions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("next_actions"); else _explicitNullProperties?.Remove("next_actions"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction> _explicitNullValueNextActions = default!;
 #endif
         /// <summary>Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? Payment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? _explicitNullValuePayment = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus Payment { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus _explicitNullValuePayment = default!;
 #endif
         /// <summary>Carrier-specific payment guidance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions? PaymentInstructions { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions? PaymentInstructions { get => _explicitNullValuePaymentInstructions; set { _explicitNullValuePaymentInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_instructions"); else _explicitNullProperties?.Remove("payment_instructions"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions? _explicitNullValuePaymentInstructions = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions PaymentInstructions { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions PaymentInstructions { get => _explicitNullValuePaymentInstructions; set { _explicitNullValuePaymentInstructions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_instructions"); else _explicitNullProperties?.Remove("payment_instructions"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions _explicitNullValuePaymentInstructions = default!;
 #endif
         /// <summary>The plan_hios_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlanHiosId { get; set; }
+        public string? PlanHiosId { get => _explicitNullValuePlanHiosId; set { _explicitNullValuePlanHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_hios_id"); else _explicitNullProperties?.Remove("plan_hios_id"); } }
+        private string? _explicitNullValuePlanHiosId = default!;
 #nullable restore
 #else
-        public string PlanHiosId { get; set; }
+        public string PlanHiosId { get => _explicitNullValuePlanHiosId; set { _explicitNullValuePlanHiosId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_hios_id"); else _explicitNullProperties?.Remove("plan_hios_id"); } }
+        private string _explicitNullValuePlanHiosId = default!;
 #endif
         /// <summary>The plan_year property</summary>
-        public int? PlanYear { get; set; }
+        public int? PlanYear { get => _explicitNullValuePlanYear; set { _explicitNullValuePlanYear = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_year"); else _explicitNullProperties?.Remove("plan_year"); } }
+        private int? _explicitNullValuePlanYear = default!;
         /// <summary>The policies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail>? Policies { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail>? Policies { get => _explicitNullValuePolicies; set { _explicitNullValuePolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policies"); else _explicitNullProperties?.Remove("policies"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail>? _explicitNullValuePolicies = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail> Policies { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail> Policies { get => _explicitNullValuePolicies; set { _explicitNullValuePolicies = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policies"); else _explicitNullProperties?.Remove("policies"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetail> _explicitNullValuePolicies = default!;
 #endif
         /// <summary>`draft` when the application has not yet been submitted. Transitions to `pending_effectuation` on successful submission. `submission_failed` means asynchronous carrier submission failed after submit returned.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponsePolicyStatus? PolicyStatus { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponsePolicyStatus? PolicyStatus { get => _explicitNullValuePolicyStatus; set { _explicitNullValuePolicyStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("policy_status"); else _explicitNullProperties?.Remove("policy_status"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponsePolicyStatus? _explicitNullValuePolicyStatus = default!;
         /// <summary>The sep_reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SepReason { get; set; }
+        public string? SepReason { get => _explicitNullValueSepReason; set { _explicitNullValueSepReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sep_reason"); else _explicitNullProperties?.Remove("sep_reason"); } }
+        private string? _explicitNullValueSepReason = default!;
 #nullable restore
 #else
-        public string SepReason { get; set; }
+        public string SepReason { get => _explicitNullValueSepReason; set { _explicitNullValueSepReason = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("sep_reason"); else _explicitNullProperties?.Remove("sep_reason"); } }
+        private string _explicitNullValueSepReason = default!;
 #endif
         /// <summary>The submitted_at property</summary>
-        public DateTimeOffset? SubmittedAt { get; set; }
+        public DateTimeOffset? SubmittedAt { get => _explicitNullValueSubmittedAt; set { _explicitNullValueSubmittedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("submitted_at"); else _explicitNullProperties?.Remove("submitted_at"); } }
+        private DateTimeOffset? _explicitNullValueSubmittedAt = default!;
         /// <summary>Whether the carrier supports post-enrollment changes for this application. Only present on submitted applications.</summary>
-        public bool? SupportsChanges { get; set; }
+        public bool? SupportsChanges { get => _explicitNullValueSupportsChanges; set { _explicitNullValueSupportsChanges = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supports_changes"); else _explicitNullProperties?.Remove("supports_changes"); } }
+        private bool? _explicitNullValueSupportsChanges = default!;
         /// <summary>The tpa_slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TpaSlug { get; set; }
+        public string? TpaSlug { get => _explicitNullValueTpaSlug; set { _explicitNullValueTpaSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tpa_slug"); else _explicitNullProperties?.Remove("tpa_slug"); } }
+        private string? _explicitNullValueTpaSlug = default!;
 #nullable restore
 #else
-        public string TpaSlug { get; set; }
+        public string TpaSlug { get => _explicitNullValueTpaSlug; set { _explicitNullValueTpaSlug = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tpa_slug"); else _explicitNullProperties?.Remove("tpa_slug"); } }
+        private string _explicitNullValueTpaSlug = default!;
 #endif
         /// <summary>The updated_at property</summary>
-        public DateTimeOffset? UpdatedAt { get; set; }
+        public DateTimeOffset? UpdatedAt { get => _explicitNullValueUpdatedAt; set { _explicitNullValueUpdatedAt = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("updated_at"); else _explicitNullProperties?.Remove("updated_at"); } }
+        private DateTimeOffset? _explicitNullValueUpdatedAt = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse"/> and sets the default values.
         /// </summary>
@@ -155,7 +221,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -220,6 +286,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("supports_changes", SupportsChanges);
             writer.WriteStringValue("tpa_slug", TpaSlug);
             writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

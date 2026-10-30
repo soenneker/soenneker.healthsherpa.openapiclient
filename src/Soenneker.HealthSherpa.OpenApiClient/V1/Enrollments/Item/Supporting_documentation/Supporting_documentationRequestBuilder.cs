@@ -46,11 +46,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Supporting_do
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse?> PostAsync(global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse?> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse> PostAsync(global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse> PostAsync(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -61,6 +61,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Supporting_do
                 { "415", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse>(requestInfo, global::Soenneker.HealthSherpa.OpenApiClient.Models.SupportingDocumentationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -72,11 +74,11 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Supporting_do
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Soenneker.HealthSherpa.OpenApiClient.Models.UploadEnrollmentSupportingDocumentationFormDataRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Microsoft.Kiota.Abstractions.MultipartBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -11,13 +11,26 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class VisionFilters : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("contacts_allowance_min") is { } nullNodeContactsAllowanceMin && nullNodeContactsAllowanceMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ContactsAllowanceMin = null;
+            if (parseNode.GetChildNode("exam_copay_max") is { } nullNodeExamCopayMax && nullNodeExamCopayMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExamCopayMax = null;
+            if (parseNode.GetChildNode("frames_allowance_min") is { } nullNodeFramesAllowanceMin && nullNodeFramesAllowanceMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FramesAllowanceMin = null;
+        }
+
         /// <summary>The contacts_allowance_min property</summary>
-        public double? ContactsAllowanceMin { get; set; }
+        public double? ContactsAllowanceMin { get => _explicitNullValueContactsAllowanceMin; set { _explicitNullValueContactsAllowanceMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("contacts_allowance_min"); else _explicitNullProperties?.Remove("contacts_allowance_min"); } }
+        private double? _explicitNullValueContactsAllowanceMin = default!;
         /// <summary>The exam_copay_max property</summary>
-        public double? ExamCopayMax { get; set; }
+        public double? ExamCopayMax { get => _explicitNullValueExamCopayMax; set { _explicitNullValueExamCopayMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exam_copay_max"); else _explicitNullProperties?.Remove("exam_copay_max"); } }
+        private double? _explicitNullValueExamCopayMax = default!;
         /// <summary>The frames_allowance_min property</summary>
-        public double? FramesAllowanceMin { get; set; }
+        public double? FramesAllowanceMin { get => _explicitNullValueFramesAllowanceMin; set { _explicitNullValueFramesAllowanceMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frames_allowance_min"); else _explicitNullProperties?.Remove("frames_allowance_min"); } }
+        private double? _explicitNullValueFramesAllowanceMin = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -26,7 +39,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +63,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("contacts_allowance_min", ContactsAllowanceMin);
             writer.WriteDoubleValue("exam_copay_max", ExamCopayMax);
-            writer.WriteDoubleValue("frames_allowance_min", FramesAllowanceMin);
+            writer.WriteDoubleValue("frames_allowance_min", FramesAllowanceMin);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

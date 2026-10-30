@@ -12,60 +12,91 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class QuoteFilters : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("dental") is { } nullNodeDental && nullNodeDental.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Dental = null;
+            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("issuer_ids") is { } nullNodeIssuerIds && nullNodeIssuerIds.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerIds = null;
+            if (parseNode.GetChildNode("medical") is { } nullNodeMedical && nullNodeMedical.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Medical = null;
+            if (parseNode.GetChildNode("network_types") is { } nullNodeNetworkTypes && nullNodeNetworkTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NetworkTypes = null;
+            if (parseNode.GetChildNode("premium_max") is { } nullNodePremiumMax && nullNodePremiumMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PremiumMax = null;
+            if (parseNode.GetChildNode("premium_min") is { } nullNodePremiumMin && nullNodePremiumMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PremiumMin = null;
+            if (parseNode.GetChildNode("supplemental_other") is { } nullNodeSupplementalOther && nullNodeSupplementalOther.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SupplementalOther = null;
+            if (parseNode.GetChildNode("vision") is { } nullNodeVision && nullNodeVision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Vision = null;
+        }
+
         /// <summary>The dental property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters? Dental { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters? Dental { get => _explicitNullValueDental; set { _explicitNullValueDental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dental"); else _explicitNullProperties?.Remove("dental"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters? _explicitNullValueDental = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters Dental { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters Dental { get => _explicitNullValueDental; set { _explicitNullValueDental = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dental"); else _explicitNullProperties?.Remove("dental"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.DentalFilters _explicitNullValueDental = default!;
 #endif
         /// <summary>The effective_date property</summary>
-        public Date? EffectiveDate { get; set; }
+        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        private Date? _explicitNullValueEffectiveDate = default!;
         /// <summary>The issuer_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? IssuerIds { get; set; }
+        public List<string>? IssuerIds { get => _explicitNullValueIssuerIds; set { _explicitNullValueIssuerIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_ids"); else _explicitNullProperties?.Remove("issuer_ids"); } }
+        private List<string>? _explicitNullValueIssuerIds = default!;
 #nullable restore
 #else
-        public List<string> IssuerIds { get; set; }
+        public List<string> IssuerIds { get => _explicitNullValueIssuerIds; set { _explicitNullValueIssuerIds = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_ids"); else _explicitNullProperties?.Remove("issuer_ids"); } }
+        private List<string> _explicitNullValueIssuerIds = default!;
 #endif
         /// <summary>The medical property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters? Medical { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters? Medical { get => _explicitNullValueMedical; set { _explicitNullValueMedical = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medical"); else _explicitNullProperties?.Remove("medical"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters? _explicitNullValueMedical = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters Medical { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters Medical { get => _explicitNullValueMedical; set { _explicitNullValueMedical = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("medical"); else _explicitNullProperties?.Remove("medical"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters _explicitNullValueMedical = default!;
 #endif
         /// <summary>The network_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? NetworkTypes { get; set; }
+        public List<string>? NetworkTypes { get => _explicitNullValueNetworkTypes; set { _explicitNullValueNetworkTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_types"); else _explicitNullProperties?.Remove("network_types"); } }
+        private List<string>? _explicitNullValueNetworkTypes = default!;
 #nullable restore
 #else
-        public List<string> NetworkTypes { get; set; }
+        public List<string> NetworkTypes { get => _explicitNullValueNetworkTypes; set { _explicitNullValueNetworkTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("network_types"); else _explicitNullProperties?.Remove("network_types"); } }
+        private List<string> _explicitNullValueNetworkTypes = default!;
 #endif
         /// <summary>The premium_max property</summary>
-        public double? PremiumMax { get; set; }
+        public double? PremiumMax { get => _explicitNullValuePremiumMax; set { _explicitNullValuePremiumMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("premium_max"); else _explicitNullProperties?.Remove("premium_max"); } }
+        private double? _explicitNullValuePremiumMax = default!;
         /// <summary>The premium_min property</summary>
-        public double? PremiumMin { get; set; }
+        public double? PremiumMin { get => _explicitNullValuePremiumMin; set { _explicitNullValuePremiumMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("premium_min"); else _explicitNullProperties?.Remove("premium_min"); } }
+        private double? _explicitNullValuePremiumMin = default!;
         /// <summary>The supplemental_other property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters? SupplementalOther { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters? SupplementalOther { get => _explicitNullValueSupplementalOther; set { _explicitNullValueSupplementalOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supplemental_other"); else _explicitNullProperties?.Remove("supplemental_other"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters? _explicitNullValueSupplementalOther = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters SupplementalOther { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters SupplementalOther { get => _explicitNullValueSupplementalOther; set { _explicitNullValueSupplementalOther = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("supplemental_other"); else _explicitNullProperties?.Remove("supplemental_other"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters _explicitNullValueSupplementalOther = default!;
 #endif
         /// <summary>The vision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters? Vision { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters? Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters? _explicitNullValueVision = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters Vision { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters Vision { get => _explicitNullValueVision; set { _explicitNullValueVision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("vision"); else _explicitNullProperties?.Remove("vision"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters _explicitNullValueVision = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -75,7 +106,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,7 +142,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("premium_max", PremiumMax);
             writer.WriteDoubleValue("premium_min", PremiumMin);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters>("supplemental_other", SupplementalOther);
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters>("vision", Vision);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.VisionFilters>("vision", Vision);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

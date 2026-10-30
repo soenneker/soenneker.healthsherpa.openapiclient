@@ -11,21 +11,37 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class SupplementalOtherFilters : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("benefit_model") is { } nullNodeBenefitModel && nullNodeBenefitModel.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BenefitModel = null;
+            if (parseNode.GetChildNode("guaranteed_issue") is { } nullNodeGuaranteedIssue && nullNodeGuaranteedIssue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GuaranteedIssue = null;
+            if (parseNode.GetChildNode("issue_age_max") is { } nullNodeIssueAgeMax && nullNodeIssueAgeMax.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueAgeMax = null;
+            if (parseNode.GetChildNode("issue_age_min") is { } nullNodeIssueAgeMin && nullNodeIssueAgeMin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueAgeMin = null;
+        }
+
         /// <summary>The benefit_model property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BenefitModel { get; set; }
+        public string? BenefitModel { get => _explicitNullValueBenefitModel; set { _explicitNullValueBenefitModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("benefit_model"); else _explicitNullProperties?.Remove("benefit_model"); } }
+        private string? _explicitNullValueBenefitModel = default!;
 #nullable restore
 #else
-        public string BenefitModel { get; set; }
+        public string BenefitModel { get => _explicitNullValueBenefitModel; set { _explicitNullValueBenefitModel = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("benefit_model"); else _explicitNullProperties?.Remove("benefit_model"); } }
+        private string _explicitNullValueBenefitModel = default!;
 #endif
         /// <summary>The guaranteed_issue property</summary>
-        public bool? GuaranteedIssue { get; set; }
+        public bool? GuaranteedIssue { get => _explicitNullValueGuaranteedIssue; set { _explicitNullValueGuaranteedIssue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("guaranteed_issue"); else _explicitNullProperties?.Remove("guaranteed_issue"); } }
+        private bool? _explicitNullValueGuaranteedIssue = default!;
         /// <summary>The issue_age_max property</summary>
-        public int? IssueAgeMax { get; set; }
+        public int? IssueAgeMax { get => _explicitNullValueIssueAgeMax; set { _explicitNullValueIssueAgeMax = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_age_max"); else _explicitNullProperties?.Remove("issue_age_max"); } }
+        private int? _explicitNullValueIssueAgeMax = default!;
         /// <summary>The issue_age_min property</summary>
-        public int? IssueAgeMin { get; set; }
+        public int? IssueAgeMin { get => _explicitNullValueIssueAgeMin; set { _explicitNullValueIssueAgeMin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issue_age_min"); else _explicitNullProperties?.Remove("issue_age_min"); } }
+        private int? _explicitNullValueIssueAgeMin = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -34,7 +50,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.SupplementalOtherFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +76,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("benefit_model", BenefitModel);
             writer.WriteBoolValue("guaranteed_issue", GuaranteedIssue);
             writer.WriteIntValue("issue_age_max", IssueAgeMax);
-            writer.WriteIntValue("issue_age_min", IssueAgeMin);
+            writer.WriteIntValue("issue_age_min", IssueAgeMin);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

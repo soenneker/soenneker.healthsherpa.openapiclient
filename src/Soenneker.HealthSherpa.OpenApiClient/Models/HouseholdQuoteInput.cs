@@ -12,21 +12,37 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class HouseholdQuoteInput : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("annual_income") is { } nullNodeAnnualIncome && nullNodeAnnualIncome.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AnnualIncome = null;
+            if (parseNode.GetChildNode("applicants") is { } nullNodeApplicants && nullNodeApplicants.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Applicants = null;
+            if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
+            if (parseNode.GetChildNode("household_size") is { } nullNodeHouseholdSize && nullNodeHouseholdSize.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HouseholdSize = null;
+        }
+
         /// <summary>The annual_income property</summary>
-        public double? AnnualIncome { get; set; }
+        public double? AnnualIncome { get => _explicitNullValueAnnualIncome; set { _explicitNullValueAnnualIncome = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("annual_income"); else _explicitNullProperties?.Remove("annual_income"); } }
+        private double? _explicitNullValueAnnualIncome = default!;
         /// <summary>The applicants property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>? Applicants { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>? Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>? _explicitNullValueApplicants = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput> Applicants { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput> Applicants { get => _explicitNullValueApplicants; set { _explicitNullValueApplicants = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("applicants"); else _explicitNullProperties?.Remove("applicants"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput> _explicitNullValueApplicants = default!;
 #endif
         /// <summary>The effective_date property</summary>
-        public Date? EffectiveDate { get; set; }
+        public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
+        private Date? _explicitNullValueEffectiveDate = default!;
         /// <summary>The household_size property</summary>
-        public int? HouseholdSize { get; set; }
+        public int? HouseholdSize { get => _explicitNullValueHouseholdSize; set { _explicitNullValueHouseholdSize = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("household_size"); else _explicitNullProperties?.Remove("household_size"); } }
+        private int? _explicitNullValueHouseholdSize = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -35,7 +51,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.HouseholdQuoteInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +77,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteDoubleValue("annual_income", AnnualIncome);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>("applicants", Applicants);
             writer.WriteDateValue("effective_date", EffectiveDate);
-            writer.WriteIntValue("household_size", HouseholdSize);
+            writer.WriteIntValue("household_size", HouseholdSize);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

@@ -11,27 +11,44 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MedicalFilters : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hsa_eligible") is { } nullNodeHsaEligible && nullNodeHsaEligible.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) HsaEligible = null;
+            if (parseNode.GetChildNode("metal_levels") is { } nullNodeMetalLevels && nullNodeMetalLevels.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MetalLevels = null;
+            if (parseNode.GetChildNode("plan_types") is { } nullNodePlanTypes && nullNodePlanTypes.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlanTypes = null;
+            if (parseNode.GetChildNode("standardized_only") is { } nullNodeStandardizedOnly && nullNodeStandardizedOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandardizedOnly = null;
+        }
+
         /// <summary>The hsa_eligible property</summary>
-        public bool? HsaEligible { get; set; }
+        public bool? HsaEligible { get => _explicitNullValueHsaEligible; set { _explicitNullValueHsaEligible = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hsa_eligible"); else _explicitNullProperties?.Remove("hsa_eligible"); } }
+        private bool? _explicitNullValueHsaEligible = default!;
         /// <summary>The metal_levels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?>? MetalLevels { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?>? MetalLevels { get => _explicitNullValueMetalLevels; set { _explicitNullValueMetalLevels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metal_levels"); else _explicitNullProperties?.Remove("metal_levels"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?>? _explicitNullValueMetalLevels = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?> MetalLevels { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?> MetalLevels { get => _explicitNullValueMetalLevels; set { _explicitNullValueMetalLevels = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("metal_levels"); else _explicitNullProperties?.Remove("metal_levels"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem?> _explicitNullValueMetalLevels = default!;
 #endif
         /// <summary>The plan_types property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?>? PlanTypes { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?>? PlanTypes { get => _explicitNullValuePlanTypes; set { _explicitNullValuePlanTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_types"); else _explicitNullProperties?.Remove("plan_types"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?>? _explicitNullValuePlanTypes = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?> PlanTypes { get; set; }
+        public List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?> PlanTypes { get => _explicitNullValuePlanTypes; set { _explicitNullValuePlanTypes = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("plan_types"); else _explicitNullProperties?.Remove("plan_types"); } }
+        private List<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem?> _explicitNullValuePlanTypes = default!;
 #endif
         /// <summary>The standardized_only property</summary>
-        public bool? StandardizedOnly { get; set; }
+        public bool? StandardizedOnly { get => _explicitNullValueStandardizedOnly; set { _explicitNullValueStandardizedOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standardized_only"); else _explicitNullProperties?.Remove("standardized_only"); } }
+        private bool? _explicitNullValueStandardizedOnly = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,7 +57,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFilters(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +83,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("hsa_eligible", HsaEligible);
             writer.WriteCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem>("metal_levels", MetalLevels);
             writer.WriteCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersPlanTypesItem>("plan_types", PlanTypes);
-            writer.WriteBoolValue("standardized_only", StandardizedOnly);
+            writer.WriteBoolValue("standardized_only", StandardizedOnly);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

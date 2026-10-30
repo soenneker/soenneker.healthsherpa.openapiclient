@@ -12,14 +12,24 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class EnrollmentSessionEnrollment : IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("hra") is { } nullNodeHra && nullNodeHra.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Hra = null;
+        }
+
         /// <summary>When supplied, `amount` is required and must be greater than or equal to 0. `0` means the consumer declined available HRA funding; a positive value means funding was accepted. `frequency` is required when `amount &gt; 0` and is omitted from the deep link when `amount == 0`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra? Hra { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra? Hra { get => _explicitNullValueHra; set { _explicitNullValueHra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hra"); else _explicitNullProperties?.Remove("hra"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra? _explicitNullValueHra = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra Hra { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra Hra { get => _explicitNullValueHra; set { _explicitNullValueHra = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("hra"); else _explicitNullProperties?.Remove("hra"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra _explicitNullValueHra = default!;
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -29,7 +39,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollment(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +59,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra>("hra", Hra);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentSessionEnrollmentHra>("hra", Hra);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

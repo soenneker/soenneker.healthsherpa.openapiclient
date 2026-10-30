@@ -12,23 +12,39 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PaymentInstructions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pay_by_phone_supported") is { } nullNodePayByPhoneSupported && nullNodePayByPhoneSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PayByPhoneSupported = null;
+            if (parseNode.GetChildNode("payment_phone_number") is { } nullNodePaymentPhoneNumber && nullNodePaymentPhoneNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentPhoneNumber = null;
+            if (parseNode.GetChildNode("payment_redirect_supported") is { } nullNodePaymentRedirectSupported && nullNodePaymentRedirectSupported.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRedirectSupported = null;
+            if (parseNode.GetChildNode("payment_required_with_submission") is { } nullNodePaymentRequiredWithSubmission && nullNodePaymentRequiredWithSubmission.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentRequiredWithSubmission = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The pay_by_phone_supported property</summary>
-        public bool? PayByPhoneSupported { get; set; }
+        public bool? PayByPhoneSupported { get => _explicitNullValuePayByPhoneSupported; set { _explicitNullValuePayByPhoneSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pay_by_phone_supported"); else _explicitNullProperties?.Remove("pay_by_phone_supported"); } }
+        private bool? _explicitNullValuePayByPhoneSupported = default!;
         /// <summary>The payment_phone_number property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentPhoneNumber { get; set; }
+        public string? PaymentPhoneNumber { get => _explicitNullValuePaymentPhoneNumber; set { _explicitNullValuePaymentPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_phone_number"); else _explicitNullProperties?.Remove("payment_phone_number"); } }
+        private string? _explicitNullValuePaymentPhoneNumber = default!;
 #nullable restore
 #else
-        public string PaymentPhoneNumber { get; set; }
+        public string PaymentPhoneNumber { get => _explicitNullValuePaymentPhoneNumber; set { _explicitNullValuePaymentPhoneNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_phone_number"); else _explicitNullProperties?.Remove("payment_phone_number"); } }
+        private string _explicitNullValuePaymentPhoneNumber = default!;
 #endif
         /// <summary>`true` when the carrier supports browser-based payment redirect.</summary>
-        public bool? PaymentRedirectSupported { get; set; }
+        public bool? PaymentRedirectSupported { get => _explicitNullValuePaymentRedirectSupported; set { _explicitNullValuePaymentRedirectSupported = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_redirect_supported"); else _explicitNullProperties?.Remove("payment_redirect_supported"); } }
+        private bool? _explicitNullValuePaymentRedirectSupported = default!;
         /// <summary>`true` when payment must be set before submission. Currently applies to Cigna and Elevance in-flow.</summary>
-        public bool? PaymentRequiredWithSubmission { get; set; }
+        public bool? PaymentRequiredWithSubmission { get => _explicitNullValuePaymentRequiredWithSubmission; set { _explicitNullValuePaymentRequiredWithSubmission = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_required_with_submission"); else _explicitNullProperties?.Remove("payment_required_with_submission"); } }
+        private bool? _explicitNullValuePaymentRequiredWithSubmission = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions"/> and sets the default values.
         /// </summary>
@@ -44,7 +60,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,6 +87,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("payment_phone_number", PaymentPhoneNumber);
             writer.WriteBoolValue("payment_redirect_supported", PaymentRedirectSupported);
             writer.WriteBoolValue("payment_required_with_submission", PaymentRequiredWithSubmission);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

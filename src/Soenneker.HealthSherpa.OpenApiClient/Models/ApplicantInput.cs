@@ -12,31 +12,57 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class ApplicantInput : IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("age") is { } nullNodeAge && nullNodeAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Age = null;
+            if (parseNode.GetChildNode("blind_or_disabled") is { } nullNodeBlindOrDisabled && nullNodeBlindOrDisabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BlindOrDisabled = null;
+            if (parseNode.GetChildNode("date_of_birth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("gender") is { } nullNodeGender && nullNodeGender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gender = null;
+            if (parseNode.GetChildNode("member_id") is { } nullNodeMemberId && nullNodeMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MemberId = null;
+            if (parseNode.GetChildNode("native_american") is { } nullNodeNativeAmerican && nullNodeNativeAmerican.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) NativeAmerican = null;
+            if (parseNode.GetChildNode("pregnant") is { } nullNodePregnant && nullNodePregnant.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pregnant = null;
+            if (parseNode.GetChildNode("relationship") is { } nullNodeRelationship && nullNodeRelationship.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Relationship = null;
+            if (parseNode.GetChildNode("uses_tobacco") is { } nullNodeUsesTobacco && nullNodeUsesTobacco.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) UsesTobacco = null;
+        }
+
         /// <summary>The age property</summary>
-        public int? Age { get; set; }
+        public int? Age { get => _explicitNullValueAge; set { _explicitNullValueAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("age"); else _explicitNullProperties?.Remove("age"); } }
+        private int? _explicitNullValueAge = default!;
         /// <summary>The blind_or_disabled property</summary>
-        public bool? BlindOrDisabled { get; set; }
+        public bool? BlindOrDisabled { get => _explicitNullValueBlindOrDisabled; set { _explicitNullValueBlindOrDisabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("blind_or_disabled"); else _explicitNullProperties?.Remove("blind_or_disabled"); } }
+        private bool? _explicitNullValueBlindOrDisabled = default!;
         /// <summary>The date_of_birth property</summary>
-        public Date? DateOfBirth { get; set; }
+        public Date? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("date_of_birth"); else _explicitNullProperties?.Remove("date_of_birth"); } }
+        private Date? _explicitNullValueDateOfBirth = default!;
         /// <summary>Optional applicant gender for quote flows that use gender in marketplace screening.</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputGender? Gender { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputGender? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputGender? _explicitNullValueGender = default!;
         /// <summary>Caller-supplied applicant identifier. Use a stable value from your system, such as `applicant-1`; this is not the applicant relationship. Send `relationship` separately as `primary`, `spouse`, or `dependent`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MemberId { get; set; }
+        public string? MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
+        private string? _explicitNullValueMemberId = default!;
 #nullable restore
 #else
-        public string MemberId { get; set; }
+        public string MemberId { get => _explicitNullValueMemberId; set { _explicitNullValueMemberId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("member_id"); else _explicitNullProperties?.Remove("member_id"); } }
+        private string _explicitNullValueMemberId = default!;
 #endif
         /// <summary>The native_american property</summary>
-        public bool? NativeAmerican { get; set; }
+        public bool? NativeAmerican { get => _explicitNullValueNativeAmerican; set { _explicitNullValueNativeAmerican = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("native_american"); else _explicitNullProperties?.Remove("native_american"); } }
+        private bool? _explicitNullValueNativeAmerican = default!;
         /// <summary>The pregnant property</summary>
-        public bool? Pregnant { get; set; }
+        public bool? Pregnant { get => _explicitNullValuePregnant; set { _explicitNullValuePregnant = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pregnant"); else _explicitNullProperties?.Remove("pregnant"); } }
+        private bool? _explicitNullValuePregnant = default!;
         /// <summary>The relationship property</summary>
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputRelationship? Relationship { get; set; }
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputRelationship? Relationship { get => _explicitNullValueRelationship; set { _explicitNullValueRelationship = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("relationship"); else _explicitNullProperties?.Remove("relationship"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputRelationship? _explicitNullValueRelationship = default!;
         /// <summary>The uses_tobacco property</summary>
-        public bool? UsesTobacco { get; set; }
+        public bool? UsesTobacco { get => _explicitNullValueUsesTobacco; set { _explicitNullValueUsesTobacco = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("uses_tobacco"); else _explicitNullProperties?.Remove("uses_tobacco"); } }
+        private bool? _explicitNullValueUsesTobacco = default!;
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +71,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +107,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("native_american", NativeAmerican);
             writer.WriteBoolValue("pregnant", Pregnant);
             writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInputRelationship>("relationship", Relationship);
-            writer.WriteBoolValue("uses_tobacco", UsesTobacco);
+            writer.WriteBoolValue("uses_tobacco", UsesTobacco);if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
+            
         }
     }
 }

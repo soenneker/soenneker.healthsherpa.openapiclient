@@ -13,41 +13,65 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PolicyPaymentStatus : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("autopay_indicator") is { } nullNodeAutopayIndicator && nullNodeAutopayIndicator.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutopayIndicator = null;
+            if (parseNode.GetChildNode("current_member_responsibility_balance_due") is { } nullNodeCurrentMemberResponsibilityBalanceDue && nullNodeCurrentMemberResponsibilityBalanceDue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentMemberResponsibilityBalanceDue = null;
+            if (parseNode.GetChildNode("grace_period_start_date") is { } nullNodeGracePeriodStartDate && nullNodeGracePeriodStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodStartDate = null;
+            if (parseNode.GetChildNode("paid_through_date") is { } nullNodePaidThroughDate && nullNodePaidThroughDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaidThroughDate = null;
+            if (parseNode.GetChildNode("past_due_member_responsibility_balance_due") is { } nullNodePastDueMemberResponsibilityBalanceDue && nullNodePastDueMemberResponsibilityBalanceDue.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PastDueMemberResponsibilityBalanceDue = null;
+            if (parseNode.GetChildNode("payment_status") is { } nullNodePaymentStatus && nullNodePaymentStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentStatus = null;
+            if (parseNode.GetChildNode("payment_status_updated_date") is { } nullNodePaymentStatusUpdatedDate && nullNodePaymentStatusUpdatedDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaymentStatusUpdatedDate = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The autopay_indicator property</summary>
-        public bool? AutopayIndicator { get; set; }
+        public bool? AutopayIndicator { get => _explicitNullValueAutopayIndicator; set { _explicitNullValueAutopayIndicator = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("autopay_indicator"); else _explicitNullProperties?.Remove("autopay_indicator"); } }
+        private bool? _explicitNullValueAutopayIndicator = default!;
         /// <summary>The current_member_responsibility_balance_due property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CurrentMemberResponsibilityBalanceDue { get; set; }
+        public string? CurrentMemberResponsibilityBalanceDue { get => _explicitNullValueCurrentMemberResponsibilityBalanceDue; set { _explicitNullValueCurrentMemberResponsibilityBalanceDue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_member_responsibility_balance_due"); else _explicitNullProperties?.Remove("current_member_responsibility_balance_due"); } }
+        private string? _explicitNullValueCurrentMemberResponsibilityBalanceDue = default!;
 #nullable restore
 #else
-        public string CurrentMemberResponsibilityBalanceDue { get; set; }
+        public string CurrentMemberResponsibilityBalanceDue { get => _explicitNullValueCurrentMemberResponsibilityBalanceDue; set { _explicitNullValueCurrentMemberResponsibilityBalanceDue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_member_responsibility_balance_due"); else _explicitNullProperties?.Remove("current_member_responsibility_balance_due"); } }
+        private string _explicitNullValueCurrentMemberResponsibilityBalanceDue = default!;
 #endif
         /// <summary>The grace_period_start_date property</summary>
-        public Date? GracePeriodStartDate { get; set; }
+        public Date? GracePeriodStartDate { get => _explicitNullValueGracePeriodStartDate; set { _explicitNullValueGracePeriodStartDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_start_date"); else _explicitNullProperties?.Remove("grace_period_start_date"); } }
+        private Date? _explicitNullValueGracePeriodStartDate = default!;
         /// <summary>The paid_through_date property</summary>
-        public Date? PaidThroughDate { get; set; }
+        public Date? PaidThroughDate { get => _explicitNullValuePaidThroughDate; set { _explicitNullValuePaidThroughDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paid_through_date"); else _explicitNullProperties?.Remove("paid_through_date"); } }
+        private Date? _explicitNullValuePaidThroughDate = default!;
         /// <summary>The past_due_member_responsibility_balance_due property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PastDueMemberResponsibilityBalanceDue { get; set; }
+        public string? PastDueMemberResponsibilityBalanceDue { get => _explicitNullValuePastDueMemberResponsibilityBalanceDue; set { _explicitNullValuePastDueMemberResponsibilityBalanceDue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("past_due_member_responsibility_balance_due"); else _explicitNullProperties?.Remove("past_due_member_responsibility_balance_due"); } }
+        private string? _explicitNullValuePastDueMemberResponsibilityBalanceDue = default!;
 #nullable restore
 #else
-        public string PastDueMemberResponsibilityBalanceDue { get; set; }
+        public string PastDueMemberResponsibilityBalanceDue { get => _explicitNullValuePastDueMemberResponsibilityBalanceDue; set { _explicitNullValuePastDueMemberResponsibilityBalanceDue = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("past_due_member_responsibility_balance_due"); else _explicitNullProperties?.Remove("past_due_member_responsibility_balance_due"); } }
+        private string _explicitNullValuePastDueMemberResponsibilityBalanceDue = default!;
 #endif
         /// <summary>The payment_status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PaymentStatus { get; set; }
+        public string? PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
+        private string? _explicitNullValuePaymentStatus = default!;
 #nullable restore
 #else
-        public string PaymentStatus { get; set; }
+        public string PaymentStatus { get => _explicitNullValuePaymentStatus; set { _explicitNullValuePaymentStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status"); else _explicitNullProperties?.Remove("payment_status"); } }
+        private string _explicitNullValuePaymentStatus = default!;
 #endif
         /// <summary>The payment_status_updated_date property</summary>
-        public Date? PaymentStatusUpdatedDate { get; set; }
+        public Date? PaymentStatusUpdatedDate { get => _explicitNullValuePaymentStatusUpdatedDate; set { _explicitNullValuePaymentStatusUpdatedDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment_status_updated_date"); else _explicitNullProperties?.Remove("payment_status_updated_date"); } }
+        private Date? _explicitNullValuePaymentStatusUpdatedDate = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus"/> and sets the default values.
         /// </summary>
@@ -63,7 +87,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public static global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,6 +120,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteStringValue("past_due_member_responsibility_balance_due", PastDueMemberResponsibilityBalanceDue);
             writer.WriteStringValue("payment_status", PaymentStatus);
             writer.WriteDateValue("payment_status_updated_date", PaymentStatusUpdatedDate);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
