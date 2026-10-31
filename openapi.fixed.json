@@ -1236,6 +1236,45 @@
           "504": {
             "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
+          },
+          "200": {
+            "description": "Application submission accepted. Processing can continue asynchronously; poll the application read endpoint for final policy status.",
+            "headers": {
+              "X-Request-Id": {
+                "description": "HealthSherpa ONE request id for tracing and support.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Returned when a retry window is available.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmitResponse"
+                },
+                "example": {
+                  "application_id": "HSA000000001",
+                  "external_id": "crm-application-123",
+                  "plan_year": 2026,
+                  "plan_hios_id": "12345CO1234501",
+                  "policy_status": "pending_effectuation",
+                  "payment_instructions": {
+                    "payment_required_with_submission": false,
+                    "payment_redirect_supported": true,
+                    "pay_by_phone_supported": false,
+                    "payment_phone_number": null
+                  },
+                  "submitted_at": "2026-01-14T16:00:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -1315,6 +1354,37 @@
           "504": {
             "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
+          },
+          "200": {
+            "description": "Application status-change request accepted.",
+            "headers": {
+              "X-Request-Id": {
+                "description": "HealthSherpa ONE request id for tracing and support.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Returned when a retry window is available.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusChangeResponse"
+                },
+                "example": {
+                  "application_id": "HSA000000001",
+                  "policy_status": "cancelled",
+                  "effective_date": "2026-02-01",
+                  "updated_at": "2026-01-14T16:10:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
@@ -1394,6 +1464,37 @@
           "504": {
             "description": "The API edge did not receive a timely response from the backend.",
             "$ref": "#/components/responses/GatewayTimeout"
+          },
+          "200": {
+            "description": "Application status-change request accepted.",
+            "headers": {
+              "X-Request-Id": {
+                "description": "HealthSherpa ONE request id for tracing and support.",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Retry-After": {
+                "description": "Returned when a retry window is available.",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatusChangeResponse"
+                },
+                "example": {
+                  "application_id": "HSA000000001",
+                  "policy_status": "cancelled",
+                  "effective_date": "2026-02-01",
+                  "updated_at": "2026-01-14T16:10:00Z"
+                }
+              }
+            },
+            "x-client-success-response-status": "202"
           }
         }
       }
