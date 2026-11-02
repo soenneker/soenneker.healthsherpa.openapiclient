@@ -40,9 +40,17 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Supporting_do
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 403 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 413 status code</exception>
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 415 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 429 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 500 status code</exception>
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 502 status code</exception>
+        /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError">When receiving a 503 status code</exception>
         /// <exception cref="global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse">When receiving a 504 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,9 +65,17 @@ namespace Soenneker.HealthSherpa.OpenApiClient.V1.Enrollments.Item.Supporting_do
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
+                { "400", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
                 { "413", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "415", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
+                { "429", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
                 { "502", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentErrorResponseError.CreateFromDiscriminatorValue },
                 { "504", global::Soenneker.HealthSherpa.OpenApiClient.Models.ErrorResponse.CreateFromDiscriminatorValue },
                 { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
                 { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },

@@ -102,8 +102,15 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public Date? DesiredEffectiveDate { get => _explicitNullValueDesiredEffectiveDate; set { _explicitNullValueDesiredEffectiveDate = value; AdditionalData?.Remove("desired_effective_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("desired_effective_date"); else _explicitNullProperties?.Remove("desired_effective_date"); } }
         private Date? _explicitNullValueDesiredEffectiveDate = default!;
         /// <summary>SEP document verification status. `required` means documentation must be uploaded; `uploaded` means sent to carrier pending verification; `verified` means accepted; `denied` means carrier denied the documentation.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
         public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus? DocumentStatus { get => _explicitNullValueDocumentStatus; set { _explicitNullValueDocumentStatus = value; AdditionalData?.Remove("document_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_status"); else _explicitNullProperties?.Remove("document_status"); } }
         private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus? _explicitNullValueDocumentStatus = default!;
+#nullable restore
+#else
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus DocumentStatus { get => _explicitNullValueDocumentStatus; set { _explicitNullValueDocumentStatus = value; AdditionalData?.Remove("document_status"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document_status"); else _explicitNullProperties?.Remove("document_status"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus _explicitNullValueDocumentStatus = default!;
+#endif
         /// <summary>Submission-readiness errors. Present on every successful POST, PUT, and GET response. Empty means the application is ready to submit. Each entry has `code`, `message`, and optional `field`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -157,12 +164,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>Carrier-reported payment status. Only present after submission; redirect carriers may not report it immediately.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; AdditionalData?.Remove("payment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
-        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus? _explicitNullValuePayment = default!;
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment? Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; AdditionalData?.Remove("payment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment? _explicitNullValuePayment = default!;
 #nullable restore
 #else
-        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; AdditionalData?.Remove("payment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
-        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus _explicitNullValuePayment = default!;
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment Payment { get => _explicitNullValuePayment; set { _explicitNullValuePayment = value; AdditionalData?.Remove("payment"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("payment"); else _explicitNullProperties?.Remove("payment"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment _explicitNullValuePayment = default!;
 #endif
         /// <summary>Carrier-specific payment guidance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -260,13 +267,13 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
                 { "can_report_change", n => { CanReportChange = n.GetBoolValue(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "desired_effective_date", n => { DesiredEffectiveDate = n.GetDateValue(); } },
-                { "document_status", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDocumentStatus = default; _explicitNullProperties?.Remove("document_status"); AdditionalData["document_status"] = unknown; } else { DocumentStatus = parsed; AdditionalData.Remove("document_status"); } } },
+                { "document_status", n => { DocumentStatus = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus>(global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError>(global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "events", n => { Events = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent>(global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "external_id", n => { ExternalId = n.GetStringValue(); } },
                 { "issuer_hios_id", n => { IssuerHiosId = n.GetStringValue(); } },
                 { "next_actions", n => { NextActions = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>(global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus.CreateFromDiscriminatorValue); } },
+                { "payment", n => { Payment = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment>(global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment.CreateFromDiscriminatorValue); } },
                 { "payment_instructions", n => { PaymentInstructions = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions.CreateFromDiscriminatorValue); } },
                 { "plan_hios_id", n => { PlanHiosId = n.GetStringValue(); } },
                 { "plan_year", n => { PlanYear = n.GetIntValue(); } },
@@ -292,13 +299,13 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             writer.WriteBoolValue("can_report_change", CanReportChange);
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteDateValue("desired_effective_date", DesiredEffectiveDate);
-            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus>("document_status", DocumentStatus);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.EnrollmentResponseDocumentStatus>("document_status", DocumentStatus);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.SubmissionReadinessError>("errors", Errors);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationEvent>("events", Events);
             writer.WriteStringValue("external_id", ExternalId);
             writer.WriteStringValue("issuer_hios_id", IssuerHiosId);
             writer.WriteCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.NextAction>("next_actions", NextActions);
-            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyPaymentStatus>("payment", Payment);
+            writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicationResponsePayment>("payment", Payment);
             writer.WriteObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PaymentInstructions>("payment_instructions", PaymentInstructions);
             writer.WriteStringValue("plan_hios_id", PlanHiosId);
             writer.WriteIntValue("plan_year", PlanYear);
