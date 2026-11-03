@@ -645,8 +645,8 @@
                     "value": {
                       "external_id": "crm-lead-abc-123",
                       "links": {
-                        "shopping_url": "https://healthsherpa.com/public/shop?_agent_id=agent_admin_42\u0026external_id=crm-lead-abc-123\u0026fip_code=36061\u0026household_income=42000\u0026household_size=1\u0026people%5Bprimary%5D%5Bage%5D=36\u0026people%5Bprimary%5D%5Bgender%5D=female\u0026people%5Bprimary%5D%5Btobacco%5D=false\u0026user_type=consumer\u0026year=2026\u0026zip_code=10001",
-                        "client_apply_url": "https://healthsherpa.com/public/apply?_agent_id=agent_admin_42\u0026external_id=crm-lead-abc-123\u0026plan_hios_id=12345NY0010001\u0026plan_year=2026\u0026state=NY\u0026user_type=consumer"
+                        "shopping_url": "https://healthsherpa.com/public/shop?_agent_id=agent_admin_42\u0026external_id=crm-lead-abc-123\u0026fip_code=36061\u0026household_income=42000\u0026household_size=1\u0026people%5Bprimary%5D%5Bage%5D=36\u0026people%5Bprimary%5D%5Bgender%5D=female\u0026people%5Bprimary%5D%5Btobacco%5D=false\u0026user_type=consumer\u0026utm_source=hs1\u0026year=2026\u0026zip_code=10001",
+                        "client_apply_url": "https://healthsherpa.com/public/apply?_agent_id=agent_admin_42\u0026external_id=crm-lead-abc-123\u0026plan_hios_id=12345NY0010001\u0026plan_year=2026\u0026state=NY\u0026user_type=consumer\u0026utm_source=hs1"
                       }
                     }
                   }
@@ -7676,7 +7676,10 @@
             "type": "string"
           },
           "utm_source": {
-            "type": "string"
+            "maxLength": 200,
+            "type": "string",
+            "description": "Optional caller attribution suffix for self-service links, limited to 200 characters. This field is not an enum: callers may supply any nonblank string that does not contain PII or secrets. Generated URLs use \u0060hs1\u0060 when the field is omitted or blank, and \u0060hs1:\u003Cthe supplied value\u003E\u0060 otherwise. For example, \u0060partner\u0060 becomes \u0060hs1:partner\u0060 and \u0060newsletter\u0060 becomes \u0060hs1:newsletter\u0060. Values already equal to \u0060hs1\u0060 or beginning with \u0060hs1:\u0060 are not prefixed again.",
+            "example": "partner"
           },
           "utm_medium": {
             "type": "string"

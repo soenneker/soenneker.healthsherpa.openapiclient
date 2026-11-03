@@ -84,7 +84,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public string UtmMedium { get => _explicitNullValueUtmMedium; set { _explicitNullValueUtmMedium = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_medium"); else _explicitNullProperties?.Remove("utm_medium"); } }
         private string _explicitNullValueUtmMedium = default!;
 #endif
-        /// <summary>The utm_source property</summary>
+        /// <summary>Optional caller attribution suffix for self-service links, limited to 200 characters. This field is not an enum: callers may supply any nonblank string that does not contain PII or secrets. Generated URLs use `hs1` when the field is omitted or blank, and `hs1:&lt;the supplied value&gt;` otherwise. For example, `partner` becomes `hs1:partner` and `newsletter` becomes `hs1:newsletter`. Values already equal to `hs1` or beginning with `hs1:` are not prefixed again.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UtmSource { get => _explicitNullValueUtmSource; set { _explicitNullValueUtmSource = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("utm_source"); else _explicitNullProperties?.Remove("utm_source"); } }

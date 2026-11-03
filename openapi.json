@@ -632,8 +632,8 @@
                     "value": {
                       "external_id": "crm-lead-abc-123",
                       "links": {
-                        "shopping_url": "https://healthsherpa.com/public/shop?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&fip_code=36061&household_income=42000&household_size=1&people%5Bprimary%5D%5Bage%5D=36&people%5Bprimary%5D%5Bgender%5D=female&people%5Bprimary%5D%5Btobacco%5D=false&user_type=consumer&year=2026&zip_code=10001",
-                        "client_apply_url": "https://healthsherpa.com/public/apply?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&plan_hios_id=12345NY0010001&plan_year=2026&state=NY&user_type=consumer"
+                        "shopping_url": "https://healthsherpa.com/public/shop?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&fip_code=36061&household_income=42000&household_size=1&people%5Bprimary%5D%5Bage%5D=36&people%5Bprimary%5D%5Bgender%5D=female&people%5Bprimary%5D%5Btobacco%5D=false&user_type=consumer&utm_source=hs1&year=2026&zip_code=10001",
+                        "client_apply_url": "https://healthsherpa.com/public/apply?_agent_id=agent_admin_42&external_id=crm-lead-abc-123&plan_hios_id=12345NY0010001&plan_year=2026&state=NY&user_type=consumer&utm_source=hs1"
                       }
                     }
                   }
@@ -5018,7 +5018,10 @@
             "type": "string"
           },
           "utm_source": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 200,
+            "description": "Optional caller attribution suffix for self-service links, limited to 200 characters. This field is not an enum: callers may supply any nonblank string that does not contain PII or secrets. Generated URLs use `hs1` when the field is omitted or blank, and `hs1:<the supplied value>` otherwise. For example, `partner` becomes `hs1:partner` and `newsletter` becomes `hs1:newsletter`. Values already equal to `hs1` or beginning with `hs1:` are not prefixed again.",
+            "example": "partner"
           },
           "utm_medium": {
             "type": "string"
