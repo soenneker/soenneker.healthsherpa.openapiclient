@@ -79,7 +79,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "billing_period", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MonthlyBillingPeriod>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueBillingPeriod = default; _explicitNullProperties?.Remove("billing_period"); AdditionalData["billing_period"] = unknown; } else { BillingPeriod = parsed; AdditionalData.Remove("billing_period"); } } },
                 { "currency", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.UsdCurrency>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCurrency = default; _explicitNullProperties?.Remove("currency"); AdditionalData["currency"] = unknown; } else { Currency = parsed; AdditionalData.Remove("currency"); } } },

@@ -55,7 +55,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "employee_amount", n => { EmployeeAmount = n.GetDoubleValue(); } },
                 { "family_amount", n => { FamilyAmount = n.GetDoubleValue(); } },

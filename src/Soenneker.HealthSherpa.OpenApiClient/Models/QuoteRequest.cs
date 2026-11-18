@@ -121,7 +121,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(7)
             {
                 { "context", n => { Context = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext>(global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteContext.CreateFromDiscriminatorValue); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters>(global::Soenneker.HealthSherpa.OpenApiClient.Models.QuoteFilters.CreateFromDiscriminatorValue); } },

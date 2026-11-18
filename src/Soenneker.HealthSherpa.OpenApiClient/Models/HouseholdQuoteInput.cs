@@ -63,7 +63,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "annual_income", n => { AnnualIncome = n.GetDoubleValue(); } },
                 { "applicants", n => { Applicants = n.GetCollectionOfObjectValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput>(global::Soenneker.HealthSherpa.OpenApiClient.Models.ApplicantInput.CreateFromDiscriminatorValue)?.AsList(); } },

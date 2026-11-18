@@ -166,7 +166,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(10)
             {
                 { "address", n => { Address = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.SimpleAddress>(global::Soenneker.HealthSherpa.OpenApiClient.Models.SimpleAddress.CreateFromDiscriminatorValue); } },
                 { "carrier_producer_code", n => { CarrierProducerCode = n.GetStringValue(); } },

@@ -72,7 +72,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "pay_by_phone_supported", n => { PayByPhoneSupported = n.GetBoolValue(); } },
                 { "payment_phone_number", n => { PaymentPhoneNumber = n.GetStringValue(); } },

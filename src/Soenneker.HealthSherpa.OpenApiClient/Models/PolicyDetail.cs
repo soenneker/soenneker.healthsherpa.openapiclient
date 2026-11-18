@@ -125,7 +125,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "agent_of_record", n => { AgentOfRecord = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetailAgentOfRecord>(global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyDetailAgentOfRecord.CreateFromDiscriminatorValue); } },
                 { "effective_date", n => { EffectiveDate = n.GetDateValue(); } },

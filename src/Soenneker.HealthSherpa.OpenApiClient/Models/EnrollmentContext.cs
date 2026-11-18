@@ -70,7 +70,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(5)
             {
                 { "coverage_family", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageFamily>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCoverageFamily = default; _explicitNullProperties?.Remove("coverage_family"); AdditionalData["coverage_family"] = unknown; } else { CoverageFamily = parsed; AdditionalData.Remove("coverage_family"); } } },
                 { "coverage_type", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalCoverageType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCoverageType = default; _explicitNullProperties?.Remove("coverage_type"); AdditionalData["coverage_type"] = unknown; } else { CoverageType = parsed; AdditionalData.Remove("coverage_type"); } } },

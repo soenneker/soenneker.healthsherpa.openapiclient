@@ -329,7 +329,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(40)
             {
                 { "add_to_donate_life_registry", n => { AddToDonateLifeRegistry = n.GetBoolValue(); } },
                 { "alternate_address", n => { AlternateAddress = n.GetObjectValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress>(global::Soenneker.HealthSherpa.OpenApiClient.Models.AlternateAddress.CreateFromDiscriminatorValue); } },

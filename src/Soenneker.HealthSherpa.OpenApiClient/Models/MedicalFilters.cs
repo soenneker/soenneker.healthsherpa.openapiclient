@@ -69,7 +69,7 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(4)
             {
                 { "hsa_eligible", n => { HsaEligible = n.GetBoolValue(); } },
                 { "metal_levels", n => { MetalLevels = n.GetCollectionOfEnumValues<global::Soenneker.HealthSherpa.OpenApiClient.Models.MedicalFiltersMetalLevelsItem>()?.AsList(); } },
