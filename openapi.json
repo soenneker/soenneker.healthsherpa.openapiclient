@@ -1976,7 +1976,6 @@
             "example": {
               "policy_statuses": [
                 {
-                  "exchange_assigned_policy_id": "POL123",
                   "issuer_hios_id": "12345",
                   "effective_date": "2026-01-01",
                   "status": "active",
@@ -2560,7 +2559,6 @@
         "description": "Marketplace policy status row for one policy attached to an application.",
         "additionalProperties": true,
         "properties": {
-          "exchange_assigned_policy_id": { "type": [ "string", "null" ] },
           "issuer_hios_id": { "type": [ "string", "null" ] },
           "effective_date": {
             "type": [ "string", "null" ],

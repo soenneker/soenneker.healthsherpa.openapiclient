@@ -23,8 +23,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             else if (parseNode.GetChildNode("current_balance_cents") is { } nullNodeCurrentBalanceCents && nullNodeCurrentBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentBalanceCents = null;
             if (parseNode.GetChildNode("effective_date") is null) { _explicitNullValueEffectiveDate = default!; _explicitNullProperties?.Remove("effective_date"); }
             else if (parseNode.GetChildNode("effective_date") is { } nullNodeEffectiveDate && nullNodeEffectiveDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EffectiveDate = null;
-            if (parseNode.GetChildNode("exchange_assigned_policy_id") is null) { _explicitNullValueExchangeAssignedPolicyId = default!; _explicitNullProperties?.Remove("exchange_assigned_policy_id"); }
-            else if (parseNode.GetChildNode("exchange_assigned_policy_id") is { } nullNodeExchangeAssignedPolicyId && nullNodeExchangeAssignedPolicyId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExchangeAssignedPolicyId = null;
             if (parseNode.GetChildNode("grace_period_start_date") is null) { _explicitNullValueGracePeriodStartDate = default!; _explicitNullProperties?.Remove("grace_period_start_date"); }
             else if (parseNode.GetChildNode("grace_period_start_date") is { } nullNodeGracePeriodStartDate && nullNodeGracePeriodStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodStartDate = null;
             if (parseNode.GetChildNode("issuer_hios_id") is null) { _explicitNullValueIssuerHiosId = default!; _explicitNullProperties?.Remove("issuer_hios_id"); }
@@ -49,16 +47,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <summary>The effective_date property</summary>
         public Date? EffectiveDate { get => _explicitNullValueEffectiveDate; set { _explicitNullValueEffectiveDate = value; AdditionalData?.Remove("effective_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("effective_date"); else _explicitNullProperties?.Remove("effective_date"); } }
         private Date? _explicitNullValueEffectiveDate = default!;
-        /// <summary>The exchange_assigned_policy_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; AdditionalData?.Remove("exchange_assigned_policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
-        private string? _explicitNullValueExchangeAssignedPolicyId = default!;
-#nullable restore
-#else
-        public string ExchangeAssignedPolicyId { get => _explicitNullValueExchangeAssignedPolicyId; set { _explicitNullValueExchangeAssignedPolicyId = value; AdditionalData?.Remove("exchange_assigned_policy_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("exchange_assigned_policy_id"); else _explicitNullProperties?.Remove("exchange_assigned_policy_id"); } }
-        private string _explicitNullValueExchangeAssignedPolicyId = default!;
-#endif
         /// <summary>The grace_period_start_date property</summary>
         public Date? GracePeriodStartDate { get => _explicitNullValueGracePeriodStartDate; set { _explicitNullValueGracePeriodStartDate = value; AdditionalData?.Remove("grace_period_start_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("grace_period_start_date"); else _explicitNullProperties?.Remove("grace_period_start_date"); } }
         private Date? _explicitNullValueGracePeriodStartDate = default!;
@@ -124,11 +112,10 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(10)
+            return new Dictionary<string, Action<IParseNode>>(9)
             {
                 { "current_balance_cents", n => { CurrentBalanceCents = n.GetIntValue(); } },
                 { "effective_date", n => { EffectiveDate = n.GetDateValue(); } },
-                { "exchange_assigned_policy_id", n => { ExchangeAssignedPolicyId = n.GetStringValue(); } },
                 { "grace_period_start_date", n => { GracePeriodStartDate = n.GetDateValue(); } },
                 { "issuer_hios_id", n => { IssuerHiosId = n.GetStringValue(); } },
                 { "paid_through_date", n => { PaidThroughDate = n.GetDateValue(); } },
@@ -147,7 +134,6 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("current_balance_cents", CurrentBalanceCents);
             writer.WriteDateValue("effective_date", EffectiveDate);
-            writer.WriteStringValue("exchange_assigned_policy_id", ExchangeAssignedPolicyId);
             writer.WriteDateValue("grace_period_start_date", GracePeriodStartDate);
             writer.WriteStringValue("issuer_hios_id", IssuerHiosId);
             writer.WriteDateValue("paid_through_date", PaidThroughDate);

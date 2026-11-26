@@ -5123,12 +5123,6 @@
       "PolicyStatusItem": {
         "type": "object",
         "properties": {
-          "exchange_assigned_policy_id": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
           "issuer_hios_id": {
             "type": [
               "null",
@@ -10756,7 +10750,6 @@
             "example": {
               "policy_statuses": [
                 {
-                  "exchange_assigned_policy_id": "POL123",
                   "issuer_hios_id": "12345",
                   "effective_date": "2026-01-01",
                   "status": "active",
