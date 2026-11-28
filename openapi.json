@@ -1977,13 +1977,17 @@
               "policy_statuses": [
                 {
                   "issuer_hios_id": "12345",
+                  "issuer_member_id": "MEMBER123",
                   "effective_date": "2026-01-01",
                   "status": "active",
                   "payment_status": "paid",
+                  "auto_pay_enabled": true,
                   "current_balance_cents": 0,
                   "past_due_balance_cents": 0,
                   "paid_through_date": "2026-01-31",
                   "grace_period_start_date": null,
+                  "client_details_url": "https://www.healthsherpa.com/agents/test-agent/clients/HSA123456789",
+                  "agent_of_record": "self",
                   "updated_at": "2026-01-15T12:00:00Z"
                 }
               ]
@@ -2560,12 +2564,20 @@
         "additionalProperties": true,
         "properties": {
           "issuer_hios_id": { "type": [ "string", "null" ] },
+          "issuer_member_id": {
+            "type": [ "string", "null" ],
+            "description": "Carrier-assigned member ID."
+          },
           "effective_date": {
             "type": [ "string", "null" ],
             "format": "date"
           },
           "status": { "type": [ "string", "null" ] },
           "payment_status": { "type": [ "string", "null" ] },
+          "auto_pay_enabled": {
+            "type": [ "boolean", "null" ],
+            "description": "Carrier auto-pay status. true means auto-pay is enabled, false means it is disabled, and null means the carrier data does not establish the status."
+          },
           "current_balance_cents": {
             "type": [ "integer", "null" ],
             "description": "Current balance in cents when returned by the Marketplace policy status API."
@@ -2581,6 +2593,16 @@
           "grace_period_start_date": {
             "type": [ "string", "null" ],
             "format": "date"
+          },
+          "client_details_url": {
+            "type": [ "string", "null" ],
+            "format": "uri",
+            "description": "Absolute Agent Portal client-details URL for the agent and application."
+          },
+          "agent_of_record": {
+            "type": "string",
+            "enum": [ "self", "affiliated", "other", "healthsherpa", "unknown", "unverified" ],
+            "description": "Agent-of-record classification; this is not the raw carrier NPN or agent name. `self` means the carrier NPN matches the agent's NPN. `affiliated` means the carrier NPN belongs to another agent visible through the agent's agency or book permissions. `other` means the carrier NPN belongs to another agent not visible through those permissions. `healthsherpa` means the carrier NPN is a HealthSherpa NPN. `unknown` means the carrier NPN is unavailable or cannot be reliably classified. `unverified` means the agent must provide a valid NPN and verify it in the Agent Portal before it can be compared with the carrier NPN."
           },
           "updated_at": {
             "type": [ "string", "null" ],

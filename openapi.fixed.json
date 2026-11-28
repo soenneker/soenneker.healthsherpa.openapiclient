@@ -5129,6 +5129,13 @@
               "string"
             ]
           },
+          "issuer_member_id": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Carrier-assigned member ID."
+          },
           "effective_date": {
             "type": [
               "null",
@@ -5147,6 +5154,13 @@
               "null",
               "string"
             ]
+          },
+          "auto_pay_enabled": {
+            "type": [
+              "null",
+              "boolean"
+            ],
+            "description": "Carrier auto-pay status. true means auto-pay is enabled, false means it is disabled, and null means the carrier data does not establish the status."
           },
           "current_balance_cents": {
             "type": [
@@ -5175,6 +5189,17 @@
               "string"
             ],
             "format": "date"
+          },
+          "client_details_url": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Absolute Agent Portal client-details URL for the agent and application.",
+            "x-client-original-format": "uri"
+          },
+          "agent_of_record": {
+            "$ref": "#/components/schemas/PolicyStatusItemAgentOfRecord"
           },
           "updated_at": {
             "type": [
@@ -8510,6 +8535,48 @@
           ]
         }
       },
+      "PolicyStatusItemAgentOfRecord": {
+        "enum": [
+          "self",
+          "affiliated",
+          "other",
+          "healthsherpa",
+          "unknown",
+          "unverified"
+        ],
+        "type": "string",
+        "description": "Agent-of-record classification; this is not the raw carrier NPN or agent name. \u0060self\u0060 means the carrier NPN matches the agent\u0027s NPN. \u0060affiliated\u0060 means the carrier NPN belongs to another agent visible through the agent\u0027s agency or book permissions. \u0060other\u0060 means the carrier NPN belongs to another agent not visible through those permissions. \u0060healthsherpa\u0060 means the carrier NPN is a HealthSherpa NPN. \u0060unknown\u0060 means the carrier NPN is unavailable or cannot be reliably classified. \u0060unverified\u0060 means the agent must provide a valid NPN and verify it in the Agent Portal before it can be compared with the carrier NPN.",
+        "x-ms-enum": {
+          "name": "PolicyStatusItemAgentOfRecord",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "self",
+              "name": "Self"
+            },
+            {
+              "value": "affiliated",
+              "name": "Affiliated"
+            },
+            {
+              "value": "other",
+              "name": "Other"
+            },
+            {
+              "value": "healthsherpa",
+              "name": "Healthsherpa"
+            },
+            {
+              "value": "unknown",
+              "name": "Unknown"
+            },
+            {
+              "value": "unverified",
+              "name": "Unverified"
+            }
+          ]
+        }
+      },
       "PostMethod": {
         "enum": [
           "POST"
@@ -10751,13 +10818,17 @@
               "policy_statuses": [
                 {
                   "issuer_hios_id": "12345",
+                  "issuer_member_id": "MEMBER123",
                   "effective_date": "2026-01-01",
                   "status": "active",
                   "payment_status": "paid",
+                  "auto_pay_enabled": true,
                   "current_balance_cents": 0,
                   "past_due_balance_cents": 0,
                   "paid_through_date": "2026-01-31",
                   "grace_period_start_date": null,
+                  "client_details_url": "https://www.healthsherpa.com/agents/test-agent/clients/HSA123456789",
+                  "agent_of_record": "self",
                   "updated_at": "2026-01-15T12:00:00Z"
                 }
               ]

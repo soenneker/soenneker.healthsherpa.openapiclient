@@ -19,6 +19,12 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
+            if (parseNode.GetChildNode("agent_of_record") is null) { _explicitNullValueAgentOfRecord = default!; _explicitNullProperties?.Remove("agent_of_record"); }
+            else if (parseNode.GetChildNode("agent_of_record") is { } nullNodeAgentOfRecord && nullNodeAgentOfRecord.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AgentOfRecord = null;
+            if (parseNode.GetChildNode("auto_pay_enabled") is null) { _explicitNullValueAutoPayEnabled = default!; _explicitNullProperties?.Remove("auto_pay_enabled"); }
+            else if (parseNode.GetChildNode("auto_pay_enabled") is { } nullNodeAutoPayEnabled && nullNodeAutoPayEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AutoPayEnabled = null;
+            if (parseNode.GetChildNode("client_details_url") is null) { _explicitNullValueClientDetailsUrl = default!; _explicitNullProperties?.Remove("client_details_url"); }
+            else if (parseNode.GetChildNode("client_details_url") is { } nullNodeClientDetailsUrl && nullNodeClientDetailsUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientDetailsUrl = null;
             if (parseNode.GetChildNode("current_balance_cents") is null) { _explicitNullValueCurrentBalanceCents = default!; _explicitNullProperties?.Remove("current_balance_cents"); }
             else if (parseNode.GetChildNode("current_balance_cents") is { } nullNodeCurrentBalanceCents && nullNodeCurrentBalanceCents.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CurrentBalanceCents = null;
             if (parseNode.GetChildNode("effective_date") is null) { _explicitNullValueEffectiveDate = default!; _explicitNullProperties?.Remove("effective_date"); }
@@ -27,6 +33,8 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
             else if (parseNode.GetChildNode("grace_period_start_date") is { } nullNodeGracePeriodStartDate && nullNodeGracePeriodStartDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) GracePeriodStartDate = null;
             if (parseNode.GetChildNode("issuer_hios_id") is null) { _explicitNullValueIssuerHiosId = default!; _explicitNullProperties?.Remove("issuer_hios_id"); }
             else if (parseNode.GetChildNode("issuer_hios_id") is { } nullNodeIssuerHiosId && nullNodeIssuerHiosId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerHiosId = null;
+            if (parseNode.GetChildNode("issuer_member_id") is null) { _explicitNullValueIssuerMemberId = default!; _explicitNullProperties?.Remove("issuer_member_id"); }
+            else if (parseNode.GetChildNode("issuer_member_id") is { } nullNodeIssuerMemberId && nullNodeIssuerMemberId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssuerMemberId = null;
             if (parseNode.GetChildNode("paid_through_date") is null) { _explicitNullValuePaidThroughDate = default!; _explicitNullProperties?.Remove("paid_through_date"); }
             else if (parseNode.GetChildNode("paid_through_date") is { } nullNodePaidThroughDate && nullNodePaidThroughDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PaidThroughDate = null;
             if (parseNode.GetChildNode("past_due_balance_cents") is null) { _explicitNullValuePastDueBalanceCents = default!; _explicitNullProperties?.Remove("past_due_balance_cents"); }
@@ -41,6 +49,22 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>Agent-of-record classification; this is not the raw carrier NPN or agent name. `self` means the carrier NPN matches the agent&apos;s NPN. `affiliated` means the carrier NPN belongs to another agent visible through the agent&apos;s agency or book permissions. `other` means the carrier NPN belongs to another agent not visible through those permissions. `healthsherpa` means the carrier NPN is a HealthSherpa NPN. `unknown` means the carrier NPN is unavailable or cannot be reliably classified. `unverified` means the agent must provide a valid NPN and verify it in the Agent Portal before it can be compared with the carrier NPN.</summary>
+        public global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItemAgentOfRecord? AgentOfRecord { get => _explicitNullValueAgentOfRecord; set { _explicitNullValueAgentOfRecord = value; AdditionalData?.Remove("agent_of_record"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("agent_of_record"); else _explicitNullProperties?.Remove("agent_of_record"); } }
+        private global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItemAgentOfRecord? _explicitNullValueAgentOfRecord = default!;
+        /// <summary>Carrier auto-pay status. true means auto-pay is enabled, false means it is disabled, and null means the carrier data does not establish the status.</summary>
+        public bool? AutoPayEnabled { get => _explicitNullValueAutoPayEnabled; set { _explicitNullValueAutoPayEnabled = value; AdditionalData?.Remove("auto_pay_enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("auto_pay_enabled"); else _explicitNullProperties?.Remove("auto_pay_enabled"); } }
+        private bool? _explicitNullValueAutoPayEnabled = default!;
+        /// <summary>Absolute Agent Portal client-details URL for the agent and application.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ClientDetailsUrl { get => _explicitNullValueClientDetailsUrl; set { _explicitNullValueClientDetailsUrl = value; AdditionalData?.Remove("client_details_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_details_url"); else _explicitNullProperties?.Remove("client_details_url"); } }
+        private string? _explicitNullValueClientDetailsUrl = default!;
+#nullable restore
+#else
+        public string ClientDetailsUrl { get => _explicitNullValueClientDetailsUrl; set { _explicitNullValueClientDetailsUrl = value; AdditionalData?.Remove("client_details_url"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("client_details_url"); else _explicitNullProperties?.Remove("client_details_url"); } }
+        private string _explicitNullValueClientDetailsUrl = default!;
+#endif
         /// <summary>Current balance in cents when returned by the Marketplace policy status API.</summary>
         public int? CurrentBalanceCents { get => _explicitNullValueCurrentBalanceCents; set { _explicitNullValueCurrentBalanceCents = value; AdditionalData?.Remove("current_balance_cents"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("current_balance_cents"); else _explicitNullProperties?.Remove("current_balance_cents"); } }
         private int? _explicitNullValueCurrentBalanceCents = default!;
@@ -59,6 +83,16 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
 #else
         public string IssuerHiosId { get => _explicitNullValueIssuerHiosId; set { _explicitNullValueIssuerHiosId = value; AdditionalData?.Remove("issuer_hios_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_hios_id"); else _explicitNullProperties?.Remove("issuer_hios_id"); } }
         private string _explicitNullValueIssuerHiosId = default!;
+#endif
+        /// <summary>Carrier-assigned member ID.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IssuerMemberId { get => _explicitNullValueIssuerMemberId; set { _explicitNullValueIssuerMemberId = value; AdditionalData?.Remove("issuer_member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_member_id"); else _explicitNullProperties?.Remove("issuer_member_id"); } }
+        private string? _explicitNullValueIssuerMemberId = default!;
+#nullable restore
+#else
+        public string IssuerMemberId { get => _explicitNullValueIssuerMemberId; set { _explicitNullValueIssuerMemberId = value; AdditionalData?.Remove("issuer_member_id"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issuer_member_id"); else _explicitNullProperties?.Remove("issuer_member_id"); } }
+        private string _explicitNullValueIssuerMemberId = default!;
 #endif
         /// <summary>The paid_through_date property</summary>
         public Date? PaidThroughDate { get => _explicitNullValuePaidThroughDate; set { _explicitNullValuePaidThroughDate = value; AdditionalData?.Remove("paid_through_date"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("paid_through_date"); else _explicitNullProperties?.Remove("paid_through_date"); } }
@@ -112,12 +146,16 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>(9)
+            return new Dictionary<string, Action<IParseNode>>(13)
             {
+                { "agent_of_record", n => { var parsed = n.GetEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItemAgentOfRecord>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueAgentOfRecord = default; _explicitNullProperties?.Remove("agent_of_record"); AdditionalData["agent_of_record"] = unknown; } else { AgentOfRecord = parsed; AdditionalData.Remove("agent_of_record"); } } },
+                { "auto_pay_enabled", n => { AutoPayEnabled = n.GetBoolValue(); } },
+                { "client_details_url", n => { ClientDetailsUrl = n.GetStringValue(); } },
                 { "current_balance_cents", n => { CurrentBalanceCents = n.GetIntValue(); } },
                 { "effective_date", n => { EffectiveDate = n.GetDateValue(); } },
                 { "grace_period_start_date", n => { GracePeriodStartDate = n.GetDateValue(); } },
                 { "issuer_hios_id", n => { IssuerHiosId = n.GetStringValue(); } },
+                { "issuer_member_id", n => { IssuerMemberId = n.GetStringValue(); } },
                 { "paid_through_date", n => { PaidThroughDate = n.GetDateValue(); } },
                 { "past_due_balance_cents", n => { PastDueBalanceCents = n.GetIntValue(); } },
                 { "payment_status", n => { PaymentStatus = n.GetStringValue(); } },
@@ -132,10 +170,14 @@ namespace Soenneker.HealthSherpa.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteEnumValue<global::Soenneker.HealthSherpa.OpenApiClient.Models.PolicyStatusItemAgentOfRecord>("agent_of_record", AgentOfRecord);
+            writer.WriteBoolValue("auto_pay_enabled", AutoPayEnabled);
+            writer.WriteStringValue("client_details_url", ClientDetailsUrl);
             writer.WriteIntValue("current_balance_cents", CurrentBalanceCents);
             writer.WriteDateValue("effective_date", EffectiveDate);
             writer.WriteDateValue("grace_period_start_date", GracePeriodStartDate);
             writer.WriteStringValue("issuer_hios_id", IssuerHiosId);
+            writer.WriteStringValue("issuer_member_id", IssuerMemberId);
             writer.WriteDateValue("paid_through_date", PaidThroughDate);
             writer.WriteIntValue("past_due_balance_cents", PastDueBalanceCents);
             writer.WriteStringValue("payment_status", PaymentStatus);
